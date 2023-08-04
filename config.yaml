@@ -1,0 +1,61 @@
+# 后端基本信息
+server: # 基本配置信息
+  env: local # 环境
+  port: 8192 # 服务监听端口
+  server_name: douyin_server # 应用名称
+  server_url: http://localhost # 应用域名
+  db_type: mysql # 使用的数据库
+
+# gin的运行模式
+#gin:
+# appmode: debug
+
+# 日志
+zap:
+  level: info # 日志级别
+  prefix: '[douyin_admin/server]' # 日志前缀
+  format: console # 输出
+  director: log # 日志存放的文件
+  encode_level: LowercaseColorLevelEncoder # 编码级别
+  stacktrace_key: stacktrace # 栈名????
+  max_age: 0 # 日志留存时间
+  show_line: true # 显示行
+  log_in_console: true # 输出控制台
+
+# 数据库
+mysql: # MySQL 配置
+  host: 127.0.0.1 # 服务器地址
+  port: "3306" # 端口
+  config: charset=utf8mb4&parseTime=True&loc=Local # 其他配置
+  db_name: test # 数据库名称
+  username: root # 数据库用户名
+  password: "gogogo" # 数据库密码
+  # prefix: "t_" # 全局表前缀，单独定义 TableName 则不生效
+  singular: false # 是否开启全局禁用复数，true表示不开启
+  engine: "" # 引擎，默认InnoDB
+  max_idle_conns: 10 # 最大空闲连接数
+  max_open_conns: 100 # 最大连接数
+  log_mode: error # 日志级别
+  log_zap: false # 是否通过zap写日志文件
+
+pgsql: # PostgreSQL 配置
+  host: "localhost" # 服务器地址
+  port: "5432" # 端口
+  config: "sslmode=disable TimeZone=Asia/Shanghai" # 其他配置
+  db_name: test # 数据库名称
+  username: "root" # 数据库用户名
+  password: "gogogo" # 数据库密码
+  # prefix: "t_" # 全局表前缀，单独定义 TableName 则不生效
+  singular: false # 是否开启全局禁用复数，true表示不开启
+  engine: "" # 引擎，默认InnoDB
+  max_idle_conns: 10 # 最大空闲连接数
+  max_open_conns: 100 # 最大连接数
+  log_mode: error # 日志级别
+  log_zap: false # 是否通过zap写日志文件
+
+# 缓存中间件
+redis: # redis 配置
+  db: 0
+  addr: 127.0.0.1:6379
+  password: ""
+

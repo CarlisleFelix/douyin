@@ -1,0 +1,4 @@
+[douyin_admin/server]2023/07/30 - 10:42:42.589	[34minfo[0m	/home/yuhang/douyin/main.go:23	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/07/30 - 10:43:29.020	[34minfo[0m	/home/yuhang/douyin/main.go:23	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/07/30 - 11:22:44.576	[34minfo[0m	/home/yuhang/douyin/main.go:23	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/07/30 - 11:22:44.582	[34minfo[0m	/home/yuhang/douyin/core/server.go:25	server run success on 	{"address": ":8192"}
