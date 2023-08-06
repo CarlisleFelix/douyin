@@ -1,8 +1,7 @@
-package core
+package initialization
 
 import (
 	"douyin/global"
-	"douyin/initialization"
 	"fmt"
 	"time"
 
@@ -17,7 +16,7 @@ type server interface {
 
 func RunServer() {
 	// 初始化路由
-	Router := initialization.Routers()
+	Router := Routers()
 
 	address := fmt.Sprintf(":%d", global.SERVER_CONFIG.Server.Port)
 	s := initServer(address, Router)

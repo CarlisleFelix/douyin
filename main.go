@@ -1,11 +1,6 @@
 package main
 
-import (
-	"douyin/global"
-	"douyin/initialization"
-	"douyin/model"
-	"time"
-)
+import "douyin/initialization"
 
 //const AppMode = "debug"
 
@@ -24,42 +19,5 @@ func main() {
 	// TODO: 4.路由等其他初始化，中间件初始化
 
 	// TODO：5.开启服务器
-	// core.RunServer()
-
-	nowtime := time.Now().Format("01-02")
-	comment := model.Comment{
-		User_id:      12,
-		Video_id:     14,
-		Comment:      "hhhhhhh",
-		Publish_time: nowtime,
-	}
-	result := global.SERVER_DB.Create(&comment)
-	if result.Error != nil {
-		global.SERVER_LOG.Info("comment1 insertion failed")
-	}
-
-	nowtime = time.Now().Format("02-03")
-	comment = model.Comment{
-		User_id:      12,
-		Video_id:     14,
-		Comment:      "hhhhhhh",
-		Publish_time: nowtime,
-	}
-	result = global.SERVER_DB.Create(&comment)
-	if result.Error != nil {
-		global.SERVER_LOG.Info("comment2 insertion failed")
-	}
-
-	nowtime = time.Now().Format("04-05")
-	comment = model.Comment{
-		User_id:      12,
-		Video_id:     14,
-		Comment:      "hhhhhhh",
-		Publish_time: nowtime,
-	}
-	result = global.SERVER_DB.Create(&comment)
-	if result.Error != nil {
-		global.SERVER_LOG.Info("comment3 insertion failed")
-	}
-
+	initialization.RunServer()
 }

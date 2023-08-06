@@ -8,5 +8,5 @@ type Video struct {
 	Favorite_count int64  `gorm:"column:favorite_count;type:int;default:0" json:"favorite_count"`
 	Comment_count  int64  `gorm:"column:comment_count;type:int;default:0" json:"comment_count"`
 	Title          string `gorm:"column:title;type:varchar(255);not null" json:"title"`
-	Publish_time   string `gorm:"column:publish_time;type:varchar(255);not null" json:"publish_time"`
+	Publish_time   int64  `gorm:"column:publish_time;type:bigint;not null" json:"publish_time"`
 }

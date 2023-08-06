@@ -49,3 +49,42 @@ func RandomString() string {
 	}
 	return string(result)
 }
+
+// 生成人可读的时间字符串,精确到秒
+func CurrentTimeStr() string {
+	template := "2006-01-02 15:04:05"
+	return time.Now().Format(template)
+}
+
+// 生成时间int64，精确到秒
+func CurrentTimeInt() int64 {
+	return time.Now().Unix()
+}
+
+// 字符串时间到int64时间
+func StrTime2IntTime(strTime string) int64 {
+	template := "2006-01-02 15:04:05"
+	middleForm, err := time.ParseInLocation(template, strTime, time.Local)
+	if err != nil {
+		return -1
+	}
+	return middleForm.Unix()
+}
+
+// int64时间到字符串时间
+func IntTime2StrTime(intTime int64) string {
+	template := "2006-01-02 15:04:05"
+	return time.Unix(intTime, 0).Format(template)
+}
+
+func IntTime2CommentTime(intTime int64) string {
+	return ""
+}
+
+func StrTime2CommentTime(strTime int64) string {
+	return ""
+}
+
+func GetCommentTime() string {
+	return ""
+}
