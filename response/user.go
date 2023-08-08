@@ -1,15 +1,18 @@
 package response
 
-type User_Response struct {
-	Id              int64  `json:"id,omitempty"`
-	Name            string `json:"name,omitempty"`
-	FollowCount     int64  `json:"follow_count,omitempty"`
-	FollowerCount   int64  `json:"follower_count,omitempty"`
-	IsFollow        bool   `json:"is_follow,omitempty"`
-	Avatar          string `json:"avatar,omitempty"`
-	BackgroundImage string `json:"background_image,omitempty"`
-	Signature       string `json:"signature,omitempty"`
-	TotalFavorited  int64  `json:"total_favorited"`
-	WorkCount       int64  `json:"work_count"`
-	FavoriteCount   int64  `json:"favorite_count"`
+type User_Register_Response struct {
+	Response
+	UserId string `json:"user_id"`
+	Token  string `json:"token"`
+}
+
+type User_Login_Response struct {
+	Response
+	UserId string `json:"user_id"`
+	Token  string `json:"token"`
+}
+
+type User_Interface_Response struct {
+	Response
+	User_Response
 }

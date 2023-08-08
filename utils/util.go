@@ -5,6 +5,8 @@ import (
 	"math/rand"
 	"os"
 	"time"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 //@function: PathExists
@@ -87,4 +89,26 @@ func StrTime2CommentTime(strTime int64) string {
 
 func GetCommentTime() string {
 	return ""
+}
+
+// 加密密码
+func Hash(passWord string) (pwdHash string, err error) {
+	pwd := []byte(passWord)
+	hash, err := bcrypt.GenerateFromPassword(pwd, bcrypt.MinCost)
+	if err != nil {
+		return
+	}
+	pwdHash = string(hash)
+	return
+}
+
+// 比较加密的密码和输入的密码
+func Compare(hashedPwd string, passWord string) bool {
+	byteHash := []byte(hashedPwd)
+	bytePwd := []byte(passWord)
+	err := bcrypt.CompareHashAndPassword(byteHash, bytePwd)
+	if err != nil {
+		return false
+	}
+	return true
 }

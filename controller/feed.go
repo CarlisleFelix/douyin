@@ -1,20 +1,8 @@
 package controller
 
 import (
-	"douyin/response"
-
 	"github.com/gin-gonic/gin"
 )
-
-type Feed_Response struct {
-	response.Response
-	VideoList []response.Video_Response `json:"video_list,omitempty"`
-	NextTime  int64                     `json:"next_time,omitempty"`
-}
-type Feed_Novideo_Response struct {
-	response.Response
-	NextTime int64 `json:"next_time"`
-}
 
 func Feed(c *gin.Context) {
 	/*
