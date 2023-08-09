@@ -1,8 +1,10 @@
 package service
 
 import (
+	"douyin/dao"
 	"douyin/global"
 	"douyin/model"
+	"douyin/response"
 	"douyin/utils"
 
 	"gorm.io/gorm"
@@ -101,4 +103,27 @@ func CheckUserPassword(userName string, passWord string, loginUser *model.User) 
 		return false
 	}
 	return true
+}
+
+func UserService(queryUserId int64, hostUserId int64) (response.User_Response, error) {
+	userResponse := response.User_Response{}
+	queryUser, err := dao.GetUserById(queryUserId)
+	isFollow := dao.GetFollowById(hostUserId, queryUserId)
+	if err != nil {
+		return userResponse, err
+	}
+	userResponse = response.User_Response{
+		Id:              queryUser.User_id,
+		Name:            queryUser.User_name,
+		FollowCount:     queryUser.Follow_count,
+		FollowerCount:   queryUser.Follower_count,
+		IsFollow:        isFollow,
+		Avatar:          queryUser.Avatar,
+		BackgroundImage: queryUser.Background_image,
+		Signature:       queryUser.Signature,
+		TotalFavorited:  queryUser.Favorite_count,
+		WorkCount:       queryUser.Work_count,
+		FavoriteCount:   queryUser.Favorite_count,
+	}
+	return userResponse, err
 }
