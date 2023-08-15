@@ -14,4 +14,6 @@ var (
 	ErrorUserNotExist = errors.New("用户不存在")
 
 	ErrorParamFormatWrong = errors.New("参数格式错误")
+
+	ErrorDbOperation = errors.New("数据库操作出错")
 )

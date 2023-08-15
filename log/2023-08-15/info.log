@@ -1,0 +1,10 @@
+[douyin_admin/server]2023/08/15 - 11:46:00.059	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 11:46:00.110	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/15 - 11:46:32.914	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 11:46:32.948	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/15 - 11:47:32.753	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 11:47:32.789	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/15 - 11:47:36.585	[34minfo[0m	/home/yuhang/douyin/controller/user.go:158	UserRegister success!
+[douyin_admin/server]2023/08/15 - 11:47:37.603	[34minfo[0m	/home/yuhang/douyin/controller/user.go:59	User Success!
+[douyin_admin/server]2023/08/15 - 11:48:31.943	[34minfo[0m	/home/yuhang/douyin/controller/user.go:106	UserLogin success!
+[douyin_admin/server]2023/08/15 - 11:48:31.951	[34minfo[0m	/home/yuhang/douyin/controller/user.go:59	User Success!

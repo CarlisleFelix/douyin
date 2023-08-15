@@ -5,40 +5,40 @@ import (
 )
 
 func Feed(c *gin.Context) {
-	/*
-	   //参数处理
 
-	   //通过token获取用户id
-	   token := c.Query("token")
-	   var userId int64
+	// //参数处理
 
-	   	if token == "" {
-	   		userId = 0
-	   	} else {
+	// //通过token获取用户id
+	// token := c.Query("token")
+	// var userId int64
 
-	   		userId, err := strconv.ParseInt(c.Query("userid"), 10, 64)
-	   		if err != nil {
-	   			userId = 0
-	   		}
-	   	}
+	// if token == "" {
+	// 	userId = 0
+	// } else {
 
-	   //获取最近时间
-	   strLatesttime := c.Query("latest_time")
-	   var latestTime int64
+	// 	userId, err := strconv.ParseInt(c.Query("userid"), 10, 64)
+	// 	if err != nil {
+	// 		userId = 0
+	// 	}
+	// }
 
-	   	if strLatesttime == "" {
-	   		latestTime = 0
-	   	} else {
+	// //获取最近时间
+	// strLatesttime := c.Query("latest_time")
+	// var latestTime int64
 
-	   		latestTime, err := strconv.ParseInt(strLatesttime, 10, 64)
-	   		if err != nil {
-	   			latestTime = 0
-	   		}
-	   	}
+	// if strLatesttime == "" {
+	// 	latestTime = 0
+	// } else {
 
-	   //准备数据，service层进行处理
+	// 	latestTime, err := strconv.ParseInt(strLatesttime, 10, 64)
+	// 	if err != nil {
+	// 		latestTime = 0
+	// 	}
+	// }
 
-	   //获取视频
-	   videoList := service.GetVideolist(userId, latestTime)
-	*/
+	// //准备数据，service层进行处理
+
+	// //获取视频
+	// videoList := service.GetVideolist(userId, latestTime)
+
 }

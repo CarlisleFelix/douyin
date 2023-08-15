@@ -16,6 +16,6 @@ func InitializeGorm() {
 		global.SERVER_DB = database.InitializeMysql()
 	}
 	if err := global.SERVER_DB.AutoMigrate(&model.User{}, &model.Video{}, &model.Comment{}, &model.Relation{}, &model.Favorite{}, &model.Chat{}); err != nil {
-		global.SERVER_LOG.Info("automigration failed")
+		global.SERVER_LOG.Warn("automigration failed")
 	}
 }

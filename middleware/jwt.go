@@ -84,6 +84,8 @@ func JwtMiddleware() gin.HandlerFunc {
 			c.Abort() //阻止执行
 			return
 		}
+		//fmt.Println(tokenStruck.UserName)
+		//fmt.Println(tokenStruck.UserId)
 		c.Set("username", tokenStruck.UserName)
 		c.Set("userid", tokenStruck.UserId)
 		c.Next()
