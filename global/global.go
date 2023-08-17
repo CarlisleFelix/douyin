@@ -3,6 +3,7 @@ package global
 import (
 	"douyin/config"
 
+	"github.com/go-redis/redis"
 	"github.com/spf13/viper"
 	"github.com/tencentyun/cos-go-sdk-v5"
 	"go.uber.org/zap"
@@ -17,4 +18,5 @@ var (
 	SERVER_COS_VIDEO  *cos.Client
 	SERVER_COS_COVER  *cos.Client
 	SERVER_COS_AVATAR *cos.Client
+	SERVER_REDIS      *redis.Client
 )

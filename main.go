@@ -19,6 +19,8 @@ func main() {
 	// TODO: 4.路由等其他初始化，中间件初始化
 	initialization.InitializeCos()
 
+	initialization.InitializeRedis()
+
 	// TODO：5.开启服务器
 	initialization.RunServer()
 }

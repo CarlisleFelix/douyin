@@ -33,3 +33,19 @@
 [douyin_admin/server]2023/08/17 - 11:38:24.950	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
 [douyin_admin/server]2023/08/17 - 11:38:33.772	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
 [douyin_admin/server]2023/08/17 - 11:38:41.971	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 18:33:17.974	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 18:33:18.022	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 18:36:02.747	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 18:36:02.766	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/17 - 18:36:02.767	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 19:02:00.249	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 19:02:00.294	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/17 - 19:02:00.294	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 19:02:04.060	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 19:02:04.395	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 19:02:17.839	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 19:02:17.860	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 19:02:30.412	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 19:02:30.418	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 19:02:40.689	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 19:02:45.333	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!

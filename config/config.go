@@ -6,4 +6,5 @@ type Configuration struct {
 	MySQL  MySQL  `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
 	PgSQL  PgSQL  `mapstructure:"pgsql" json:"pgsql" yaml:"pgsql"`
 	Cos    Cos    `mapstructure:"cos" json:"cos" yaml:"cos"`
+	Redis  Redis  `mapstructure:"redis" json:"redis" yaml:"redis"`
 }

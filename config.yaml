@@ -57,7 +57,7 @@ pgsql: # PostgreSQL 配置
 redis: # redis 配置
   db: 0
   addr: 127.0.0.1:6379
-  password: ""
+  password: "gogogo"
 
 cos:
   video_bucket_url: "https://video-1316481827.cos.ap-shanghai.myqcloud.com"
