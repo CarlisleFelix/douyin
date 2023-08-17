@@ -1,0 +1,8 @@
+[douyin_admin/server]2023/08/13 - 16:28:59.742	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/13 - 17:31:55.676	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/13 - 18:12:00.715	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/13 - 18:13:05.985	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/13 - 18:22:59.387	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/13 - 18:53:57.700	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/13 - 18:54:26.440	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/13 - 18:58:15.365	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
