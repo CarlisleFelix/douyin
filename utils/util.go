@@ -80,14 +80,16 @@ func IntTime2StrTime(intTime int64) string {
 }
 
 func IntTime2CommentTime(intTime int64) string {
-	return ""
+
+	template := "01-02"
+	return time.Unix(intTime, 0).Format(template)
 }
 
 func StrTime2CommentTime(strTime int64) string {
 	return ""
 }
 
-func GetCommentTime() string {
+func GetCommentByIdTime() string {
 	return ""
 }
 
