@@ -1,7 +1,7 @@
 package response
 
 type Response struct {
-	StatusCode int32  `json:"status_code"`
+	StatusCode int64  `json:"status_code"` //notice：改32-》64
 	StatusMsg  string `json:"status_msg"`
 }
 

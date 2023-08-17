@@ -1,10 +1,14 @@
 package main
 
-import "douyin/initialization"
+import (
+	"douyin/initialization"
+	"fmt"
+)
 
 //const AppMode = "debug"
 
 func main() {
+	fmt.Println("Hello, World!")
 	//gin.SetMode(AppMode)
 
 	// TODO：1.配置初始化

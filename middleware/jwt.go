@@ -10,7 +10,7 @@ import (
 )
 
 // 私匙
-var Private_Key = []byte("douyin sucks")
+var Private_Key = []byte("douyin sucks") //！notice：私钥用明文吗？
 
 // token中payload内容
 type MyClaims struct {
@@ -48,6 +48,18 @@ func CheckToken(token string) (*MyClaims, bool) {
 	} else {
 		return nil, false
 	}
+}
+
+// ！notice：新增  parsetoken;不验证，直接解码。所以check其实可以分为两个函数
+func DecodeToken(token string) (*MyClaims, error) {
+	claims := &MyClaims{}
+	_, err := jwt.Parse(token, func(token *jwt.Token) (interface{}, error) {
+		return Private_Key, nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	return claims, nil
 }
 
 func JwtMiddleware() gin.HandlerFunc {
