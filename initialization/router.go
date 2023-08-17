@@ -27,7 +27,7 @@ func Routers() *gin.Engine {
 			publishGroup.GET("/list/", middleware.JwtMiddleware(), controller.PublishList)
 		}
 		//视频浏览
-		feedGroup := publishGroup.Group("/feed")
+		feedGroup := publicGroup.Group("/feed")
 		{
 			feedGroup.GET("/", controller.Feed)
 		}

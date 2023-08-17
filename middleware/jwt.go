@@ -69,7 +69,7 @@ func JwtMiddleware() gin.HandlerFunc {
 		//如果token无效
 		if !ok {
 			c.JSON(http.StatusOK, response.Response{
-				StatusCode: 403,
+				StatusCode: 1,
 				StatusMsg:  "token incorrect",
 			})
 			c.Abort() //阻止执行
@@ -78,7 +78,7 @@ func JwtMiddleware() gin.HandlerFunc {
 		//如果token超时
 		if time.Now().Unix() > tokenStruck.ExpiresAt {
 			c.JSON(http.StatusOK, response.Response{
-				StatusCode: 402,
+				StatusCode: 1,
 				StatusMsg:  "token过期",
 			})
 			c.Abort() //阻止执行

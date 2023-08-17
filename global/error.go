@@ -16,4 +16,12 @@ var (
 	ErrorParamFormatWrong = errors.New("参数格式错误")
 
 	ErrorDbOperation = errors.New("数据库操作出错")
+
+	ErrorVideoDataWrong     = errors.New("视频数据错误")
+	ErrorVideoDownloading   = errors.New("视频数据下载错误")
+	ErrorFileOperationWrong = errors.New("文件操作错误")
+
+	ErrorTokenincorrect = errors.New("token错误")
+
+	ErrorVideoDuplicate = errors.New("视频重复")
 )

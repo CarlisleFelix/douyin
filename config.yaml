@@ -59,3 +59,10 @@ redis: # redis 配置
   addr: 127.0.0.1:6379
   password: ""
 
+cos:
+  video_bucket_url: "https://video-1316481827.cos.ap-shanghai.myqcloud.com"
+  cover_bucket_url: "https://cover-1316481827.cos.ap-shanghai.myqcloud.com"
+  avatar_bucket_url: "https://avatar-1316481827.cos.ap-shanghai.myqcloud.com"
+  secretid: "AKIDOdiW6RYZmwsc9Ykv3zjJhsrdFftzBICt"
+  secretkey: "oT5faQ7jCYt8JMONCyZ08jT7Xp4GSWNB"
+

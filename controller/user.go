@@ -5,7 +5,6 @@ import (
 	"douyin/middleware"
 	"douyin/response"
 	"douyin/service"
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -15,8 +14,6 @@ import (
 
 func User(c *gin.Context) {
 
-	fmt.Println(c.Query("username"))
-	fmt.Println(c.Query("userid"))
 	//参数处理
 	queryUserId, err := strconv.ParseInt(c.Query("user_id"), 10, 64)
 	rawId, _ := c.Get("userid")

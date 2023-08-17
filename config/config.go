@@ -5,4 +5,5 @@ type Configuration struct {
 	Zap    Zap    `mapstructure:"zap" json:"zap" yaml:"zap"`
 	MySQL  MySQL  `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
 	PgSQL  PgSQL  `mapstructure:"pgsql" json:"pgsql" yaml:"pgsql"`
+	Cos    Cos    `mapstructure:"cos" json:"cos" yaml:"cos"`
 }
