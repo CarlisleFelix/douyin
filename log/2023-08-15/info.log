@@ -1,10 +1,20 @@
-[douyin_admin/server]2023/08/15 - 11:46:00.059	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
-[douyin_admin/server]2023/08/15 - 11:46:00.110	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
-[douyin_admin/server]2023/08/15 - 11:46:32.914	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
-[douyin_admin/server]2023/08/15 - 11:46:32.948	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
-[douyin_admin/server]2023/08/15 - 11:47:32.753	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
-[douyin_admin/server]2023/08/15 - 11:47:32.789	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
-[douyin_admin/server]2023/08/15 - 11:47:36.585	[34minfo[0m	/home/yuhang/douyin/controller/user.go:158	UserRegister success!
-[douyin_admin/server]2023/08/15 - 11:47:37.603	[34minfo[0m	/home/yuhang/douyin/controller/user.go:59	User Success!
-[douyin_admin/server]2023/08/15 - 11:48:31.943	[34minfo[0m	/home/yuhang/douyin/controller/user.go:106	UserLogin success!
-[douyin_admin/server]2023/08/15 - 11:48:31.951	[34minfo[0m	/home/yuhang/douyin/controller/user.go:59	User Success!
+[douyin_admin/server]2023/08/15 - 16:06:31.834	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 16:06:31.898	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 16:09:49.808	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 16:09:49.848	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 16:26:37.076	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 16:26:37.110	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 16:28:37.403	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 16:28:37.441	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 16:35:51.702	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 16:35:51.735	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 18:02:37.952	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 18:02:38.009	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 18:03:49.606	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 18:03:49.651	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 18:04:32.385	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 18:04:32.444	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 18:05:57.413	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 18:05:57.451	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/15 - 18:06:02.620	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/15 - 18:06:02.664	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
