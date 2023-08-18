@@ -1,17 +1,11 @@
 package controller
 
 import (
-	"douyin/dao"
-	"douyin/global"
-	"douyin/model"
 	"douyin/response"
-	"douyin/utils"
-	"fmt"
+	"douyin/service"
 	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
 	"net/http"
 	"strconv"
-	"time"
 )
 
 func CommentAction(c *gin.Context) {
@@ -26,14 +20,6 @@ func CommentAction(c *gin.Context) {
 	}
 	actionType := c.Query("action_type")
 	commentText := c.Query("comment_text")
-	commentID, err := strconv.ParseInt(c.Query("comment_id"), 10, 64)
-	if err != nil {
-		// 处理commentID解析错误
-		c.JSON(http.StatusBadRequest, response.Comment_Action_Response{
-			Response: response.Response{StatusCode: http.StatusBadRequest, StatusMsg: "无效的comment_id"},
-		})
-		return
-	}
 
 	value, _ := c.Get("userid")
 	userID, ok := value.(int64)
@@ -45,111 +31,22 @@ func CommentAction(c *gin.Context) {
 		return
 	}
 
-	// 获取评论时间
-	currentTime := time.Now().Unix()
-
 	// 判断操作类型
 	if actionType == "1" {
-		// 1-发布评论
-		// 1.1 创建comment结构体
-		comment := model.Comment{
-			User_id:      userID,
-			Video_id:     videoID,
-			Comment:      commentText,
-			Publish_time: currentTime,
-		}
-		// 1.2 将comment增添到数据库中
-		tx := dao.BeginTransaction()
-		err := dao.CreateComment(&comment)
-		if err != nil {
-			// 如果发生错误，将数据库回滚到未添加评论的初始状态
-			defer dao.RollbackTransaction(tx)
-			fmt.Printf("添加评论异常：%s", err)
-			global.SERVER_LOG.Error("Failed to create comment:", zap.String("error", err.Error()))
-
-			c.JSON(http.StatusInternalServerError, response.Comment_Action_Response{
-				Response: response.Response{StatusCode: http.StatusInternalServerError, StatusMsg: "添加评论异常"},
-			})
-			return
-		}
-		// 1.3 创建Comment_Response响应结构体
-		createDate := utils.IntTime2CommentTime(currentTime)
-		commenter, err := dao.GetUserById(userID)
-		if err != nil {
-			// 如果发生错误，将数据库回滚到未添加评论的初始状态
-			defer dao.RollbackTransaction(tx)
-			fmt.Printf("获取用户异常：%s", err)
-			global.SERVER_LOG.Error("Failed to fetch user:", zap.String("error", err.Error()))
-
-			c.JSON(http.StatusInternalServerError, response.Comment_Action_Response{
-				Response: response.Response{StatusCode: http.StatusInternalServerError, StatusMsg: "获取用户异常"},
-			})
-			return
-		}
-		// 1.4返回响应
-		c.JSON(http.StatusOK, response.Comment_Action_Response{
-			Response: response.Response{StatusCode: 0, StatusMsg: "OK"},
-			Comment_Response: response.Comment_Response{
-				Id: 0,
-				Commenter: response.User_Response{
-					Id:              commenter.User_id,
-					Name:            commenter.User_name,
-					FollowCount:     commenter.Follow_count,
-					FollowerCount:   commenter.Follower_count,
-					IsFollow:        false, // 待确定自己与自己的关注状态
-					Avatar:          commenter.Avatar,
-					BackgroundImage: commenter.Background_image,
-					Signature:       commenter.Signature,
-					TotalFavorited:  commenter.Total_favorited,
-					WorkCount:       commenter.Work_count,
-					FavoriteCount:   commenter.Favorite_count,
-				},
-				Content:    commentText,
-				CreateDate: createDate,
-			},
-		})
+		commentActionResponse, _ := service.CreateComment(userID, videoID, commentText)
+		c.JSON(http.StatusOK, commentActionResponse)
 
 	} else if actionType == "2" {
-		// 2-删除评论
-		// 2.1 根据commentID在数据库中找到待删除的评论
-		// 2.2 判断是否有权限删除
-		// 		2.2.1 通过commentID找到commenterID
-		comment, err := dao.GetCommentById(commentID)
+		commentID, err := strconv.ParseInt(c.Query("comment_id"), 10, 64)
 		if err != nil {
-			fmt.Printf("获取评论异常：%s", err)
-			global.SERVER_LOG.Error("Failed to fetch comment:", zap.String("error", err.Error()))
-
-			c.JSON(http.StatusInternalServerError, response.Comment_Action_Response{
-				Response: response.Response{StatusCode: http.StatusInternalServerError, StatusMsg: "获取评论异常"},
+			// 处理commentID解析错误
+			c.JSON(http.StatusBadRequest, response.Comment_Action_Response{
+				Response: response.Response{StatusCode: http.StatusBadRequest, StatusMsg: "无效的comment_id"},
 			})
 			return
 		}
-		commenterID := comment.User_id
-		// 2.3 若有权限，则删除id为commentID评论;若无权限，则拒绝删除
-		if commenterID == userID {
-			tx := dao.BeginTransaction()
-			err = dao.DeleteCommentById(commentID)
-			if err != nil {
-				// 如果发生错误，将数据库回滚到未删除评论的初始状态
-				defer dao.RollbackTransaction(tx)
-				fmt.Printf("删除评论异常：%s", err)
-				global.SERVER_LOG.Error("Failed to delete comment:", zap.String("error", err.Error()))
-
-				c.JSON(http.StatusInternalServerError, response.Comment_Action_Response{
-					Response: response.Response{StatusCode: http.StatusInternalServerError, StatusMsg: "删除评论异常"},
-				})
-				return
-			}
-			c.JSON(http.StatusOK, response.Comment_Action_Response{
-				Response:         response.Response{StatusCode: 0, StatusMsg: "删除成功"},
-				Comment_Response: response.Comment_Response{},
-			})
-		} else {
-			c.JSON(http.StatusOK, response.Comment_Action_Response{
-				Response:         response.Response{StatusCode: 0, StatusMsg: "无删除权限"},
-				Comment_Response: response.Comment_Response{},
-			})
-		}
+		commentActionResponse, _ := service.DeleteComment(userID, videoID, commentID)
+		c.JSON(http.StatusOK, commentActionResponse)
 	}
 
 	return
@@ -163,76 +60,19 @@ func CommentList(c *gin.Context) {
 			Response: response.Response{StatusCode: http.StatusBadRequest, StatusMsg: "无效的video_id"},
 		})
 		return
-	} // 从数据库中获取id为video_id的全部评论
-	comments, err := dao.GetCommentByIdListById(videoID)
-	if err != nil {
-		// 处理数据库查询错误
-		c.JSON(http.StatusInternalServerError, response.Comment_List_Response{
-			Response: response.Response{
-				StatusCode: http.StatusInternalServerError,
-				StatusMsg:  "获取评论失败",
-			},
-			CommentList: nil,
+	}
+	value, _ := c.Get("userid")
+	userID, ok := value.(int64)
+	if !ok {
+		// 处理userid类型断言失败的情况
+		c.JSON(http.StatusBadRequest, response.Comment_Action_Response{
+			Response: response.Response{StatusCode: http.StatusBadRequest, StatusMsg: "无效的userid"},
 		})
 		return
 	}
 
 	// 将获取到的评论添加到commentList列表中
-	var commentList []response.Comment_Response
-	// 将model.comment解析为response.Comment_Response格式
-	for _, comment := range comments {
-
-		// 根据评论者id构建user_response
-		commenter, err := dao.GetUserById(comment.User_id)
-		if err != nil {
-			// 处理获取用户信息错误
-			// 在日志中记录错误信息
-			global.SERVER_LOG.Error("Failed to fetch user:", zap.String("error", err.Error()))
-			continue // 继续处理下一个评论
-		}
-
-		// 构建Comment_Response中嵌套的User_Response字段
-		userResponse := response.User_Response{
-			Id:              commenter.User_id,
-			Avatar:          commenter.Avatar,
-			BackgroundImage: commenter.Background_image,
-			FavoriteCount:   commenter.Favorite_count,
-			FollowCount:     commenter.Follow_count,
-			FollowerCount:   commenter.Follower_count,
-			Name:            commenter.User_name,
-			Signature:       commenter.Signature,
-			TotalFavorited:  commenter.Total_favorited,
-			WorkCount:       commenter.Work_count,
-		}
-		//查询该用户是否被关注
-		value, exists := c.Get("userid")
-		if exists {
-			hostID, ok := value.(int64)
-			if ok {
-				userResponse.IsFollow, err = dao.IsFollow(hostID, commenter.User_id)
-				if err != nil {
-					// 处理数据库查询错误
-					c.JSON(http.StatusInternalServerError, response.Comment_List_Response{
-						Response: response.Response{
-							StatusCode: http.StatusInternalServerError,
-							StatusMsg:  "查询用户是否被关注失败",
-						},
-						CommentList: nil,
-					})
-					return
-				}
-			}
-		}
-
-		commentResponse := response.Comment_Response{
-			Id:         comment.Comment_id,
-			Content:    comment.Comment,
-			CreateDate: utils.IntTime2StrTime(comment.Publish_time),
-			Commenter:  userResponse,
-		}
-		commentList = append(commentList, commentResponse)
-	}
-
+	commentList, _ := service.GetCommentList(videoID, userID)
 	// 返回response
 	c.JSON(http.StatusOK,
 		response.Comment_List_Response{

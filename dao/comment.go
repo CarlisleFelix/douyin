@@ -15,16 +15,6 @@ func GetCommentByIdListById(videoID int64) ([]model.Comment, error) {
 	return comments, nil
 }
 
-// GetUserById 根据user_id返回用户结构体
-func GetUserById(userID int64) (model.User, error) {
-	var user model.User
-	err := global.SERVER_DB.Where("id = ?", userID).First(&user).Error
-	if err != nil {
-		return model.User{}, err
-	}
-	return user, nil
-}
-
 // GetCommentById 通过commentID 返回comment结构体
 func GetCommentById(commentID int64) (model.Comment, error) {
 	var comment model.Comment
@@ -45,4 +35,25 @@ func CreateComment(comment *model.Comment) error {
 func DeleteCommentById(commentID int64) error {
 	err := global.SERVER_DB.Where("id = ?", commentID).Delete(model.Comment{}).Error
 	return err
+}
+
+// UpdateVideoCommentCount 根据视频ID更新视频表的评论总数字段
+func UpdateVideoCommentCount(videoID int64, operand int64) error {
+	// 查询视频数据
+	var video model.Video
+	err := global.SERVER_DB.First(&video, videoID).Error
+	if err != nil {
+		return err
+	}
+
+	// 更新评论总数字段
+	video.Comment_count += operand
+
+	// 保存更新后的视频数据
+	err = global.SERVER_DB.Save(&video).Error
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

@@ -6,6 +6,7 @@ import (
 	"douyin/model"
 	"douyin/response"
 	"douyin/utils"
+	"fmt"
 
 	"gorm.io/gorm"
 )
@@ -112,6 +113,7 @@ func UserService(queryUserId int64, hostUserId int64) (response.User_Response, e
 	userResponse := response.User_Response{}
 	queryUser, err := dao.GetUserById(queryUserId)
 	isFollow := dao.GetFollowByUserId(hostUserId, queryUserId)
+	fmt.Println("isFolllow:", isFollow)
 	if err != nil {
 		return userResponse, err
 	}
@@ -120,7 +122,7 @@ func UserService(queryUserId int64, hostUserId int64) (response.User_Response, e
 		Name:            queryUser.User_name,
 		FollowCount:     queryUser.Follow_count,
 		FollowerCount:   queryUser.Follower_count,
-		IsFollow:        isFollow,
+		IsFollow:        true,
 		Avatar:          queryUser.Avatar,
 		BackgroundImage: queryUser.Background_image,
 		Signature:       queryUser.Signature,

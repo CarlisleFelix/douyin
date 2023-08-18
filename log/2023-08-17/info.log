@@ -49,3 +49,211 @@
 [douyin_admin/server]2023/08/17 - 19:02:30.418	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
 [douyin_admin/server]2023/08/17 - 19:02:40.689	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
 [douyin_admin/server]2023/08/17 - 19:02:45.333	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 20:43:35.595	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:44:58.884	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:45:53.209	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:22.384	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:22.565	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 20:43:35.595	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:44:58.884	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:45:53.209	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:22.384	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:22.565	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 20:46:59.612	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:59.659	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 21:00:00.717	[34minfo[0m	D:/Programe/douyin/controller/user.go:155	UserRegister success!
+[douyin_admin/server]2023/08/17 - 21:00:01.755	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:00:28.760	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:00:29.564	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:00:29.566	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:00:42.246	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:00:42.252	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:00:50.698	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:01:05.786	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:01:05.945	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:01:05.948	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:01:05.956	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:01:47.297	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:01:47.448	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:01:47.459	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 20:43:35.595	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:44:58.884	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:45:53.209	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:22.384	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:22.565	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 20:43:35.595	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:44:58.884	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:45:53.209	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:22.384	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:22.565	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 20:46:59.612	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 20:46:59.659	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/17 - 21:00:00.717	[34minfo[0m	D:/Programe/douyin/controller/user.go:155	UserRegister success!
+[douyin_admin/server]2023/08/17 - 21:00:01.755	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:00:28.760	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:00:29.564	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:00:29.566	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:00:42.246	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:00:42.252	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:00:50.698	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:01:05.786	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:01:05.945	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:01:05.948	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:01:05.956	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:01:47.297	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:01:47.448	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:01:47.459	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:08:22.132	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 21:08:22.201	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 21:10:00.309	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:10:00.439	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:10:00.449	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:10:29.184	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 21:10:29.201	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:12:08.533	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:12:08.694	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:12:08.697	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:12:28.413	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 21:12:28.427	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:12:32.470	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:12:32.477	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:12:37.113	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:16:05.636	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:16:10.952	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:18:09.647	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:19:03.791	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 21:19:03.841	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 21:19:06.492	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:19:07.034	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:19:18.562	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:19:19.527	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:19:20.567	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:21:08.417	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 21:24:06.624	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 21:24:06.669	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 21:24:18.347	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:24:18.897	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:24:18.906	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:28:30.872	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 21:28:30.929	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 21:28:43.778	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 21:28:43.789	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:32:28.542	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 21:32:28.588	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 21:32:47.744	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 21:32:47.790	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 21:32:55.983	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:32:56.131	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:33:08.723	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 21:33:08.735	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:33:24.567	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:33:24.583	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:33:42.607	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:36:39.684	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:36:39.763	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:36:50.933	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 21:36:50.942	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:45:05.573	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:45:05.577	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:45:39.088	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:46:28.498	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:46:28.504	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:46:36.602	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:46:41.578	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:46:41.582	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:46:42.839	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:47:12.657	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:47:12.663	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:01.220	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:48:02.383	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:48:02.386	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:03.031	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:48:03.568	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:48:03.576	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:03.933	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:48:04.332	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:48:04.340	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:04.704	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:48:05.249	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:48:05.262	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:12.552	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:12.649	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:22.922	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 21:48:22.974	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 21:48:24.995	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:25.118	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:48:35.330	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 21:48:35.340	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:49:10.591	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 21:49:10.596	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:49:42.234	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:51:19.720	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:56:37.542	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 21:56:48.567	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:56:48.639	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 21:56:58.347	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 21:56:58.357	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:01:08.947	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 22:01:09.003	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 22:01:12.526	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:01:14.773	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 22:01:14.794	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:01:14.957	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:01:14.961	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:01:20.231	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:01:31.042	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:01:32.530	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:03:08.357	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 22:03:08.403	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 22:03:13.305	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:03:13.419	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:03:13.432	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:03:23.391	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 22:03:23.400	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:03:29.851	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:03:30.750	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:03:47.497	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:04:49.371	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 22:04:49.415	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 22:04:52.790	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:04:52.909	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:04:52.913	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:05:03.988	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 22:05:03.999	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:05:20.402	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:06:25.351	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 22:06:25.397	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 22:06:27.845	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:06:34.011	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:06:34.101	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:06:42.114	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 22:06:42.124	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:06:52.931	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:18:56.864	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 22:18:56.914	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 22:19:03.082	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:19:03.179	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:19:14.293	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:19:14.475	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:19:23.287	[34minfo[0m	D:/Programe/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/17 - 22:19:23.296	[34minfo[0m	D:/Programe/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/17 - 22:19:38.203	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:19:38.211	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:20:12.402	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:37:55.535	[34minfo[0m	D:/Programe/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/17 - 22:37:55.581	[34minfo[0m	D:/Programe/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/17 - 22:38:03.073	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:38:03.628	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:38:03.649	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:38:11.752	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:38:12.301	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:38:12.309	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:38:13.420	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:38:13.435	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:38:18.987	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:38:19.495	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:38:29.569	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:38:29.898	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:38:31.624	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/17 - 22:38:31.629	[34minfo[0m	D:/Programe/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/17 - 22:38:33.981	[34minfo[0m	D:/Programe/douyin/controller/publish.go:131	PublishList Success!
