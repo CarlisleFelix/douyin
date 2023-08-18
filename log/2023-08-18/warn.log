@@ -1,0 +1,4 @@
+[douyin_admin/server]2023/08/18 - 11:42:31.813	[33mwarn[0m	E:/go/douyin/controller/favorite.go:52	FavoriteAction fail!	{"error": "视频已点赞"}
+[douyin_admin/server]2023/08/18 - 11:42:33.349	[33mwarn[0m	E:/go/douyin/controller/favorite.go:52	FavoriteAction fail!	{"error": "视频已点赞"}
+[douyin_admin/server]2023/08/18 - 11:42:33.953	[33mwarn[0m	E:/go/douyin/controller/favorite.go:52	FavoriteAction fail!	{"error": "视频已点赞"}
+[douyin_admin/server]2023/08/18 - 11:42:34.486	[33mwarn[0m	E:/go/douyin/controller/favorite.go:52	FavoriteAction fail!	{"error": "视频已点赞"}

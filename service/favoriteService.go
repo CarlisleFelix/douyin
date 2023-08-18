@@ -5,197 +5,168 @@ import (
 	"douyin/global"
 	"douyin/model"
 	"douyin/response"
+	"gorm.io/gorm"
 	"strconv"
 )
 
-func FavoriteAction(user_id int64, video_id string, action_type int32) (StatusCode int32, StatusMsg string) {
+func FavoriteAction(user_id int64, video_id string, action_type int32) error {
 	// 参数类型转换
 	videoId, err := strconv.ParseInt(video_id, 10, 64)
 	if err != nil {
-		StatusCode = 1
-		StatusMsg = "视频id异常"
-		return
+		return global.ErrorParamFormatWrong
 	}
-
-	// 开始执行
-	tx := global.SERVER_DB.Begin()
 
 	// 获取点赞人信息
 	var user model.User
-	user, StatusCode, StatusMsg = dao.SearchUser(user_id)
-	if StatusCode == 1 {
-		tx.Rollback()
-		return
+	user, err = dao.SearchUser(user_id)
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return global.ErrorUserNotExist
+		}
 	}
 
 	// 获取视频信息
 	var video model.Video
-	video, StatusCode, StatusMsg = dao.SearchVideo(videoId)
-	if StatusCode == 1 {
-		tx.Rollback()
-		return
+	video, err = dao.SearchVideo(videoId)
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return global.ErrorVideoNotExist
+		}
 	}
 
 	// 获取作者信息
 	var author model.User
-	author, StatusCode, StatusMsg = dao.SearchUser(video.Author_id)
-	if StatusCode == 1 {
-		tx.Rollback()
-		return
-	}
+	author, err = dao.SearchUser(video.Author_id)
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return global.ErrorUserNotExist
+		}
 
-	// 当用户对自己的视频点赞时，操作失败
-	if video.Author_id == user_id {
-		StatusCode = 1
-		StatusMsg = "该视频为本人发布，无法进行点赞或取消点赞操作"
-		tx.Rollback()
-		return
 	}
 
 	// 根据user_id,video_id查找点赞信息
-	favorite, result := dao.SearchFavorite(user_id, videoId)
+	favorite, err := dao.SearchFavorite(user_id, videoId)
+
+	// 开始执行
+	tx := global.SERVER_DB.Begin()
 
 	// 对action_type进行判断, 1-点赞， 2-取消点赞
 	if action_type == 1 {
 		// 如果是点赞操作
 		// 先查询是否已经点赞
-		if result.RowsAffected == 0 {
+		if err == gorm.ErrRecordNotFound {
 			// 如果未点赞，则将点赞信息存储到表中
 			// 视频点赞数+1
-			result = dao.UpdateVideo(video, action_type)
-			if result.Error != nil {
-				StatusCode = 1
-				StatusMsg = "视频点赞更新异常"
+			err = dao.UpdateVideo(video, action_type)
+			if err != nil {
 				tx.Rollback()
-				return
+				return err
 			}
 			// 用户点赞数+1
-			result = dao.UpdateUser(user, action_type)
-			if result.Error != nil {
-				StatusCode = 1
-				StatusMsg = "用户点赞更新异常"
+			err = dao.UpdateUser(user, action_type)
+			if err != nil {
 				tx.Rollback()
-				return
+				return err
 			}
 			// 作者获赞数+1
-			result = dao.UpdateAuthor(author, action_type)
-			if result.Error != nil {
-				StatusCode = 1
-				StatusMsg = "作者获赞更新异常"
+			err = dao.UpdateAuthor(author, action_type)
+			if err != nil {
 				tx.Rollback()
-				return
+				return err
 			}
 
 			// 创建点赞记录
-			StatusCode, StatusMsg = dao.CreateFavorite(user_id, videoId)
+			err = dao.CreateFavorite(user_id, videoId)
 			// 根据状态码判断点赞操作是否成功
-			if StatusCode == 1 {
+			if err != nil {
 				tx.Rollback()
+				return err
 			} else {
 				tx.Commit()
+				return nil
 			}
-			return
 		} else {
 			// 如果已点赞
-			StatusCode = 1
-			StatusMsg = "该视频已点赞"
 			tx.Rollback()
-			return
+			return global.ErrorFavoriteExist
 		}
 	} else {
 		// 如果是取消点赞操作，先查询表中是否存在点赞记录，
-		if result.RowsAffected == 0 {
+		if err == gorm.ErrRecordNotFound {
 			// 如果不存在，则返回异常
-			StatusCode = 1
-			StatusMsg = "未对该视频点赞，无法取消点赞"
 			tx.Rollback()
-			return
+			return global.ErrorFavoriteNotExist
 		} else {
 			// 如果存在，则删除该记录
 			// 视频点赞数-1
-			result = dao.UpdateVideo(video, action_type)
-			if result.Error != nil {
-				StatusCode = 1
-				StatusMsg = "视频点赞更新异常"
+			err = dao.UpdateVideo(video, action_type)
+			if err != nil {
 				tx.Rollback()
-				return
+				return err
 			}
 			// 用户点赞数-1
-			result = dao.UpdateUser(user, action_type)
-			if result.Error != nil {
-				StatusCode = 1
-				StatusMsg = "用户点赞更新异常"
+			err = dao.UpdateUser(user, action_type)
+			if err != nil {
 				tx.Rollback()
-				return
+				return err
 			}
 			// 作者获赞数-1
-			result = dao.UpdateAuthor(author, action_type)
-			if result.Error != nil {
-				StatusCode = 1
-				StatusMsg = "作者获赞更新异常"
+			err = dao.UpdateAuthor(author, action_type)
+			if err != nil {
 				tx.Rollback()
-				return
+				return err
 			}
 
 			// 删除点赞记录
-			StatusCode, StatusMsg = dao.DeleteFavorite(favorite)
+			err = dao.DeleteFavorite(favorite)
 			// 根据状态码判断操作是否成功
-			if StatusCode == 1 {
+			if err != nil {
 				tx.Rollback()
+				return err
 			} else {
 				tx.Commit()
+				return nil
 			}
-			return
 		}
 	}
 }
 
-func FavoriteList(user_id int64) (StatusCode int32, StatusMsg string, videoList []response.Video_Response) {
-	tx := global.SERVER_DB.Begin()
-	favorites, result := dao.SearchFavoriteList(user_id)
-	if result.Error != nil {
-		StatusCode = 1
-		StatusMsg = "获取用户喜欢列表异常"
-		tx.Rollback()
-		return StatusCode, StatusMsg, nil
-	} else if result.RowsAffected == 0 {
-		StatusCode = 0
-		StatusMsg = "用户无喜欢视频"
-		tx.Commit()
-		return StatusCode, StatusMsg, nil
+func FavoriteList(user_id int64) (videoList []response.Video_Response, err error) {
+	favorites, err := dao.SearchFavoriteList(user_id)
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			// 用户无喜欢视频
+			return nil, nil
+		} else {
+			return nil, err
+		}
 	}
 
 	// 创建视频列表
 	videoList = make([]response.Video_Response, len(favorites))
 
-	//
 	for i := 0; i < len(favorites); i++ {
 		// 获取视频信息
 		var video model.Video
-		video, StatusCode, StatusMsg = dao.SearchVideo(favorites[i].Video_id)
-		if StatusCode == 1 {
-			tx.Rollback()
-			return StatusCode, StatusMsg, nil
+		video, err = dao.SearchVideo(favorites[i].Video_id)
+		if err != nil {
+			return nil, err
 		}
 		// 获取用户信息
 		var user model.User
-		user, StatusCode, StatusMsg = dao.SearchUser(video.Author_id)
-		if StatusCode == 1 {
-			tx.Rollback()
-			return StatusCode, StatusMsg, nil
+		user, err = dao.SearchUser(video.Author_id)
+		if err != nil {
+			return nil, err
 		}
 		// 获取关注信息
-		result = dao.SearchRelation(user_id, user.User_id)
-		if result.Error != nil {
-			StatusCode = 1
-			StatusMsg = "获取关注信息异常"
-			tx.Rollback()
-			return StatusCode, StatusMsg, nil
+		err = dao.SearchRelation(user_id, user.User_id)
+		if err != nil {
+			return nil, err
 		}
 
 		var IsFollow bool
 		// 设置关注信息
-		if result.RowsAffected == 0 {
+		if err == gorm.ErrRecordNotFound {
 			IsFollow = false
 		} else {
 			IsFollow = true
@@ -226,6 +197,5 @@ func FavoriteList(user_id int64) (StatusCode int32, StatusMsg string, videoList 
 		}
 	}
 
-	tx.Commit()
-	return StatusCode, StatusMsg, videoList
+	return videoList, nil
 }

@@ -1,0 +1,2 @@
+[douyin_admin/server]2023/08/18 - 11:36:36.491	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/18 - 11:38:45.768	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
