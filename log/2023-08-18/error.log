@@ -1,0 +1,6 @@
+[douyin_admin/server]2023/08/18 - 11:36:36.491	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/18 - 11:38:45.768	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/18 - 12:22:33.171	[31merror[0m	E:/go/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/18 - 12:30:05.408	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection
+[douyin_admin/server]2023/08/18 - 12:30:07.852	[31merror[0m	E:/go/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/18 - 12:35:44.610	[31merror[0m	E:/go/douyin/initialization/server.go:29	accept tcp [::]:8080: use of closed network connection

@@ -1,0 +1,2 @@
+[douyin_admin/server]2023/08/16 - 18:48:36.124	[33mwarn[0m	C:/Users/aiot/Desktop/Daoyin/douyin/controller/user.go:79	UserLoginService fail!	{"error": "用户名为空"}
+[douyin_admin/server]2023/08/16 - 23:37:14.004	[33mwarn[0m	C:/Users/aiot/Desktop/Daoyin/douyin/controller/user.go:131	UserRegisterService fail!	{"error": "用户已存在"}

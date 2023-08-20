@@ -1,0 +1,108 @@
+[douyin_admin/server]2023/08/18 - 09:59:46.736	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 10:03:17.559	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 10:03:59.084	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 10:03:59.155	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/18 - 11:36:42.320	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 11:36:42.355	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/18 - 11:38:50.006	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 11:38:50.044	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/18 - 11:38:51.120	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 11:38:50.006	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 11:38:50.044	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/18 - 11:38:51.120	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 11:38:50.006	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 11:38:50.044	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/18 - 11:38:51.120	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 11:38:50.006	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 11:38:50.044	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/18 - 11:38:51.120	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:22:33.111	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 12:22:33.175	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/18 - 12:29:34.303	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:29:43.104	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:29:44.998	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:30:07.812	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/18 - 12:30:07.855	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
+[douyin_admin/server]2023/08/18 - 12:30:57.146	[34minfo[0m	E:/go/douyin/controller/user.go:155	UserRegister success!
+[douyin_admin/server]2023/08/18 - 12:30:58.190	[34minfo[0m	E:/go/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/18 - 12:31:07.894	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:24.177	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:25.039	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:25.594	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:25.976	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:26.605	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:34.366	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:37.539	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:47.462	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:50.545	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:31:54.810	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:31:57.168	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:32:00.495	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:32:01.007	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:32:02.187	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:32:06.042	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:32:06.948	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:32:07.542	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:32:08.166	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:32:09.750	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:06.706	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:23.088	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:33:25.790	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:27.147	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:29.627	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:31.468	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:32.139	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:33.076	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:34.111	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:33:34.667	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:35.579	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:35.582	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:33:35.918	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:36.353	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:36.837	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:37.720	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:37.732	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:33:40.458	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:33:41.175	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:33:52.991	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:33:53.118	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:16.827	[34minfo[0m	E:/go/douyin/controller/user.go:155	UserRegister success!
+[douyin_admin/server]2023/08/18 - 12:34:17.864	[34minfo[0m	E:/go/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/18 - 12:34:21.812	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:34:24.967	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:24.974	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:34:26.334	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:26.908	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:28.948	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:34:34.737	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:39.104	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:40.487	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:41.418	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:34:42.008	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:42.015	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:34:43.404	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:49.053	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:49.769	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:50.566	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:34:50.578	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:34:59.155	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:34:59.723	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:34:59.918	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:00.192	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:01.033	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:01.351	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:02.507	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:02.845	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:35:03.325	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:03.693	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:03.965	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:04.680	[34minfo[0m	E:/go/douyin/controller/favorite.go:63	FavoriteAction success!
+[douyin_admin/server]2023/08/18 - 12:35:04.994	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:05.221	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:37.966	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:38.632	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:39.707	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:40.527	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:41.721	[34minfo[0m	E:/go/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/18 - 12:35:41.899	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/18 - 12:35:41.904	[34minfo[0m	E:/go/douyin/controller/publish.go:131	PublishList Success!
