@@ -26,3 +26,17 @@
 [douyin_admin/server]2023/08/21 - 17:59:53.431	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
 [douyin_admin/server]2023/08/21 - 18:11:09.932	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
 [douyin_admin/server]2023/08/21 - 18:11:15.174	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/21 - 18:58:46.109	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
+[douyin_admin/server]2023/08/21 - 18:58:51.958	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/21 - 19:39:40.134	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
+[douyin_admin/server]2023/08/21 - 19:39:46.617	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/21 - 19:48:52.785	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
+[douyin_admin/server]2023/08/21 - 19:48:58.150	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/21 - 19:50:37.267	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
+[douyin_admin/server]2023/08/21 - 19:50:45.451	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/21 - 20:00:39.281	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
+[douyin_admin/server]2023/08/21 - 20:00:44.380	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/21 - 20:23:07.238	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
+[douyin_admin/server]2023/08/21 - 20:23:13.213	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}
+[douyin_admin/server]2023/08/21 - 20:24:42.916	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
+[douyin_admin/server]2023/08/21 - 20:24:48.212	[31merror[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/redis.go:20	redis connect ping failed, err:	{"error": "ERR Client sent AUTH, but no password is set"}

@@ -14,5 +14,5 @@ type User_Login_Response struct {
 
 type User_Interface_Response struct {
 	Response
-	User_Response
+	User_Response `json:"user"`
 }

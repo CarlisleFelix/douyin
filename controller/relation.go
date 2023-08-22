@@ -2,7 +2,6 @@ package controller
 
 import (
 	"douyin/dao"
-	"douyin/middleware"
 	"douyin/model"
 	"douyin/response"
 	"douyin/service"
@@ -24,9 +23,11 @@ type FriendUser struct {
 func RelationAction(c *gin.Context) {
 	//1.取数据
 	//1.1 从token中获取用户id
-	strToken := c.Query("token")
-	tokenStruct, _ := middleware.CheckToken(strToken)
-	hostID := tokenStruct.UserId
+	// strToken := c.Query("token")
+	// tokenStruct, _ := middleware.CheckToken(strToken)
+	// hostID := tokenStruct.UserId
+	_userId, _ := c.Get("userid")
+	hostID, _ := _userId.(int64)
 	//1.2 获取待关注的用户id
 	getToUserID, _ := strconv.ParseInt(c.Query("to_user_id"), 10, 64)
 	guestID := int64(getToUserID)
@@ -64,24 +65,27 @@ func FollowList(c *gin.Context) {
 
 	//1.数据预处理
 	//1.1获取用户本人id
-	strToken := c.Query("token")
-	tokenStruct, _ := middleware.CheckToken(strToken)
-	hostID := tokenStruct.UserId
+	// strToken := c.Query("token")
+	// tokenStruct, _ := middleware.CheckToken(strToken)
+	// hostID := tokenStruct.UserId
+	_userId, _ := c.Get("userid")
+	userid, _ := _userId.(int64)
 	//1.2获取其他用户id
-	getGuestID, _ := strconv.ParseInt(c.Query("host_id"), 10, 64)
-	guestID := int64(getGuestID)
+	getUserId, _ := strconv.ParseInt(c.Query("user_id"), 10, 64)
+	user_id := int64(getUserId)
 
 	//2.判断查询类型，从数据库取用户列表
 	var err error
 	var userList []model.User
-	if guestID == 0 {
-		//若其他用户id为0，代表查本人的关注表
-		userList, err = service.FollowingList(hostID)
+	var FuserID int64
+	if user_id == 0 {
+		//查本人
+		FuserID = userid
 	} else {
-		//若其他用户id不为0，代表查对方的关注表
-		userList, err = service.FollowingList(guestID)
+		//查对方
+		FuserID = user_id
 	}
-
+	userList, err = service.FollowingList(FuserID)
 	//构造返回的数据
 	var ReturnFollowerList = make([]response.User_Response, len(userList))
 	for i, m := range userList {
@@ -91,7 +95,7 @@ func FollowList(c *gin.Context) {
 		ReturnFollowerList[i].FollowerCount = m.Follower_count
 		ReturnFollowerList[i].Avatar = m.Avatar
 		ReturnFollowerList[i].BackgroundImage = m.Background_image
-		ReturnFollowerList[i].IsFollow = service.IsFollowing(hostID, m.User_id)
+		ReturnFollowerList[i].IsFollow = service.IsFollowing(FuserID, m.User_id)
 		ReturnFollowerList[i].TotalFavorited = m.Total_favorited
 		ReturnFollowerList[i].WorkCount = m.Work_count
 		ReturnFollowerList[i].FavoriteCount = m.Favorite_count
@@ -123,24 +127,26 @@ func FollowerList(c *gin.Context) {
 
 	//1.数据预处理
 	//1.1获取用户本人id
-	strToken := c.Query("token")
-	tokenStruct, _ := middleware.CheckToken(strToken)
-	hostID := tokenStruct.UserId
+	// strToken := c.Query("token")
+	// tokenStruct, _ := middleware.CheckToken(strToken)
+	// hostID := tokenStruct.UserId
+	_userId, _ := c.Get("userid")
+	userid, _ := _userId.(int64)
 	//1.2获取其他用户id
-	getGuestID, _ := strconv.ParseInt(c.Query("guest_id"), 10, 64)
-	guestID := int64(getGuestID)
-
+	getUserId, _ := strconv.ParseInt(c.Query("user_id"), 10, 64)
+	user_id := int64(getUserId)
+	var FuserID int64
 	//2.判断查询类型
 	var err error
 	var userList []model.User
-	if guestID == 0 {
+	if user_id == 0 {
 		//查本人的粉丝表
-		userList, err = service.FollowerList(hostID)
+		FuserID = userid
 	} else {
 		//查对方的粉丝表
-		userList, err = service.FollowerList(guestID)
+		FuserID = user_id
 	}
-
+	userList, err = service.FollowerList(FuserID)
 	//3.判断查询类型，从数据库取用户列表
 	var ReturnFollowerList = make([]response.User_Response, len(userList))
 	for i, m := range userList {
@@ -150,7 +156,7 @@ func FollowerList(c *gin.Context) {
 		ReturnFollowerList[i].FollowerCount = m.Follower_count
 		ReturnFollowerList[i].Avatar = m.Avatar
 		ReturnFollowerList[i].BackgroundImage = m.Background_image
-		ReturnFollowerList[i].IsFollow = service.IsFollowing(hostID, m.User_id)
+		ReturnFollowerList[i].IsFollow = service.IsFollowing(FuserID, m.User_id)
 		ReturnFollowerList[i].TotalFavorited = m.Total_favorited
 		ReturnFollowerList[i].WorkCount = m.Work_count
 		ReturnFollowerList[i].FavoriteCount = m.Favorite_count
@@ -186,14 +192,28 @@ type FriendListResponse struct {
 // 获取朋友列表，并且会带着和该用户的最新的一条消息
 func FriendList(c *gin.Context) {
 	// 取 token
-	token := c.Query("token")
-	tokenStruct, _ := middleware.CheckToken(token)
+	// token := c.Query("token")
+	// tokenStruct, _ := middleware.CheckToken(token)
 
-	//获取用户本人id
-	hostId := tokenStruct.UserId
-
-	tmpFriendList, err := service.FriendList(hostId)
-
+	// //获取用户本人id
+	// hostId := tokenStruct.UserId
+	_userId, _ := c.Get("userid")
+	userid, _ := _userId.(int64)
+	//1.2获取其他用户id
+	getUserId, _ := strconv.ParseInt(c.Query("user_id "), 10, 64)
+	user_id := int64(getUserId)
+	//2.判断查询类型
+	var err error
+	var tmpFriendList []model.User
+	var FuserID int64
+	if user_id == 0 {
+		//查本人的好友表
+		FuserID = userid
+	} else {
+		//查对方的好友表
+		FuserID = user_id
+	}
+	tmpFriendList, err = service.FriendList(FuserID)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, FriendListResponse{
 			Response: response.Response{
@@ -208,8 +228,8 @@ func FriendList(c *gin.Context) {
 		for _, u := range tmpFriendList {
 			var msg string
 			var msgType int64
-			latestMsg1, msgType1, err1 := dao.GetLatestChat(hostId, u.User_id)
-			latestMsg2, msgType2, err2 := dao.GetLatestChat(u.User_id, hostId)
+			latestMsg1, msgType1, err1 := dao.GetLatestChat(FuserID, u.User_id)
+			latestMsg2, msgType2, err2 := dao.GetLatestChat(u.User_id, FuserID)
 			if err1 != nil && err2 != nil {
 				msg = ""
 				msgType = -1
@@ -234,7 +254,7 @@ func FriendList(c *gin.Context) {
 					Name:            u.User_name,
 					FollowCount:     u.Follow_count,
 					FollowerCount:   u.Follower_count,
-					IsFollow:        service.IsFollowing(hostId, u.User_id),
+					IsFollow:        service.IsFollowing(FuserID, u.User_id),
 					FavoriteCount:   u.Favorite_count,
 					Signature:       u.Signature,
 					WorkCount:       u.Work_count,
@@ -242,7 +262,6 @@ func FriendList(c *gin.Context) {
 					TotalFavorited:  u.Total_favorited,
 					BackgroundImage: u.Background_image,
 				},
-				// TODO: 优化最近一条消息查询
 				LatestMessage: msg,
 				MessageType:   msgType, // 0 => 当前请求用户接收的消息， 1 => 当前请求用户发送的消息
 			}

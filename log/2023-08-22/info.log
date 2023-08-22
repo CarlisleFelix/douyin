@@ -1,0 +1,163 @@
+[douyin_admin/server]2023/08/22 - 09:49:02.827	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 09:49:02.900	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 09:49:34.731	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:49:35.035	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:49:35.041	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:49:47.775	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 09:49:47.789	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 09:50:04.783	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:50:04.788	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:50:04.792	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:57:01.204	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 09:57:01.269	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 09:57:16.482	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:57:16.640	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:57:16.644	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:57:23.072	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 09:57:23.088	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:00:52.504	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:00:52.568	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:01:21.148	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:01:21.207	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:01:38.513	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:01:38.664	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:01:38.667	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:01:44.192	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:01:44.205	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:41:22.984	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:41:23.053	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:41:31.314	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:41:31.456	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:41:31.459	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:41:37.302	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:41:37.322	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:41:42.931	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:41:42.935	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:41:42.938	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:42:13.674	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:42:18.423	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:42:18.449	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:43:34.034	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:43:39.654	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:43:39.670	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:44:23.230	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:44:29.253	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:44:29.271	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:54:43.937	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:54:44.006	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:55:02.514	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:55:02.662	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:55:09.990	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:55:10.005	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:55:17.450	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:55:17.454	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:55:17.459	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:55:25.065	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:55:30.729	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:55:30.737	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:58:04.015	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:58:04.076	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:58:14.681	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:58:14.831	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:58:20.831	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:58:20.837	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:58:20.900	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:58:20.905	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:58:25.007	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:58:25.010	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:58:57.058	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:58:57.060	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:59:06.240	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:59:06.241	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:59:27.324	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:59:27.326	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:00:32.439	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:00:32.441	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:03:03.387	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:03:03.545	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:03:03.545	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:03:05.960	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:03:05.962	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:03:34.778	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:03:34.941	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:03:34.941	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:04:33.708	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:04:33.887	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:04:33.889	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:04:34.824	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:04:34.826	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:04:41.471	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:04:41.607	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:04:41.608	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:04:43.741	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:04:43.742	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:04:51.697	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:04:56.533	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 11:04:56.538	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 11:04:56.592	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:04:56.593	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:05:17.590	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:05:17.591	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:11:38.958	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:11:39.017	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:11:45.203	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:11:45.365	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:11:47.543	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:11:47.545	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:11:55.024	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:11:55.026	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:00.663	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:12:00.811	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:01.992	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:01.993	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:26.561	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:26.562	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:30.529	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:12:38.299	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 11:12:38.305	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 11:12:38.348	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:38.350	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:42.672	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:42.673	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:49.756	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:12:49.912	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:49.913	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:51.123	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:51.124	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:58.548	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:13:06.237	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 11:13:06.257	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 11:13:06.313	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:13:06.313	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:16:13.291	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:16:13.452	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:16:16.639	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:16:16.639	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:26:06.161	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:26:06.163	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:28:28.141	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:28:28.308	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:28:30.643	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:28:30.644	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:28:36.012	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:28:43.028	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 11:28:43.038	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 11:28:43.075	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:28:43.076	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:28:52.786	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:28:52.821	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:30:58.869	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:30:58.929	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:31:08.112	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:31:08.114	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:31:14.317	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:31:14.483	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:31:15.422	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:31:15.423	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:31:21.831	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:31:33.733	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 11:31:33.755	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 11:31:33.801	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:31:33.802	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:31:41.060	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:31:41.061	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
