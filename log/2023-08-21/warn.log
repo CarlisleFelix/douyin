@@ -1,6 +1,17 @@
 [douyin_admin/server]2023/08/21 - 16:40:46.660	[33mwarn[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:76	UserLoginService fail!	{"error": "用户不存在"}
+<<<<<<< Updated upstream
 [douyin_admin/server]2023/08/21 - 19:55:40.075	[33mwarn[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:82	param format wrong!	{"error": "strconv.ParseInt: parsing \"\": invalid syntax"}
 [douyin_admin/server]2023/08/21 - 20:15:00.307	[33mwarn[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:76	UserLoginService fail!	{"error": "用户不存在"}
 [douyin_admin/server]2023/08/21 - 20:22:46.215	[33mwarn[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/relation.go:210	param format wrong!	{"error": "strconv.ParseInt: parsing \"\": invalid syntax"}
 [douyin_admin/server]2023/08/21 - 20:23:01.932	[33mwarn[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/relation.go:210	param format wrong!	{"error": "strconv.ParseInt: parsing \"\": invalid syntax"}
 [douyin_admin/server]2023/08/21 - 20:24:18.671	[33mwarn[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/relation.go:210	param format wrong!	{"error": "strconv.ParseInt: parsing \"\": invalid syntax"}
+=======
+[douyin_admin/server]2023/08/21 - 20:29:57.458	[33mwarn[0m	/home/yuhang/douyin/controller/feed.go:33	Token fail!
+[douyin_admin/server]2023/08/21 - 20:30:11.676	[33mwarn[0m	/home/yuhang/douyin/controller/feed.go:33	Token fail!
+[douyin_admin/server]2023/08/21 - 20:30:16.043	[33mwarn[0m	/home/yuhang/douyin/controller/feed.go:33	Token fail!
+[douyin_admin/server]2023/08/21 - 20:30:20.002	[33mwarn[0m	/home/yuhang/douyin/controller/feed.go:33	Token fail!
+[douyin_admin/server]2023/08/21 - 20:30:26.708	[33mwarn[0m	/home/yuhang/douyin/controller/feed.go:33	Token fail!
+[douyin_admin/server]2023/08/21 - 20:30:37.243	[33mwarn[0m	/home/yuhang/douyin/controller/feed.go:33	Token fail!
+[douyin_admin/server]2023/08/21 - 20:31:13.353	[33mwarn[0m	/home/yuhang/douyin/controller/feed.go:33	Token fail!
+[douyin_admin/server]2023/08/21 - 20:31:15.513	[33mwarn[0m	/home/yuhang/douyin/controller/feed.go:33	Token fail!
+>>>>>>> Stashed changes

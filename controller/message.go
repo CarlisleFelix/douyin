@@ -54,8 +54,10 @@ func MessageChat(c *gin.Context) {
 	_userId, _ := c.Get("userid")
 	userId, _ := _userId.(int64)
 	toUserId, err := strconv.ParseInt(c.Query("to_user_id"), 10, 64)
+	lastTime, _ := strconv.ParseInt(c.Query("pre_msg_time"), 10, 64)
+	lastTime = lastTime / 1000
 
-	chatList, err := service.ChatService(userId, toUserId)
+	chatList, err := service.ChatService(userId, toUserId, lastTime)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Message_Chat_Response{
 			Response: response.Response{
@@ -85,7 +87,7 @@ func ChatList2MessageResponseList(chatList []model.Chat) []response.Message_Resp
 			ToUserId:   chatList[i].Receiver_id,
 			FromUserID: chatList[i].Sender_id,
 			Content:    chatList[i].Content,
-			CreateTime: utils.IntTime2StrTime(chatList[i].Publish_time),
+			CreateTime: utils.IntTime2ChatTime(chatList[i].Publish_time),
 		})
 	}
 	return responseList

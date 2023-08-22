@@ -222,6 +222,7 @@ func FriendList(c *gin.Context) {
 			},
 			FriendList: nil,
 		})
+		return
 	} else {
 		// 对返回列表二次加工
 		var returnFriendList []FriendUser
@@ -274,5 +275,6 @@ func FriendList(c *gin.Context) {
 			},
 			FriendList: returnFriendList,
 		})
+		return
 	}
 }

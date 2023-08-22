@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [douyin_admin/server]2023/08/22 - 09:49:02.827	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
 [douyin_admin/server]2023/08/22 - 09:49:02.900	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
 [douyin_admin/server]2023/08/22 - 09:49:34.731	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/feed.go:75	Feed Success!
@@ -689,3 +690,358 @@
 [douyin_admin/server]2023/08/22 - 15:32:22.812	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/user.go:56	User Success!
 [douyin_admin/server]2023/08/22 - 15:32:22.854	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/publish.go:131	PublishList Success!
 [douyin_admin/server]2023/08/22 - 15:32:22.856	[34minfo[0m	C:/Users/Administrator/Desktop/Daoyin/douyin/controller/favorite.go:117	get FavoriteList success!
+=======
+[douyin_admin/server]2023/08/22 - 08:42:04.071	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 08:42:04.107	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 08:42:04.107	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 08:46:27.194	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 08:46:27.429	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 08:46:36.969	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 08:46:36.980	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 09:03:50.881	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:03:50.958	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:04:23.606	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:90	publish action success
+[douyin_admin/server]2023/08/22 - 09:04:27.440	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:04:27.973	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:04:29.008	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:04:29.613	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:04:29.613	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:04:30.259	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:04:31.046	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:04:31.046	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:05:11.204	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:05:20.383	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 09:05:20.402	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 09:05:36.113	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:05:44.595	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 09:05:44.604	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 09:05:53.626	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:05:53.629	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:18:08.170	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:18:22.484	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 09:18:22.497	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 09:37:52.069	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 09:37:52.097	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 09:37:52.101	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 09:37:55.715	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:37:55.819	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:38:21.967	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 09:38:21.992	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 09:38:21.992	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 09:38:27.517	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:38:27.603	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:40:50.180	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 09:40:50.204	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 09:40:50.205	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 09:40:52.863	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:40:52.934	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:41:07.513	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:41:20.507	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 09:41:20.519	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 09:42:04.172	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:42:04.259	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:42:09.013	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:42:18.928	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 09:42:18.937	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 09:42:23.038	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:42:23.040	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:42:24.369	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:42:24.370	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:42:24.374	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:42:24.991	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:42:24.994	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:42:25.765	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:51:32.757	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:51:32.837	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:51:32.838	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:52:26.328	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:52:26.852	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:52:26.855	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:53:00.800	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:53:00.802	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:53:03.360	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:53:03.365	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 09:53:03.367	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 09:53:06.898	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 09:53:06.899	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:09:36.352	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:09:36.377	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 10:09:36.378	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:11:27.245	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:11:38.496	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:11:38.512	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:13:58.507	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:14:11.462	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:14:11.475	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:14:42.524	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:14:42.640	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:14:42.642	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:14:55.764	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:14:55.889	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:14:55.893	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:27:23.283	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:27:23.310	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 10:27:23.311	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:27:28.008	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:27:28.203	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:27:38.557	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:27:38.572	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:31:39.887	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:31:39.907	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 10:35:26.546	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:35:26.570	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 10:35:31.508	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:35:45.138	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:35:45.149	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:36:22.862	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:36:22.969	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:36:22.971	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:36:22.974	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:36:22.977	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:55:39.103	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:55:39.130	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 10:55:39.130	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:55:51.685	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:55:51.869	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:55:51.874	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:56:02.485	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 10:56:02.502	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 10:56:02.568	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:56:02.569	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:56:19.904	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:56:20.010	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:56:20.011	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:56:20.014	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:56:20.018	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:57:39.985	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 10:57:40.009	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 10:57:40.010	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 10:57:56.293	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 10:57:56.645	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:57:56.648	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:58:00.517	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:58:00.525	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:58:41.999	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:58:42.002	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:58:58.470	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:58:58.472	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 10:59:20.565	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 10:59:20.567	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:10:12.053	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:10:12.083	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:10:12.084	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:12:16.501	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:12:16.692	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:16.695	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:20.316	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:20.317	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:25.647	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:25.649	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:32.981	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:32.984	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:12:38.108	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:12:38.111	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:15:12.129	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:15:12.154	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:15:12.154	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:15:15.179	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:15:15.289	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:15:15.292	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:15:55.231	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:15:55.235	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:15:59.579	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:15:59.582	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:16:08.398	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:16:08.400	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:16:13.780	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:16:13.781	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:16:43.546	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:16:43.547	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:16:45.927	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:16:45.929	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:16:50.065	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:16:50.067	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:18:36.781	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:18:36.812	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:18:36.813	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:18:41.649	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:18:41.728	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:18:41.730	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:18:44.663	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:18:44.666	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:18:47.212	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:18:47.215	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:19:30.946	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:19:30.949	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:22:42.883	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:22:42.915	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:22:42.917	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:22:57.749	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:22:57.904	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:22:57.906	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:23:00.164	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:23:00.167	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:23:05.898	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:23:05.898	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:26:33.942	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:26:34.029	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:26:34.031	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:30:36.617	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:30:36.944	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:30:36.948	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:30:43.568	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:30:43.569	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:30:45.405	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:30:53.702	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 11:30:53.715	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 11:30:53.776	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:30:53.776	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:32:48.482	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:32:48.514	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:32:48.516	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:32:52.463	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:32:52.577	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:32:55.889	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:32:55.891	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:35:18.626	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:35:18.650	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:35:18.655	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:35:20.306	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:35:20.307	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:35:21.902	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:35:21.903	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:35:24.615	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:35:32.266	[34minfo[0m	/home/yuhang/douyin/controller/user.go:103	UserLogin success!
+[douyin_admin/server]2023/08/22 - 11:35:32.284	[34minfo[0m	/home/yuhang/douyin/controller/user.go:56	User Success!
+[douyin_admin/server]2023/08/22 - 11:35:32.346	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:35:32.348	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:39:11.897	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:39:11.924	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:39:11.924	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:40:41.385	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:40:41.411	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:40:41.411	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:43:22.498	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:43:22.532	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:43:22.532	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:46:29.343	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:46:29.369	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:46:29.369	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:46:33.395	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:46:33.398	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:46:56.524	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:46:56.553	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:46:56.554	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:47:00.565	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:47:00.566	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:51:57.389	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:51:57.415	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:51:57.416	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:56:02.996	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:56:03.028	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:56:03.029	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:56:05.668	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:56:05.745	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:56:05.747	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:56:07.964	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:56:07.966	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:56:55.796	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:56:55.799	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:59:36.930	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 11:59:36.952	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 11:59:36.952	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 11:59:41.368	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 11:59:41.428	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:59:41.432	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 11:59:45.118	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 11:59:45.121	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:02:56.222	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 12:02:56.247	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 12:02:56.247	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 12:02:58.562	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 12:02:58.743	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:02:58.744	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:03:04.418	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:03:04.421	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:05:25.825	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 12:05:25.850	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 12:05:25.851	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 12:05:28.971	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 12:05:29.077	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:05:29.079	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:05:32.169	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:05:32.171	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:06:20.892	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 12:06:20.913	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 12:06:20.913	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 12:06:22.525	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 12:06:22.628	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:06:22.631	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:06:28.452	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:06:28.455	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:49:56.010	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 12:49:56.039	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 12:49:56.039	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 12:50:10.778	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 12:50:11.013	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:50:11.020	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:50:17.051	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:50:17.052	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:50:21.701	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:50:21.702	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:51:39.624	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 12:51:39.654	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 12:51:39.654	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 12:51:47.961	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 12:51:48.067	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:51:48.070	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:51:52.165	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:51:52.168	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:51:54.550	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:51:54.552	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:59:08.844	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 12:59:08.872	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 12:59:08.872	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 12:59:29.591	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 12:59:30.184	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:59:30.185	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:59:33.514	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:59:33.514	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 12:59:39.462	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 12:59:39.464	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:10:09.930	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 13:10:09.959	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 13:10:09.960	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 13:10:13.140	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:10:13.141	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:17:22.467	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 13:17:22.496	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 13:17:22.496	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 13:17:24.372	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 13:17:24.448	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:17:24.457	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:17:33.484	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:17:33.487	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:17:38.283	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:17:38.285	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:18:12.941	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 13:18:12.972	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 13:18:12.972	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 13:18:15.283	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 13:18:15.367	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:18:15.371	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:18:27.915	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:18:27.917	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:18:29.848	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:18:29.850	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:37:44.983	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/22 - 13:37:45.009	[34minfo[0m	/home/yuhang/douyin/initialization/redis.go:23	redis connect ping response:	{"pong": "PONG"}
+[douyin_admin/server]2023/08/22 - 13:37:45.009	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/22 - 13:37:47.144	[34minfo[0m	/home/yuhang/douyin/controller/feed.go:75	Feed Success!
+[douyin_admin/server]2023/08/22 - 13:37:47.234	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:37:47.236	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:37:48.979	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:37:48.985	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+[douyin_admin/server]2023/08/22 - 13:37:51.361	[34minfo[0m	/home/yuhang/douyin/controller/favorite.go:117	get FavoriteList success!
+[douyin_admin/server]2023/08/22 - 13:37:51.363	[34minfo[0m	/home/yuhang/douyin/controller/publish.go:131	PublishList Success!
+>>>>>>> Stashed changes

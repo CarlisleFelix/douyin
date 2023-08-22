@@ -89,7 +89,7 @@ func FavoriteList(c *gin.Context) {
 				StatusMsg:  global.ErrorParamMismatch.Error(),
 			},
 		})
-		global.SERVER_LOG.Warn("parameter mismatch!", zap.String("error", err.Error()))
+		//global.SERVER_LOG.Warn("parameter mismatch!", zap.String("error", err.Error()))
 		return
 	}
 

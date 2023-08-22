@@ -3,6 +3,7 @@ package dao
 import (
 	"douyin/global"
 	"douyin/model"
+	"fmt"
 )
 
 func InsertChat(newChat model.Chat) error {
@@ -13,10 +14,19 @@ func InsertChat(newChat model.Chat) error {
 	return err
 }
 
-func GetChatList(userId int64, toUserId int64) ([]model.Chat, error) {
+func GetChatList(userId int64, toUserId int64, lastTime int64) ([]model.Chat, error) {
 	chatList := []model.Chat{}
-	err := global.SERVER_DB.Where("sender_id=? and receiver_id=?", userId, toUserId).Find(&chatList).Error
-	return chatList, err
+	fmt.Println("lastTime:", lastTime)
+	//err := global.SERVER_DB.Where("(sender_id=? and receiver_id=?) or (receiver_id=? and sender_id=?) and publish_time > ? and publish_time != ?", userId, toUserId, userId, toUserId, lastTime, lastTime).Order("publish_time asc").Find(&chatList).Error
+	err := global.SERVER_DB.Where("(sender_id=? and receiver_id=?) or (receiver_id=? and sender_id=?)", userId, toUserId, userId, toUserId).Order("publish_time asc").Find(&chatList).Error
+	finalchatList := []model.Chat{}
+	for i := 0; i < len(chatList); i++ {
+		if chatList[i].Publish_time > lastTime {
+			finalchatList = chatList[i:]
+			break
+		}
+	}
+	return finalchatList, err
 }
 
 // func GetLatestChat(userId int64, toUserId int64) (model.Chat, int, error) {

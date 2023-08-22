@@ -17,6 +17,6 @@ func ActionService(userId int64, toUserId int64, content string) error {
 	return err
 }
 
-func ChatService(userId int64, toUserId int64) ([]model.Chat, error) {
-	return dao.GetChatList(userId, toUserId)
+func ChatService(userId int64, toUserId int64, lastTime int64) ([]model.Chat, error) {
+	return dao.GetChatList(userId, toUserId, lastTime)
 }
