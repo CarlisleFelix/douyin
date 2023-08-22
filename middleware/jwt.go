@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"douyin/response"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -41,6 +42,7 @@ func GenerateToken(userId int64, userName string) (string, error) {
 // 根据token进行校验
 func CheckToken(token string) (*MyClaims, bool) {
 	tokenObj, _ := jwt.ParseWithClaims(token, &MyClaims{}, func(token *jwt.Token) (interface{}, error) {
+		fmt.Print(Private_Key)
 		return Private_Key, nil
 	})
 	if key, _ := tokenObj.Claims.(*MyClaims); tokenObj.Valid {
@@ -78,6 +80,7 @@ func JwtMiddleware() gin.HandlerFunc {
 		}
 		//验证token
 		tokenStruck, ok := CheckToken(tokenStr)
+
 		//如果token无效
 		if !ok {
 			c.JSON(http.StatusOK, response.Response{

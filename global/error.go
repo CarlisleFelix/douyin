@@ -3,7 +3,7 @@ package global
 import "errors"
 
 var (
-	ErrorUserNameNull   = errors.New("用户名为空")
+	ErrorUserNameNull   = errors.New("用户名为空").Error()
 	ErrorUserNameExtend = errors.New("用户名长度不符合规范")
 
 	ErrorPasswordNull   = errors.New("密码为空")

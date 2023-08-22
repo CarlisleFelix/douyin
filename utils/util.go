@@ -4,6 +4,7 @@ import (
 	"errors"
 	"math/rand"
 	"os"
+	"strconv"
 	"time"
 
 	"golang.org/x/crypto/bcrypt"
@@ -111,4 +112,13 @@ func Compare(hashedPwd string, passWord string) bool {
 		return false
 	}
 	return true
+}
+
+func GenerateRandomCaptcha() string {
+	rand.Seed(time.Now().UnixNano())
+	captcha := ""
+	for i := 0; i < 6; i++ {
+		captcha += strconv.Itoa(rand.Intn(10))
+	}
+	return captcha
 }

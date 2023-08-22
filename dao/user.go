@@ -3,6 +3,8 @@ package dao
 import (
 	"douyin/global"
 	"douyin/model"
+	"fmt"
+	"github.com/pkg/errors"
 	"gorm.io/gorm"
 	//"gorm.io/gorm"//和上一个global必须一起导入是吧
 )
@@ -17,12 +19,17 @@ import (
 //
 //	*model.User: 查询到的用户信息，如果不存在则为 nil。
 //	error: 查询过程中的错误，如果查询成功则为 nil。
-func GetUserByUsername(username string) (*model.User, error) { //原来这里传*model.User是因为nil的可能存在，必须用指针传
+func GetUserByUsername(username string) (*model.User, error) {
 	var user model.User
 
 	// 使用给定的数据库连接查询指定用户名的用户信息
-	if err := global.SERVER_DB.Where("username = ?", username).First(&user).Error; err != nil {
-		// 如果发生错误，返回 nil 用户信息和错误信息
+	err := global.SERVER_DB.Where("name = ?", username).First(&user).Error
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			// 如果未找到记录，返回自定义错误
+			return nil, fmt.Errorf("user not found")
+		}
+		// 如果发生其他错误，返回错误
 		return nil, err
 	}
 
@@ -34,5 +41,8 @@ func GetUserByUsername(username string) (*model.User, error) { //原来这里传
 func CreateUser(db *gorm.DB, user *model.User) error {
 	// 在这里执行插入操作
 	err := db.Create(user).Error
+	if err != nil {
+		fmt.Println("Error while creating user:", err)
+	} //notice：加了这两句0822
 	return err
 }

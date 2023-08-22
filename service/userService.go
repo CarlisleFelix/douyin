@@ -4,27 +4,22 @@
 package service
 
 import (
+	"douyin/config"
 	"douyin/dao"
 	"douyin/global"
 	"douyin/middleware"
 	"douyin/model"
 	"douyin/response"
-	//"gorm.io/gorm"
-
+	"fmt"
 	"golang.org/x/crypto/bcrypt"
 )
 
-var jwtKey = []byte("wenjiandakai") // 把秘钥放到txt文件，读取文件内容。避免秘钥明文显示
-
 // Login 函数用于处理用户登录逻辑
-func Login(info map[string]string) response.User_Login_Response {
-
-	// 解析数据 获取 map 中的用户名和密码
-	username := info["username"]
-	password := info["password"]
+func Login(username string, password string) response.User_Login_Response {
 
 	// 定义一个 User 变量来存储查询结果
 	user, err := dao.GetUserByUsername(username) //只要传递用户的名，查询是否存在
+	fmt.Println("err:", err, "user:", user)
 	if err != nil {
 		return response.User_Login_Response{
 			Response: response.Response{
@@ -36,7 +31,7 @@ func Login(info map[string]string) response.User_Login_Response {
 		}
 	}
 
-	// 用户名存在，获取用户信息。其中的password被使用
+	// 1:用户名存在，获取用户信息。其中的password被使用
 
 	// 使用 bcrypt.CompareHashAndPassword 检查密码是否正确
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)); err != nil {
@@ -51,7 +46,7 @@ func Login(info map[string]string) response.User_Login_Response {
 		}
 	}
 
-	// 密码正确，生成token，成功登录
+	// 2:密码正确，生成token，成功登录
 
 	// 使用 GenerateToken 函数生成 token
 	token, err := middleware.GenerateToken(user.User_id, user.User_name)
@@ -66,6 +61,8 @@ func Login(info map[string]string) response.User_Login_Response {
 		}
 	}
 
+	// 3:生成新token成功
+
 	return response.User_Login_Response{
 		Response: response.Response{
 			StatusCode: 0,
@@ -77,11 +74,7 @@ func Login(info map[string]string) response.User_Login_Response {
 }
 
 // Register 函数用于处理用户注册逻辑
-func Register(info map[string]string) response.User_Register_Response {
-	// 从请求信息中获取各项注册信息
-	username := info["username"]
-	password := info["password"]
-
+func Register(username string, password string) response.User_Register_Response {
 	// checkPassword := info["checkPassword"]	// 不知道能不能加这个
 	// // 检查两次输入的密码是否一致
 	// if password != checkPassword {
@@ -104,8 +97,16 @@ func Register(info map[string]string) response.User_Register_Response {
 	// 用户名可注册，获取用户password存储.现在user是nil
 
 	// 使用 bcrypt 对密码进行哈希处理
-	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
-	// 使用 GenerateToken 函数生成 token
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost) //密码不能为空
+	fmt.Print(hashedPassword)
+
+	// 创建新用户对象并保存到数据库
+	user = &model.User{ //Q：不知道为什么要加&，不加不行
+		User_name: username,
+		Password:  string(hashedPassword), //！notice：userid应该会自增吧，不会的话要设置
+	}
+
+	// 生成token和警告
 	token, err := middleware.GenerateToken(user.User_id, user.User_name)
 	if err != nil {
 		return response.User_Register_Response{
@@ -118,11 +119,6 @@ func Register(info map[string]string) response.User_Register_Response {
 		}
 	}
 
-	// 创建新用户对象并保存到数据库
-	user = &model.User{ //Q：不知道为什么要加&，不加不行
-		User_name: username,
-		Password:  string(hashedPassword), //！notice：userid应该会自增吧，不会的话要设置
-	}
 	// 调用 CreateUser 函数保存用户信息到数据库
 	err2 := dao.CreateUser(global.SERVER_DB, user)
 	if err2 != nil {
@@ -147,15 +143,10 @@ func Register(info map[string]string) response.User_Register_Response {
 }
 
 // UserInformation 处理查询用户信息的请求
-func UserInformation(info map[string]string) response.User_Interface_Response {
-
-	// 取出token
-	token := info["token"]
-
+func UserInformation(user_id int64, token string) response.User_Interface_Response {
 	// 检查 token 是否有效
 	account, flag := middleware.CheckToken(token)
-
-	// 无效
+	// 如果无效  但是能进入函数说明有效
 	if !flag {
 		return response.User_Interface_Response{
 			Response: response.Response{
@@ -169,6 +160,8 @@ func UserInformation(info map[string]string) response.User_Interface_Response {
 	// 解码成功，可以从 claims 中获取用户信息
 	//userid := account.UserId
 	username := account.UserName
+	fmt.Println(username)
+	fmt.Println(account)
 
 	// 用户是否存在
 	user, err := dao.GetUserByUsername(username) //只要传递用户的名，查询是否存在
@@ -192,6 +185,50 @@ func UserInformation(info map[string]string) response.User_Interface_Response {
 
 }
 
+//// SendSingleMessage 向单个手机号发送短信
+//func SendSingleMessage(captchaConfig *config.Captcha, phoneNumber string) error {
+//	// 生成验证码
+//	captcha := utils.GenerateRandomCaptcha()
+//
+//	// 将生成的验证码添加到参数列表中
+//	captchaConfig.Params = append(captchaConfig.Params, captcha)
+//
+//	// 创建一个新的短信发送实例
+//	smsSingleSender := qcloudsms.NewSMSWithAppKey(captchaConfig.AppID, captchaConfig.AppKey)
+//	params := captchaConfig.Params
+//
+//	// 使用参数发送短信
+//	result, err := smsSingleSender.SendWithParam("86", phoneNumber, captchaConfig.TemplateID, params, captchaConfig.SMSSign, "", "")
+//	if err != nil {
+//		return err
+//	}
+//
+//	fmt.Println(result)
+//	return nil
+//}
+//
+//// SendMultiMessage 向多个手机号发送短信
+//func SendMultiMessage(captchaConfig *config.Captcha, phoneNumbers []string) error {
+//	// 生成验证码
+//	captcha := utils.GenerateRandomCaptcha()
+//
+//	// 将生成的验证码添加到参数列表中
+//	captchaConfig.Params = append(captchaConfig.Params, captcha)
+//
+//	// 创建一个新的多重短信发送实例
+//	smsMultiSender := qcloudsms.NewMultiSMSWithAppKey(captchaConfig.AppID, captchaConfig.AppKey)
+//	params := captchaConfig.Params
+//
+//	// 使用参数发送短信
+//	result, err := smsMultiSender.SendWithParam("86", phoneNumbers, captchaConfig.TemplateID, params, captchaConfig.SMSSign, "", "")
+//	if err != nil {
+//		return err
+//	}
+//
+//	fmt.Println(result)
+//	return nil
+//}
+
 // 根据user信息构造userresponse结构体
 func ConvertToUserResponse(user model.User) response.User_Response {
 	userResponse := response.User_Response{
@@ -207,4 +244,14 @@ func ConvertToUserResponse(user model.User) response.User_Response {
 		FavoriteCount:   user.Favorite_count,
 	}
 	return userResponse
+}
+
+func NewCaptcha() *config.Captcha {
+	return &config.Captcha{
+		AppID:      1400836303,                         // SDK AppID
+		AppKey:     "c10f0cc531864332fda786e427ad56aa", // SDK AppKey
+		TemplateID: 1854941,                            // SMS template ID
+		SMSSign:    "小棋说三坊七巷公众号",                       // SMS sign
+		Params:     make([]string, 0),
+	}
 }
