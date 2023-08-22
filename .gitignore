@@ -1,0 +1,4 @@
+# ignore sql
+*.sql
+# ignore log
+/log/*

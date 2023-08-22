@@ -64,3 +64,4 @@
 [douyin_admin/server]2023/08/22 - 13:18:45.665	[31merror[0m	/home/yuhang/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
 [douyin_admin/server]2023/08/22 - 13:38:08.231	[31merror[0m	/home/yuhang/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection
 >>>>>>> Stashed changes
+[douyin_admin/server]2023/08/22 - 16:28:06.705	[31merror[0m	/home/yuhang/douyin/initialization/server.go:29	accept tcp [::]:8192: use of closed network connection

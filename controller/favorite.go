@@ -4,18 +4,11 @@ import (
 	"douyin/global"
 	"douyin/response"
 	"douyin/service"
-<<<<<<< HEAD
-	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
-	"net/http"
-	"strconv"
-=======
 	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
->>>>>>> yiming
 )
 
 func FavoriteAction(c *gin.Context) {
@@ -96,11 +89,7 @@ func FavoriteList(c *gin.Context) {
 				StatusMsg:  global.ErrorParamMismatch.Error(),
 			},
 		})
-<<<<<<< HEAD
-		global.SERVER_LOG.Warn("parameter mismatch!", zap.String("error", err.Error()))
-=======
 		//global.SERVER_LOG.Warn("parameter mismatch!", zap.String("error", err.Error()))
->>>>>>> yiming
 		return
 	}
 

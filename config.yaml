@@ -1,16 +1,9 @@
 # 后端基本信息
 server: # 基本配置信息
-<<<<<<< HEAD
-  env: 192.168.1.110 # 环境
-  port: 8080 # 服务监听端口
-  server_name: douyin_server # 应用名称
-  server_url: http://192.168.1.110:8080 # 应用域名
-=======
   env: local # 环境
   port: 8192 # 服务监听端口
   server_name: douyin_server # 应用名称
   server_url: http://192.168.1.102 # 应用域名
->>>>>>> yiming
   db_type: mysql # 使用的数据库
 
 # gin的运行模式
@@ -34,15 +27,9 @@ mysql: # MySQL 配置
   host: 127.0.0.1 # 服务器地址
   port: "3306" # 端口
   config: charset=utf8mb4&parseTime=True&loc=Local # 其他配置
-<<<<<<< HEAD
-  db_name: douyin # 数据库名称
-  username: root # 数据库用户名
-  password: "123456" # 数据库密码
-=======
   db_name: test # 数据库名称
   username: root # 数据库用户名
   password: "gogogo" # 数据库密码
->>>>>>> yiming
   # prefix: "t_" # 全局表前缀，单独定义 TableName 则不生效
   singular: false # 是否开启全局禁用复数，true表示不开启
   engine: "" # 引擎，默认InnoDB
@@ -70,11 +57,7 @@ pgsql: # PostgreSQL 配置
 redis: # redis 配置
   db: 0
   addr: 127.0.0.1:6379
-<<<<<<< HEAD
-  password: "123456"
-=======
   password: "gogogo"
->>>>>>> yiming
 
 cos:
   video_bucket_url: "https://video-1316481827.cos.ap-shanghai.myqcloud.com"

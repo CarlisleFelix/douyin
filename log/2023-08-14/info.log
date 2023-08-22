@@ -44,9 +44,6 @@
 [douyin_admin/server]2023/08/14 - 18:03:40.124	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
 [douyin_admin/server]2023/08/14 - 18:04:45.405	[34minfo[0m	E:/go/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
 [douyin_admin/server]2023/08/14 - 18:04:45.435	[34minfo[0m	E:/go/douyin/initialization/server.go:24	server run success on 	{"address": ":8080"}
-<<<<<<< HEAD
-=======
 [douyin_admin/server]2023/08/14 - 20:06:24.779	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
 [douyin_admin/server]2023/08/14 - 20:06:24.818	[34minfo[0m	/home/yuhang/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
 [douyin_admin/server]2023/08/14 - 20:06:36.786	[34minfo[0m	/home/yuhang/douyin/controller/user.go:106	UserLogin success!
->>>>>>> yiming
