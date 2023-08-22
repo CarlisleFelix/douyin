@@ -22,20 +22,20 @@ func GetFollowByUserId(userId1 int64, userId2 int64) bool {
 // /////////////////////////关注/////////////////////////////
 var relations = "relations"
 
-// IncreaseFollowCount 增加HostID的关注数（Host_id 的 follow_count+1）
-func IncreaseFollowCount(HostID int64) error {
+// IncreaseFollowCount 增加UserID的关注数（UserID 的 follow_count+1）
+func IncreaseFollowCount(UserID int64) error {
 	if err := global.SERVER_DB.Model(&model.User{}).
-		Where("id=?", HostID).
+		Where("id=?", UserID).
 		Update("follow_count", gorm.Expr("follow_count+?", 1)).Error; err != nil {
 		return err
 	}
 	return nil
 }
 
-// DecreaseFollowCount 减少HostID的关注数（Host_id 的 follow_count-1）
-func DecreaseFollowCount(HostID int64) error {
+// DecreaseFollowCount 减少UserID的关注数（UserID 的 follow_count-1）
+func DecreaseFollowCount(UserID int64) error {
 	if err := global.SERVER_DB.Model(&model.User{}).
-		Where("id=?", HostID).
+		Where("id=?", UserID).
 		Update("follow_count", gorm.Expr("follow_count-?", 1)).Error; err != nil {
 		return err
 	}
@@ -75,13 +75,13 @@ func DeleteFollowing(Host_id int64, Guest_id int64) error {
 }
 
 // FollowingList 获取关注表
-func FollowingList(HostID int64) ([]model.User, error) {
+func FollowingList(UserID int64) ([]model.User, error) {
 	//1.userList数据模型准备
 	var userList []model.User
 	//2.查HostID的关注表
 	err := global.SERVER_DB.Model(&model.User{}).
 		Joins("left join "+relations+" on "+users+".id = "+relations+".guest_id").
-		Where(relations+".host_id=?", HostID).
+		Where(relations+".host_id=?", UserID).
 		Scan(&userList).Error
 	return userList, err
 }
@@ -103,31 +103,31 @@ func IsFollower(Host_id int64, Guest_id int64) (err error) {
 }
 
 // FollowerList  获取粉丝表
-func FollowerList(GuestID int64) ([]model.User, error) {
+func FollowerList(UserID int64) ([]model.User, error) {
 	//1.userList数据模型准备
 	var userList []model.User
-	//2.查HostID的粉丝表
+	//2.查UserID的粉丝表
 	err := global.SERVER_DB.Model(&model.User{}).
 		Joins("left join "+followers+" on "+users+".id = "+followers+".host_id").
-		Where(followers+".guest_id=? ", GuestID).
+		Where(followers+".guest_id=? ", UserID).
 		Scan(&userList).Error
 	return userList, err
 }
 
-// IncreaseFollowerCount 增加HostID的粉丝数（Host_id 的 follow_count+1）
-func IncreaseFollowerCount(Host_id int64) error {
+// IncreaseFollowerCount 增加UserID的粉丝数（UserID 的 follower_count+1）
+func IncreaseFollowerCount(UserID int64) error {
 	if err := global.SERVER_DB.Model(&model.User{}).
-		Where("id=?", Host_id).
+		Where("id=?", UserID).
 		Update("follower_count", gorm.Expr("follower_count+?", 1)).Error; err != nil {
 		return err
 	}
 	return nil
 }
 
-// DecreaseFollowerCount 减少HostID的粉丝数（Host_id 的 follow_count-1）
-func DecreaseFollowerCount(Host_id int64) error {
+// DecreaseFollowerCount 减少UserID的粉丝数（Host_id 的 follow_count-1）
+func DecreaseFollowerCount(UserID int64) error {
 	if err := global.SERVER_DB.Model(&model.User{}).
-		Where("id=?", Host_id).
+		Where("id=?", UserID).
 		Update("follower_count", gorm.Expr("follower_count-?", 1)).Error; err != nil {
 		return err
 	}

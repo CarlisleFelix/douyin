@@ -95,7 +95,7 @@ func FollowList(c *gin.Context) {
 		ReturnFollowerList[i].FollowerCount = m.Follower_count
 		ReturnFollowerList[i].Avatar = m.Avatar
 		ReturnFollowerList[i].BackgroundImage = m.Background_image
-		ReturnFollowerList[i].IsFollow = service.IsFollowing(FuserID, m.User_id)
+		ReturnFollowerList[i].IsFollow = service.IsFollowing(userid, m.User_id)
 		ReturnFollowerList[i].TotalFavorited = m.Total_favorited
 		ReturnFollowerList[i].WorkCount = m.Work_count
 		ReturnFollowerList[i].FavoriteCount = m.Favorite_count
@@ -156,7 +156,7 @@ func FollowerList(c *gin.Context) {
 		ReturnFollowerList[i].FollowerCount = m.Follower_count
 		ReturnFollowerList[i].Avatar = m.Avatar
 		ReturnFollowerList[i].BackgroundImage = m.Background_image
-		ReturnFollowerList[i].IsFollow = service.IsFollowing(FuserID, m.User_id)
+		ReturnFollowerList[i].IsFollow = service.IsFollowing(userid, m.User_id)
 		ReturnFollowerList[i].TotalFavorited = m.Total_favorited
 		ReturnFollowerList[i].WorkCount = m.Work_count
 		ReturnFollowerList[i].FavoriteCount = m.Favorite_count
@@ -254,7 +254,7 @@ func FriendList(c *gin.Context) {
 					Name:            u.User_name,
 					FollowCount:     u.Follow_count,
 					FollowerCount:   u.Follower_count,
-					IsFollow:        service.IsFollowing(FuserID, u.User_id),
+					IsFollow:        service.IsFollowing(userid, u.User_id),
 					FavoriteCount:   u.Favorite_count,
 					Signature:       u.Signature,
 					WorkCount:       u.Work_count,
