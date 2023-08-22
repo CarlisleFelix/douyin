@@ -32,4 +32,7 @@ var (
 
 	ErrorFavoriteExist    = errors.New("视频已点赞")
 	ErrorFavoriteNotExist = errors.New("视频未点赞")
+
+	ErrorRelationExist = errors.New("关注已存在")
+	ErrorRelationNull  = errors.New("关注不存在")
 )

@@ -3,9 +3,10 @@ package controller
 import (
 	"douyin/response"
 	"douyin/service"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 func CommentAction(c *gin.Context) {

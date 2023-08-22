@@ -5,8 +5,9 @@ import (
 	"douyin/global"
 	"douyin/model"
 	"douyin/response"
-	"gorm.io/gorm"
 	"strconv"
+
+	"gorm.io/gorm"
 )
 
 func FavoriteAction(user_id int64, video_id string, action_type int32) error {
