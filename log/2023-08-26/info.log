@@ -1,0 +1,7 @@
+[douyin_admin/server]2023/08/26 - 16:04:20.943	[34minfo[0m	D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/比赛/字节-青训营/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
+[douyin_admin/server]2023/08/26 - 16:04:21.097	[34minfo[0m	D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/比赛/字节-青训营/douyin/initialization/server.go:24	server run success on 	{"address": ":8192"}
+[douyin_admin/server]2023/08/26 - 16:04:34.843	[34minfo[0m	D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/比赛/字节-青训营/douyin/controller/user.go:76	UserRegister success!
+[douyin_admin/server]2023/08/26 - 16:04:38.245	[34minfo[0m	D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/比赛/字节-青训营/douyin/controller/user.go:53	UserLogin success!
+[douyin_admin/server]2023/08/26 - 16:04:46.872	[34minfo[0m	D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/比赛/字节-青训营/douyin/controller/user.go:29	UserLogin success!
+[douyin_admin/server]2023/08/26 - 16:04:53.570	[34minfo[0m	D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/比赛/字节-青训营/douyin/controller/user.go:29	UserLogin success!
+[douyin_admin/server]2023/08/26 - 16:05:07.818	[34minfo[0m	D:/BaiduNetdiskDownload/BaiduSyncdisk/我的资料/比赛/字节-青训营/douyin/controller/user.go:53	UserLogin success!
