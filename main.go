@@ -1,6 +1,9 @@
 package main
 
-import "douyin/initialization"
+import (
+	"douyin/initialization"
+	"douyin/middleware/rabbitmq"
+)
 
 //const AppMode = "debug"
 
@@ -20,7 +23,12 @@ func main() {
 	initialization.InitializeCos()
 
 	initialization.InitializeRedis()
-
+	// 初始化rabbitMQ。
+	rabbitmq.InitRabbitMQ()
+	// 初始化Follow的相关消息队列，并开启消费。
+	rabbitmq.InitFollowRabbitMQ()
+	//初始化Comment的消息队列，并开启消费
+	rabbitmq.InitCommentRabbitMQ()
 	// TODO：5.开启服务器
 	initialization.RunServer()
 }

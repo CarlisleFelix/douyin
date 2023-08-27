@@ -2,6 +2,7 @@ package global
 
 import (
 	"douyin/config"
+	"sync"
 
 	"github.com/go-redis/redis"
 	"github.com/spf13/viper"
@@ -19,4 +20,6 @@ var (
 	SERVER_COS_COVER  *cos.Client
 	SERVER_COS_AVATAR *cos.Client
 	SERVER_REDIS      *redis.Client
+	GlobalConfig      config.Configuration
+	Wg                sync.WaitGroup
 )

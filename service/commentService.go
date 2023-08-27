@@ -3,11 +3,13 @@ package service
 import (
 	"douyin/dao"
 	"douyin/global"
+	"douyin/middleware/rabbitmq"
 	"douyin/model"
 	"douyin/response"
 	"douyin/utils"
 	"fmt"
 	"net/http"
+	"strconv"
 	"time"
 
 	"go.uber.org/zap"
@@ -153,6 +155,9 @@ func DeleteComment(userID int64, videoID int64, commentID int64) (response.Comme
 			Comment_Response: response.Comment_Response{},
 		}
 	}
+	//使用mq进行数据库中评论的删除-评论状态更新
+	//评论id传入消息队列
+	rabbitmq.RmqCommentDel.Publish(strconv.FormatInt(commentID, 10))
 	return commentActionResponse, err
 }
 

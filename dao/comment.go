@@ -34,6 +34,9 @@ func CreateComment(comment *model.Comment) error {
 // DeleteCommentById 根据id删除评论
 func DeleteCommentById(commentID int64) error {
 	err := global.SERVER_DB.Where("id = ?", commentID).Delete(model.Comment{}).Error
+	//使用mq进行数据库中评论的删除-评论状态更新
+	//评论id传入消息队列
+	// rabbitmq.RmqCommentDel.Publish(strconv.FormatInt(commentID, 10))
 	return err
 }
 

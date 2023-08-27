@@ -3,8 +3,12 @@ package service
 import (
 	"douyin/dao"
 	"douyin/global"
+	"douyin/middleware/rabbitmq"
 	"douyin/model"
 	"errors"
+	"log"
+	"strconv"
+	"strings"
 
 	"gorm.io/gorm"
 )
@@ -39,6 +43,14 @@ func FollowAction(UserID int64, ToUserID int64, actionType int64) error {
 		} else {
 			//关注不存在,创建关注(启用事务Transaction)
 			err1 := global.SERVER_DB.Transaction(func(db *gorm.DB) error {
+				// 加信息打入消息队列。
+				sb := strings.Builder{}
+				sb.WriteString(strconv.Itoa(int(UserID)))
+				sb.WriteString(" ")
+				sb.WriteString(strconv.Itoa(int(ToUserID)))
+				rabbitmq.RmqFollowAdd.Publish(sb.String())
+				// 记录日志
+				log.Println("消息打入成功。")
 				err := dao.CreateFollowing(UserID, ToUserID)
 				if err != nil {
 					return err
@@ -65,6 +77,14 @@ func FollowAction(UserID int64, ToUserID int64, actionType int64) error {
 		if dao.GetFollowByUserId(UserID, ToUserID) {
 			//关注存在,删除关注(启用事务Transaction)
 			if err1 := global.SERVER_DB.Transaction(func(db *gorm.DB) error {
+				// 加信息打入消息队列。
+				sb := strings.Builder{}
+				sb.WriteString(strconv.Itoa(int(UserID)))
+				sb.WriteString(" ")
+				sb.WriteString(strconv.Itoa(int(ToUserID)))
+				rabbitmq.RmqFollowDel.Publish(sb.String())
+				// 记录日志
+				log.Println("消息打入成功。")
 				err := dao.DeleteFollowing(UserID, ToUserID)
 				if err != nil {
 					return err
