@@ -35,4 +35,7 @@ var (
 
 	ErrorRelationExist = errors.New("关注已存在")
 	ErrorRelationNull  = errors.New("关注不存在")
+
+	ErrorCacheMiss          = errors.New("缓存未命中")
+	ErrorRedisOperationFail = errors.New("redis操作发生错误")
 )

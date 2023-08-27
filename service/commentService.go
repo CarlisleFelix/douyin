@@ -3,6 +3,7 @@ package service
 import (
 	"douyin/dao"
 	"douyin/global"
+	"douyin/middleware"
 	"douyin/model"
 	"douyin/response"
 	"douyin/utils"
@@ -181,6 +182,18 @@ func GetCommentList(videoID int64, userID int64) ([]response.Comment_Response, e
 			continue // 继续处理下一个评论
 		}
 
+		isFollow, err := middleware.GetUserRelationState(userID, commenter.User_id)
+		//没有该记录,查询后设置
+		if err == global.ErrorCacheMiss {
+			isFollow = dao.GetFollowByUserId(userID, commenter.User_id)
+			go middleware.SetUserRelation(userID, commenter.User_id, isFollow)
+			//redis操作出错 从数据库中查询
+		} else if err != nil {
+			isFollow = dao.GetFollowByUserId(userID, commenter.User_id)
+			global.SERVER_LOG.Warn("redis operation fail!")
+		}
+		//正常从redis中取出数据
+
 		// 构建Comment_Response中嵌套的User_Response字段
 		userResponse := response.User_Response{
 			Id:              commenter.User_id,
@@ -188,6 +201,7 @@ func GetCommentList(videoID int64, userID int64) ([]response.Comment_Response, e
 			BackgroundImage: commenter.Background_image,
 			FavoriteCount:   commenter.Favorite_count,
 			FollowCount:     commenter.Follow_count,
+			IsFollow:        isFollow,
 			FollowerCount:   commenter.Follower_count,
 			Name:            commenter.User_name,
 			Signature:       commenter.Signature,
@@ -196,7 +210,7 @@ func GetCommentList(videoID int64, userID int64) ([]response.Comment_Response, e
 		}
 		//查询该用户是否被关注
 
-		userResponse.IsFollow = dao.GetFollowByUserId(userID, commenter.User_id)
+		//userResponse.IsFollow = dao.GetFollowByUserId(userID, commenter.User_id)
 
 		commentResponse := response.Comment_Response{
 			Id:         comment.Comment_id,
@@ -206,5 +220,5 @@ func GetCommentList(videoID int64, userID int64) ([]response.Comment_Response, e
 		}
 		commentList = append(commentList, commentResponse)
 	}
-	return commentList, err
+	return commentList, nil
 }

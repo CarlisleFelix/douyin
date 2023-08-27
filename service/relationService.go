@@ -3,6 +3,7 @@ package service
 import (
 	"douyin/dao"
 	"douyin/global"
+	"douyin/middleware"
 	"douyin/model"
 	"errors"
 
@@ -15,7 +16,18 @@ func IsFollowing(UserID int64, ToUserID int64) bool {
 	if UserID == ToUserID {
 		return false
 	}
-	return dao.GetFollowByUserId(UserID, ToUserID)
+	//先从redis里面取出
+	isFollow, err := middleware.GetUserRelationState(UserID, ToUserID)
+	//没有该记录,查询后设置
+	if err == global.ErrorCacheMiss {
+		isFollow = dao.GetFollowByUserId(UserID, ToUserID)
+		go middleware.SetUserRelation(UserID, ToUserID, isFollow)
+		//redis操作出错 从数据库中查询
+	} else if err != nil {
+		isFollow = dao.GetFollowByUserId(UserID, ToUserID)
+		global.SERVER_LOG.Warn("redis operation fail!")
+	}
+	return isFollow
 }
 
 // FollowingList 获取关注表
@@ -30,10 +42,21 @@ func FollowingList(UserID int64) ([]model.User, error) {
 
 // FollowAction 关注操作
 func FollowAction(UserID int64, ToUserID int64, actionType int64) error {
+	//先从redis里面取出
+	haveFollowed, err := middleware.GetUserRelationState(UserID, ToUserID)
+	//没有该记录,查询后设置
+	if err == global.ErrorCacheMiss {
+		haveFollowed = dao.GetFollowByUserId(UserID, ToUserID)
+		go middleware.SetUserRelation(UserID, ToUserID, haveFollowed)
+		//redis操作出错 从数据库中查询
+	} else if err != nil {
+		haveFollowed = dao.GetFollowByUserId(UserID, ToUserID)
+		global.SERVER_LOG.Warn("redis operation fail!")
+	}
 	//创建关注操作
 	if actionType == 1 {
 		//判断关注是否存在
-		if dao.GetFollowByUserId(UserID, ToUserID) {
+		if haveFollowed {
 			//关注存在
 			return global.ErrorRelationExist
 		} else {
@@ -58,11 +81,12 @@ func FollowAction(UserID int64, ToUserID int64, actionType int64) error {
 			if err1 != nil {
 				return err1
 			}
+			go middleware.SetUserRelation(UserID, ToUserID, true)
 		}
 	}
 	if actionType == 2 {
 		//判断关注是否存在
-		if dao.GetFollowByUserId(UserID, ToUserID) {
+		if haveFollowed {
 			//关注存在,删除关注(启用事务Transaction)
 			if err1 := global.SERVER_DB.Transaction(func(db *gorm.DB) error {
 				err := dao.DeleteFollowing(UserID, ToUserID)
@@ -83,7 +107,7 @@ func FollowAction(UserID int64, ToUserID int64, actionType int64) error {
 			}); err1 != nil {
 				return err1
 			}
-
+			go middleware.SetUserRelation(UserID, ToUserID, false)
 		} else {
 			//关注不存在
 			return global.ErrorRelationNull

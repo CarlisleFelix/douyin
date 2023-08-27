@@ -5,6 +5,7 @@ import (
 	"context"
 	"douyin/dao"
 	"douyin/global"
+	"douyin/middleware"
 	"douyin/model"
 	"douyin/response"
 	"fmt"
@@ -96,7 +97,19 @@ func PublishListService(queryUserId int64, hostUserId int64) ([]response.Video_R
 	}
 
 	queryUser, _ := dao.GetUserById(queryUserId)
-	isFollow := dao.GetFollowByUserId(hostUserId, queryUserId)
+
+	//先从redis里面取出
+	isFollow, err := middleware.GetUserRelationState(hostUserId, queryUserId)
+	//没有该记录,查询后设置
+	if err == global.ErrorCacheMiss {
+		isFollow = dao.GetFollowByUserId(hostUserId, queryUserId)
+		go middleware.SetUserRelation(hostUserId, queryUserId, isFollow)
+		//redis操作出错 从数据库中查询
+	} else if err != nil {
+		isFollow = dao.GetFollowByUserId(hostUserId, queryUserId)
+		global.SERVER_LOG.Warn("redis operation fail!")
+	}
+
 	//author
 	userResponse := response.User_Response{
 		Id:              queryUser.User_id,
@@ -124,6 +137,19 @@ func PublishListService(queryUserId int64, hostUserId int64) ([]response.Video_R
 		return nil, nil
 	}
 	for i := 0; i < len(videos); i++ {
+
+		//先从redis里面取出
+		isFavorite, err := middleware.GetVideoFavoriteState(hostUserId, videos[i].Video_id)
+		//没有该记录,查询后设置
+		if err == global.ErrorCacheMiss {
+			isFavorite = dao.GetifFavorite(hostUserId, videos[i].Video_id)
+			go middleware.SetVideoFavoriteState(hostUserId, videos[i].Video_id, isFavorite)
+			//redis操作出错 从数据库中查询
+		} else if err != nil {
+			isFavorite = dao.GetifFavorite(hostUserId, videos[i].Video_id)
+			global.SERVER_LOG.Warn("redis operation fail!")
+		}
+
 		responseVideo := response.Video_Response{
 			Id:            videos[i].Video_id,
 			Author:        userResponse,
@@ -131,12 +157,12 @@ func PublishListService(queryUserId int64, hostUserId int64) ([]response.Video_R
 			CoverUrl:      videos[i].Cover_url,
 			FavoriteCount: videos[i].Favorite_count,
 			CommentCount:  videos[i].Comment_count,
-			IsFavorite:    dao.GetifFavorite(hostUserId, videos[i].Video_id),
+			IsFavorite:    isFavorite,
 			Title:         videos[i].Title,
 		}
 		videoList = append(videoList, responseVideo)
 	}
-	return videoList, err
+	return videoList, nil
 }
 
 func UserIdExists(userId int64) bool {
@@ -194,18 +220,42 @@ func FeedService(userId int64, latestTime int64) ([]response.Video_Response, int
 	for i := 0; i < len(videos); i++ {
 		//有问题，得考虑作者不存在的情况..
 		author, _ := dao.GetUserById(videos[i].Author_id)
+
+		//先从redis里面取出
+		isFollow, err := middleware.GetUserRelationState(userId, author.User_id)
+		//没有该记录,查询后设置
+		if err == global.ErrorCacheMiss {
+			isFollow = dao.GetFollowByUserId(userId, author.User_id)
+			go middleware.SetUserRelation(userId, author.User_id, isFollow)
+			//redis操作出错 从数据库中查询
+		} else if err != nil {
+			isFollow = dao.GetFollowByUserId(userId, author.User_id)
+			global.SERVER_LOG.Warn("redis operation fail!")
+		}
+
 		userResponse := response.User_Response{
 			Id:              author.User_id,
 			Name:            author.User_name,
 			FollowCount:     author.Follow_count,
 			FollowerCount:   author.Follower_count,
-			IsFollow:        dao.GetFollowByUserId(userId, author.User_id),
+			IsFollow:        isFollow,
 			Avatar:          author.Avatar,
 			BackgroundImage: author.Background_image,
 			Signature:       author.Signature,
 			TotalFavorited:  author.Total_favorited,
 			WorkCount:       author.Work_count,
 			FavoriteCount:   author.Favorite_count,
+		}
+		//先从redis里面取出
+		isFavorite, err := middleware.GetVideoFavoriteState(userId, videos[i].Video_id)
+		//没有该记录,查询后设置
+		if err == global.ErrorCacheMiss {
+			isFavorite = dao.GetifFavorite(userId, videos[i].Video_id)
+			go middleware.SetVideoFavoriteState(userId, videos[i].Video_id, isFavorite)
+			//redis操作出错 从数据库中查询
+		} else if err != nil {
+			isFavorite = dao.GetifFavorite(userId, videos[i].Video_id)
+			global.SERVER_LOG.Warn("redis operation fail!")
 		}
 
 		responseVideo := response.Video_Response{
@@ -215,7 +265,7 @@ func FeedService(userId int64, latestTime int64) ([]response.Video_Response, int
 			CoverUrl:      videos[i].Cover_url,
 			FavoriteCount: videos[i].Favorite_count,
 			CommentCount:  videos[i].Comment_count,
-			IsFavorite:    dao.GetifFavorite(userId, videos[i].Video_id),
+			IsFavorite:    isFavorite,
 			Title:         videos[i].Title,
 		}
 
@@ -224,5 +274,5 @@ func FeedService(userId int64, latestTime int64) ([]response.Video_Response, int
 			nextTime = videos[i].Publish_time
 		}
 	}
-	return videoList, nextTime, err
+	return videoList, nextTime, nil
 }

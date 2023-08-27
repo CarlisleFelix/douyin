@@ -88,6 +88,11 @@ func DeleteFavorite(favorite model.Favorite) error {
 	return err
 }
 
+func DeleteFavoriteNew(userId int64, videoId int64) error {
+	err := global.SERVER_DB.Where("user_id = ? and video_id = ?", userId, videoId).Delete(&model.Favorite{}).Error
+	return err
+}
+
 func SearchFavoriteList(user_id int64) (favorite []model.Favorite, err error) {
 	err = global.SERVER_DB.Where("user_id = ?", user_id).Find(&favorite).Error
 	return

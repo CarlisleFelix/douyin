@@ -1,6 +1,8 @@
 package main
 
-import "douyin/initialization"
+import (
+	"douyin/initialization"
+)
 
 //const AppMode = "debug"
 

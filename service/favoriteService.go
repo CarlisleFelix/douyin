@@ -3,6 +3,7 @@ package service
 import (
 	"douyin/dao"
 	"douyin/global"
+	"douyin/middleware"
 	"douyin/model"
 	"douyin/response"
 	"strconv"
@@ -46,7 +47,19 @@ func FavoriteAction(user_id int64, video_id string, action_type int32) error {
 	}
 
 	// 根据user_id,video_id查找点赞信息
-	favorite, err := dao.SearchFavorite(user_id, videoId)
+	//先从redis里面取出
+	isFavorite, err := middleware.GetVideoFavoriteState(user_id, videoId)
+	//没有该记录,查询后设置
+	if err == global.ErrorCacheMiss {
+		isFavorite = dao.GetifFavorite(user_id, videoId)
+		go middleware.SetVideoFavoriteState(user_id, videoId, isFavorite)
+		//redis操作出错 从数据库中查询
+	} else if err != nil {
+		isFavorite = dao.GetifFavorite(user_id, videoId)
+		global.SERVER_LOG.Warn("redis operation fail!")
+	}
+
+	//favorite, err := dao.SearchFavorite(user_id, videoId)
 
 	// 开始执行
 	tx := global.SERVER_DB.Begin()
@@ -55,7 +68,7 @@ func FavoriteAction(user_id int64, video_id string, action_type int32) error {
 	if action_type == 1 {
 		// 如果是点赞操作
 		// 先查询是否已经点赞
-		if err == gorm.ErrRecordNotFound {
+		if !isFavorite {
 			// 如果未点赞，则将点赞信息存储到表中
 			// 视频点赞数+1
 			err = dao.UpdateVideo(video, action_type)
@@ -79,6 +92,8 @@ func FavoriteAction(user_id int64, video_id string, action_type int32) error {
 			// 创建点赞记录
 			err = dao.CreateFavorite(user_id, videoId)
 			// 根据状态码判断点赞操作是否成功
+			go middleware.SetVideoFavoriteState(user_id, videoId, true)
+
 			if err != nil {
 				tx.Rollback()
 				return err
@@ -93,7 +108,7 @@ func FavoriteAction(user_id int64, video_id string, action_type int32) error {
 		}
 	} else {
 		// 如果是取消点赞操作，先查询表中是否存在点赞记录，
-		if err == gorm.ErrRecordNotFound {
+		if !isFavorite {
 			// 如果不存在，则返回异常
 			tx.Rollback()
 			return global.ErrorFavoriteNotExist
@@ -119,8 +134,10 @@ func FavoriteAction(user_id int64, video_id string, action_type int32) error {
 			}
 
 			// 删除点赞记录
-			err = dao.DeleteFavorite(favorite)
+			err = dao.DeleteFavoriteNew(user_id, videoId)
 			// 根据状态码判断操作是否成功
+
+			go middleware.SetVideoFavoriteState(user_id, videoId, false)
 			if err != nil {
 				tx.Rollback()
 				return err
@@ -159,19 +176,31 @@ func FavoriteList(user_id int64) (videoList []response.Video_Response, err error
 		if err != nil {
 			return nil, err
 		}
-		// 获取关注信息
-		err = dao.SearchRelation(user_id, user.User_id)
-		if err != nil {
-			return nil, err
-		}
+		// // 获取关注信息
+		// err = dao.SearchRelation(user_id, user.User_id)
+		// if err != nil {
+		// 	return nil, err
+		// }
 
-		var IsFollow bool
-		// 设置关注信息
-		if err == gorm.ErrRecordNotFound {
-			IsFollow = false
-		} else {
-			IsFollow = true
+		// var IsFollow bool
+		// // 设置关注信息
+		// if err == gorm.ErrRecordNotFound {
+		// 	IsFollow = false
+		// } else {
+		// 	IsFollow = true
+		// }
+
+		isFollow, err := middleware.GetUserRelationState(user_id, user.User_id)
+		//没有该记录,查询后设置
+		if err == global.ErrorCacheMiss {
+			isFollow = dao.GetFollowByUserId(user_id, user.User_id)
+			go middleware.SetUserRelation(user_id, user.User_id, isFollow)
+			//redis操作出错 从数据库中查询
+		} else if err != nil {
+			isFollow = dao.GetFollowByUserId(user_id, user.User_id)
+			global.SERVER_LOG.Warn("redis operation fail!")
 		}
+		//正常从redis中取出数据
 
 		videoList[i] = response.Video_Response{
 			Id: video.Video_id,
@@ -181,7 +210,7 @@ func FavoriteList(user_id int64) (videoList []response.Video_Response, err error
 				Name:            user.User_name,
 				FollowCount:     user.Follow_count,
 				FollowerCount:   user.Follower_count,
-				IsFollow:        IsFollow,
+				IsFollow:        isFollow,
 				Avatar:          user.Avatar,
 				BackgroundImage: user.Background_image,
 				Signature:       user.Signature,

@@ -3,10 +3,10 @@ package service
 import (
 	"douyin/dao"
 	"douyin/global"
+	"douyin/middleware"
 	"douyin/model"
 	"douyin/response"
 	"douyin/utils"
-	"fmt"
 
 	"gorm.io/gorm"
 )
@@ -112,17 +112,30 @@ func CheckUserPassword(userName string, passWord string, loginUser *model.User) 
 func UserService(queryUserId int64, hostUserId int64) (response.User_Response, error) {
 	userResponse := response.User_Response{}
 	queryUser, err := dao.GetUserById(queryUserId)
-	isFollow := dao.GetFollowByUserId(hostUserId, queryUserId)
-	fmt.Println("isFolllow:", isFollow)
-	if err != nil {
-		return userResponse, err
+	//先从redis里面取出
+	isFollow, err := middleware.GetUserRelationState(hostUserId, queryUserId)
+	//没有该记录,查询后设置
+	if err == global.ErrorCacheMiss {
+		isFollow = dao.GetFollowByUserId(hostUserId, queryUserId)
+		//fmt.Printf("isfollow:%+v\n", isFollow)
+		go middleware.SetUserRelation(hostUserId, queryUserId, isFollow)
+		//redis操作出错 从数据库中查询
+	} else if err != nil {
+		isFollow = dao.GetFollowByUserId(hostUserId, queryUserId)
+		global.SERVER_LOG.Warn("redis operation fail!")
 	}
+
+	//isFollow, err = middleware.GetUserRelationState(hostUserId, queryUserId)
+	//fmt.Printf("isfollow:%+v\n", isFollow)
+	//fmt.Printf("err:%+v", err.Error())
+
+	//正常从redis中取出数据
 	userResponse = response.User_Response{
 		Id:              queryUser.User_id,
 		Name:            queryUser.User_name,
 		FollowCount:     queryUser.Follow_count,
 		FollowerCount:   queryUser.Follower_count,
-		IsFollow:        true,
+		IsFollow:        isFollow,
 		Avatar:          queryUser.Avatar,
 		BackgroundImage: queryUser.Background_image,
 		Signature:       queryUser.Signature,
@@ -130,5 +143,5 @@ func UserService(queryUserId int64, hostUserId int64) (response.User_Response, e
 		WorkCount:       queryUser.Work_count,
 		FavoriteCount:   queryUser.Favorite_count,
 	}
-	return userResponse, err
+	return userResponse, nil
 }

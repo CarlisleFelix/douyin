@@ -1,10 +1,11 @@
 package initialization
 
 import (
+	"context"
 	"douyin/global"
 	"fmt"
 
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 	"go.uber.org/zap"
 )
 
@@ -15,7 +16,7 @@ func InitializeRedis() {
 		Password: redisCfg.Password, // no password set
 		DB:       redisCfg.DB,       // use default DB
 	})
-	pong, err := client.Ping().Result()
+	pong, err := client.Ping(context.Background()).Result()
 	if err != nil {
 		global.SERVER_LOG.Error("redis connect ping failed, err:", zap.Error(err))
 	} else {

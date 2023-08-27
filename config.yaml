@@ -3,7 +3,7 @@ server: # 基本配置信息
   env: local # 环境
   port: 8192 # 服务监听端口
   server_name: douyin_server # 应用名称
-  server_url: http://192.168.1.102 # 应用域名
+  server_url: http://192.168.1.101 # 应用域名
   db_type: mysql # 使用的数据库
 
 # gin的运行模式

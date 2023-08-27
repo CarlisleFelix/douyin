@@ -3,7 +3,7 @@ package global
 import (
 	"douyin/config"
 
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 	"github.com/spf13/viper"
 	"github.com/tencentyun/cos-go-sdk-v5"
 	"go.uber.org/zap"
