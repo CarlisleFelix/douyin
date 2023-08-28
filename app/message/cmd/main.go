@@ -1,17 +1,15 @@
-package main
+package cmd
 
 import (
-	"fmt"
-	"net"
-
-	"github.com/sirupsen/logrus"
-	"google.golang.org/grpc"
-
-	"douyin/app/favorite/internal/controller"
-	"douyin/app/favorite/internal/dal/dao"
+	"douyin/app/message/internal/controller"
+	"douyin/app/message/internal/dal/dao"
 	"douyin/config"
 	"douyin/discovery"
-	pb "douyin/idl/pb/favorite"
+	pb "douyin/idl/pb/message"
+	"fmt"
+	"github.com/sirupsen/logrus"
+	"google.golang.org/grpc"
+	"net"
 )
 
 func main() {
@@ -21,16 +19,16 @@ func main() {
 	etcdAddress := []string{config.Conf.Etcd.Address}
 	// 服务注册
 	etcdRegister := discovery.NewRegister(etcdAddress, logrus.New())
-	grpcAddress := config.Conf.Services["favorite"].Addr[0]
+	grpcAddress := config.Conf.Services["message"].Addr[0]
 	defer etcdRegister.Stop()
 	userNode := discovery.Server{
-		Name: config.Conf.Domain["favorite"].Name,
+		Name: config.Conf.Domain["message"].Name,
 		Addr: grpcAddress,
 	}
 	server := grpc.NewServer()
 	defer server.Stop()
 	// 绑定service
-	pb.RegisterFavoriteServiceServer(server, controller.GetFavoriteSrv())
+	pb.RegisterMessageServiceServer(server, controller.GetMessageSrv())
 	lis, err := net.Listen("tcp", grpcAddress)
 	if err != nil {
 		panic(err)

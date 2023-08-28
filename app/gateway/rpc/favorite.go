@@ -2,18 +2,17 @@ package rpc
 
 import (
 	"context"
-	favoritePb "douyin/idl/pb/favorite"
+	pb "douyin/idl/pb/favorite"
 	"errors"
 )
 
 var SUCCESS int32 = 200
 
-// 处理调用rpc时产生的错误
-func FavoriteAction(ctx context.Context, req *favoritePb.DouyinFavoriteActionRequest) (resp *favoritePb.DouyinFavoriteActionResponse, err error) {
-	r, err := FavoriteClient.FavoriteAction(ctx, req)
+func IsFavorite(ctx context.Context, req *pb.DouyinIsFavoriteRequest) (resp *pb.DouyinIsFavoriteResponse, err error) {
+	r, err := FavoriteClient.IsFavorite(ctx, req)
 
 	if err != nil {
-		return
+		return nil, err
 	}
 
 	//if *r.StatusCode != SUCCESS {
@@ -24,11 +23,27 @@ func FavoriteAction(ctx context.Context, req *favoritePb.DouyinFavoriteActionReq
 	return r, nil
 }
 
-func FavoriteList(ctx context.Context, req *favoritePb.DouyinFavoriteListRequest) (resp *favoritePb.DouyinFavoriteListResponse, err error) {
+// 处理调用rpc时产生的错误
+func FavoriteAction(ctx context.Context, req *pb.DouyinFavoriteActionRequest) (resp *pb.DouyinFavoriteActionResponse, err error) {
+	r, err := FavoriteClient.FavoriteAction(ctx, req)
+
+	if err != nil {
+		return nil, err
+	}
+
+	//if *r.StatusCode != SUCCESS {
+	//	err = errors.New(*r.StatusMsg)
+	//	return
+	//}
+
+	return r, nil
+}
+
+func FavoriteList(ctx context.Context, req *pb.DouyinFavoriteListRequest) (resp *pb.DouyinFavoriteListResponse, err error) {
 	r, err := FavoriteClient.FavoriteList(ctx, req)
 
 	if err != nil {
-		return
+		return nil, err
 	}
 
 	if *r.StatusCode != SUCCESS {

@@ -9,7 +9,7 @@ import (
 var Conf *Config
 
 type Config struct {
-	Server   *Server             `yaml:"server"`
+	Server   *Server             `yaml:"global"`
 	MySQL    *MySQL              `yaml:"mysql"`
 	PgSQL    *PgSQL              `yaml:"pgsql"`
 	Zap      *Zap                `yaml:"zap"`

@@ -119,7 +119,7 @@ func (c *userServiceClient) UpdateFollowerCount(ctx context.Context, in *DouyinF
 	return out, nil
 }
 
-// UserServiceServer is the server API for UserService service.
+// UserServiceServer is the global API for UserService service.
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility
 type UserServiceServer interface {

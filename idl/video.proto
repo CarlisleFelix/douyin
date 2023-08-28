@@ -13,6 +13,8 @@ service VideoService{
   rpc Feed(douyin_feed_request) returns(douyin_feed_response);
   // 视频投稿
   rpc PublishAction(douyin_publish_action_request) returns(douyin_publish_action_response);
+  // 视频列表
+  rpc PublishList(douyin_publish_list_request) returns(douyin_publish_list_response);
 }
 
 // 更新视频评论
@@ -70,6 +72,18 @@ message douyin_publish_action_request {
 message douyin_publish_action_response {
   required int32 status_code = 1; // 状态码，0-成功，其他值-失败
   optional string status_msg = 2; // 返回状态描述
+}
+
+// 视频列表
+message douyin_publish_list_request {
+  required int64 user_id = 1; // 用户id
+  required string token = 2; // 用户鉴权token
+}
+
+message douyin_publish_list_response {
+  required int32 status_code = 1; // 状态码，0-成功，其他值-失败
+  optional string status_msg = 2; // 返回状态描述
+  repeated Video video_list = 3; // 用户发布的视频列表
 }
 
 message Video {

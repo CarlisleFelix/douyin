@@ -59,7 +59,7 @@ func (c *commentServiceClient) CommentList(ctx context.Context, in *DouyinCommen
 	return out, nil
 }
 
-// CommentServiceServer is the server API for CommentService service.
+// CommentServiceServer is the global API for CommentService service.
 // All implementations must embed UnimplementedCommentServiceServer
 // for forward compatibility
 type CommentServiceServer interface {

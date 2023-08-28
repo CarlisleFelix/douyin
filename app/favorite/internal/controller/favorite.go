@@ -23,6 +23,10 @@ func GetFavoriteSrv() *FavoriteSrv {
 
 // 具体实现proto中定义的服务
 
+func (f *FavoriteSrv) IsFavorite(ctx context.Context, req *pb.DouyinIsFavoriteRequest) (resp *pb.DouyinIsFavoriteResponse, err error) {
+
+}
+
 func (f *FavoriteSrv) FavoriteAction(ctx context.Context, req *pb.DouyinFavoriteActionRequest) (resp *pb.DouyinFavoriteActionResponse, err error) {
 	fmt.Println("成功调用点赞服务")
 	resp = new(pb.DouyinFavoriteActionResponse)

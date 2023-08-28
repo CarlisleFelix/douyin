@@ -1,12 +1,12 @@
 syntax = "proto2";
 package douyin.idl.chat;
-option go_package = "chat/";
+option go_package = "message/";
 
-service ChatService{
+service MessageService{
   // 聊天记录
   rpc MessageChat(douyin_message_chat_request) returns(douyin_message_chat_response);
   // 消息操作
-  rpc RelationAction(douyin_relation_action_request) returns(douyin_relation_action_response);
+  rpc MessageAction(douyin_message_action_request) returns(douyin_message_action_response);
 }
 
 // 聊天记录
@@ -23,14 +23,14 @@ message douyin_message_chat_response {
 }
 
 // 消息操作
-message douyin_relation_action_request {
+message douyin_message_action_request {
   required int64 user_id = 1; // 用户id
   required int64 to_user_id = 2; // 对方用户id
   required int32 action_type = 3; // 1-发送消息
   required string content = 4; // 消息内容
 }
 
-message douyin_relation_action_response {
+message douyin_message_action_response {
   required int32 status_code = 1; // 状态码，0-成功，其他值-失败
   optional string status_msg = 2; // 返回状态描述
 }

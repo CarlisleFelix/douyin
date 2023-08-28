@@ -68,7 +68,7 @@ func (c *favoriteServiceClient) FavoriteList(ctx context.Context, in *DouyinFavo
 	return out, nil
 }
 
-// FavoriteServiceServer is the server API for FavoriteService service.
+// FavoriteServiceServer is the global API for FavoriteService service.
 // All implementations must embed UnimplementedFavoriteServiceServer
 // for forward compatibility
 type FavoriteServiceServer interface {

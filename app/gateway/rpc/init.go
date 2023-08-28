@@ -2,6 +2,10 @@ package rpc
 
 import (
 	"context"
+	"douyin/idl/pb/comment"
+	"douyin/idl/pb/message"
+	"douyin/idl/pb/relation"
+	"douyin/idl/pb/video"
 	"fmt"
 	"log"
 	"time"
@@ -22,8 +26,12 @@ var (
 	Register       *discovery.Resolver
 	ctx            context.Context
 	CancelFunc     context.CancelFunc
+	MessageClient  message.MessageServiceClient
+	CommentClient  comment.CommentServiceClient
 	FavoriteClient favorite.FavoriteServiceClient
+	RelationClient relation.RelationServiceClient
 	UserClient     user.UserServiceClient
+	VideoClient    video.VideoServiceClient
 )
 
 func Init() {

@@ -13,7 +13,7 @@ server: # 基本配置信息
 # 日志
 zap:
   level: info # 日志级别
-  prefix: '[douyin_admin/server]' # 日志前缀
+  prefix: '[douyin_admin/global]' # 日志前缀
   format: console # 输出
   director: log # 日志存放的文件
   encode_level: LowercaseColorLevelEncoder # 编码级别

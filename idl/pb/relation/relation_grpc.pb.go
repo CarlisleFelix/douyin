@@ -95,7 +95,7 @@ func (c *relationServiceClient) RelationFriendList(ctx context.Context, in *Douy
 	return out, nil
 }
 
-// RelationServiceServer is the server API for RelationService service.
+// RelationServiceServer is the global API for RelationService service.
 // All implementations must embed UnimplementedRelationServiceServer
 // for forward compatibility
 type RelationServiceServer interface {
