@@ -66,3 +66,8 @@ cos:
   secretid: "AKIDOdiW6RYZmwsc9Ykv3zjJhsrdFftzBICt"
   secretkey: "oT5faQ7jCYt8JMONCyZ08jT7Xp4GSWNB"
 
+jaeger:
+  endpoint: "http://192.168.1.101:14268/api/traces"
+  environment: "production"
+  servicename: "douyin"
+  id: 1

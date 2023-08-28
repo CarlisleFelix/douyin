@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"douyin/global"
 	"douyin/response"
 	"douyin/service"
 	"net/http"
@@ -10,6 +11,10 @@ import (
 )
 
 func CommentAction(c *gin.Context) {
+
+	ctx, span := global.SERVER_COMMENT_TRACER.Start(c.Request.Context(), "commentaction controller")
+	defer span.End()
+
 	// 获取请求参数
 	videoID, err := strconv.ParseInt(c.Query("video_id"), 10, 64)
 	if err != nil {
@@ -34,7 +39,7 @@ func CommentAction(c *gin.Context) {
 
 	// 判断操作类型
 	if actionType == "1" {
-		commentActionResponse, _ := service.CreateComment(userID, videoID, commentText)
+		commentActionResponse, _ := service.CreateComment(userID, videoID, commentText, ctx)
 		c.JSON(http.StatusOK, commentActionResponse)
 
 	} else if actionType == "2" {
@@ -46,7 +51,7 @@ func CommentAction(c *gin.Context) {
 			})
 			return
 		}
-		commentActionResponse, _ := service.DeleteComment(userID, videoID, commentID)
+		commentActionResponse, _ := service.DeleteComment(userID, videoID, commentID, ctx)
 		c.JSON(http.StatusOK, commentActionResponse)
 	}
 
@@ -54,6 +59,10 @@ func CommentAction(c *gin.Context) {
 }
 
 func CommentList(c *gin.Context) {
+
+	ctx, span := global.SERVER_COMMENT_TRACER.Start(c.Request.Context(), "commentlist controller")
+	defer span.End()
+
 	videoID, err := strconv.ParseInt(c.Query("video_id"), 10, 64)
 	if err != nil {
 		// 处理videoID解析错误
@@ -73,7 +82,7 @@ func CommentList(c *gin.Context) {
 	}
 
 	// 将获取到的评论添加到commentList列表中
-	commentList, _ := service.GetCommentList(videoID, userID)
+	commentList, _ := service.GetCommentList(videoID, userID, ctx)
 	// 返回response
 	c.JSON(http.StatusOK,
 		response.Comment_List_Response{

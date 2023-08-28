@@ -1,6 +1,7 @@
 package service
 
 import (
+	"context"
 	"douyin/dao"
 	"douyin/global"
 	"douyin/middleware"
@@ -17,13 +18,19 @@ const (
 	MinPasswordLength = 6  //密码最小长度
 )
 
-func UserRegisterService(userName string, passWord string) (model.User, error) {
+func UserRegisterService(userName string, passWord string, ctx context.Context) (model.User, error) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "userregister service")
+	defer span.End()
+
 	//准备参数
 	hashedPwd, err := utils.Hash(passWord)
 	newUser := model.User{
 		User_name: userName,
 		Password:  hashedPwd,
 	}
+
+	span.AddEvent("checking begin")
 
 	//检查参数
 	err = CheckUserParam(userName, passWord)
@@ -36,6 +43,8 @@ func UserRegisterService(userName string, passWord string) (model.User, error) {
 	if exist == true {
 		return newUser, global.ErrorUserExist
 	}
+
+	span.AddEvent("checking end")
 
 	//创建用户
 
@@ -72,11 +81,17 @@ func UserNameExists(userName string) bool {
 	return true
 }
 
-func UserLoginService(userName string, passWord string) (model.User, error) {
+func UserLoginService(userName string, passWord string, ctx context.Context) (model.User, error) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "userlogin service")
+	defer span.End()
+
 	loginUser := model.User{
 		User_name: userName,
 		Password:  passWord,
 	}
+
+	span.AddEvent("checking begin")
 
 	//检查参数
 	err := CheckUserParam(userName, passWord)
@@ -96,6 +111,8 @@ func UserLoginService(userName string, passWord string) (model.User, error) {
 		return loginUser, global.ErrorPasswordFalse
 	}
 
+	span.AddEvent("checking end")
+
 	//返回
 	return loginUser, err
 }
@@ -109,7 +126,11 @@ func CheckUserPassword(userName string, passWord string, loginUser *model.User) 
 	return true
 }
 
-func UserService(queryUserId int64, hostUserId int64) (response.User_Response, error) {
+func UserService(queryUserId int64, hostUserId int64, ctx context.Context) (response.User_Response, error) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "user service")
+	defer span.End()
+
 	userResponse := response.User_Response{}
 	queryUser, err := dao.GetUserById(queryUserId)
 	//先从redis里面取出

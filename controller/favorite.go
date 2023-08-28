@@ -12,6 +12,10 @@ import (
 )
 
 func FavoriteAction(c *gin.Context) {
+
+	ctx, span := global.SERVER_FAVORITE_TRACER.Start(c.Request.Context(), "favoriteaction controller")
+	defer span.End()
+
 	// 参数处理
 	user_id, _ := c.Get("userid")
 	video_id := c.Query("video_id")
@@ -41,7 +45,7 @@ func FavoriteAction(c *gin.Context) {
 	}
 
 	// server层处理请求
-	err = service.FavoriteAction(user_id.(int64), video_id, int32(actionType))
+	err = service.FavoriteAction(user_id.(int64), video_id, int32(actionType), ctx)
 
 	if err != nil {
 		c.JSON(http.StatusOK, response.Favorite_Action_Response{
@@ -65,6 +69,10 @@ func FavoriteAction(c *gin.Context) {
 }
 
 func FavoriteList(c *gin.Context) {
+
+	ctx, span := global.SERVER_FAVORITE_TRACER.Start(c.Request.Context(), "favoritelist controller")
+	defer span.End()
+
 	// 获取参数
 	user_id := c.Query("user_id")
 	userId, _ := c.Get("userid")
@@ -94,7 +102,7 @@ func FavoriteList(c *gin.Context) {
 	}
 
 	// 处理请求
-	video_list, err := service.FavoriteList(id)
+	video_list, err := service.FavoriteList(id, ctx)
 
 	if err != nil {
 		c.JSON(http.StatusOK, response.Favorite_List_Response{

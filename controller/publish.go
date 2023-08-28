@@ -16,6 +16,9 @@ import (
 
 func PublishAction(c *gin.Context) {
 
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(c.Request.Context(), "publish controller")
+	defer span.End()
+
 	curTime := utils.CurrentTimeInt()
 
 	//获得用户id
@@ -48,6 +51,9 @@ func PublishAction(c *gin.Context) {
 	//fmt.Println("finalFilename:%s", finalFilename)
 	saveFilepath := filepath.Join("../tmp/", finalFilename) //路径+文件名
 	//fmt.Println("saveFilepath:%s", saveFilepath)
+
+	span.AddEvent("saving file begin")
+
 	if err := c.SaveUploadedFile(data, saveFilepath); err != nil {
 		c.JSON(http.StatusOK, response.Publish_Action_Response{
 			Response: response.Response{
@@ -66,8 +72,10 @@ func PublishAction(c *gin.Context) {
 		}
 	}()
 
+	span.AddEvent("saving file end")
+
 	//完成对象存储、以及数据库表活动
-	err = service.PublishService(userId, title, fileExt, curTime)
+	err = service.PublishService(userId, title, fileExt, curTime, ctx)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Publish_Action_Response{
 			Response: response.Response{
@@ -93,6 +101,10 @@ func PublishAction(c *gin.Context) {
 }
 
 func PublishList(c *gin.Context) {
+
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(c.Request.Context(), "publishlist controller")
+	defer span.End()
+
 	getHostId, _ := c.Get("userid")
 	var hostId int64
 	if v, ok := getHostId.(int64); ok {
@@ -110,7 +122,7 @@ func PublishList(c *gin.Context) {
 		global.SERVER_LOG.Warn("Id fail!")
 		return
 	}
-	videoResponse, err := service.PublishListService(guestId, hostId)
+	videoResponse, err := service.PublishListService(guestId, hostId, ctx)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Publish_List_Response{
 			Response: response.Response{

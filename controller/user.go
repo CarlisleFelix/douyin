@@ -14,6 +14,9 @@ import (
 
 func User(c *gin.Context) {
 
+	ctx, span := global.SERVER_USER_TRACER.Start(c.Request.Context(), "user controller")
+	defer span.End()
+
 	//参数处理
 	queryUserId, err := strconv.ParseInt(c.Query("user_id"), 10, 64)
 	rawId, _ := c.Get("userid")
@@ -31,7 +34,7 @@ func User(c *gin.Context) {
 	}
 
 	//service层处理
-	userResponse, err := service.UserService(queryUserId, hostUserId)
+	userResponse, err := service.UserService(queryUserId, hostUserId, ctx)
 
 	if err != nil {
 		c.JSON(http.StatusOK, response.User_Interface_Response{
@@ -59,13 +62,17 @@ func User(c *gin.Context) {
 }
 
 func UserLogin(c *gin.Context) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(c.Request.Context(), "userlogin controller")
+	defer span.End()
+
 	//参数处理
 	userName := c.Query("username")
 	passWord := c.Query("password")
 
 	//service层处理
 
-	loginUser, err := service.UserLoginService(userName, passWord)
+	loginUser, err := service.UserLoginService(userName, passWord, ctx)
 	if err != nil {
 		c.JSON(http.StatusOK, response.User_Login_Response{
 			Response: response.Response{
@@ -77,8 +84,12 @@ func UserLogin(c *gin.Context) {
 		return
 	}
 
+	span.AddEvent("generate token begin")
+
 	//生成token
 	token, err := middleware.GenerateToken(loginUser.User_id, loginUser.User_name)
+
+	span.AddEvent("generate token end")
 
 	if err != nil {
 		c.JSON(http.StatusOK, response.User_Register_Response{
@@ -109,6 +120,10 @@ func UserLogin(c *gin.Context) {
 //问题在于如果插入数据库成功了，生成token失败了的话就会不一致，所以应该删除掉,还是先不考虑了
 
 func UserRegister(c *gin.Context) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(c.Request.Context(), "userregister controller")
+	defer span.End()
+
 	//参数处理
 	userName := c.Query("username")
 	passWord := c.Query("password")
@@ -116,7 +131,7 @@ func UserRegister(c *gin.Context) {
 	//service层处理
 
 	//新建用户
-	newUser, err := service.UserRegisterService(userName, passWord)
+	newUser, err := service.UserRegisterService(userName, passWord, ctx)
 
 	if err != nil {
 		c.JSON(http.StatusOK, response.User_Register_Response{
@@ -129,8 +144,12 @@ func UserRegister(c *gin.Context) {
 		return
 	}
 
+	span.AddEvent("generate token begin")
+
 	//生成token
 	token, err := middleware.GenerateToken(newUser.User_id, newUser.User_name)
+
+	span.AddEvent("generate token end")
 
 	if err != nil {
 		c.JSON(http.StatusOK, response.User_Register_Response{

@@ -19,7 +19,11 @@ import (
 
 const videoNum = 2
 
-func PublishService(userId int64, title string, fileExt string, curTime int64) error {
+func PublishService(userId int64, title string, fileExt string, curTime int64, ctx context.Context) error {
+
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(ctx, "publish service")
+	defer span.End()
+
 	fileName := fmt.Sprintf("%d_%s", userId, title) //标识名字
 	finalFilename := fileName + fileExt
 	saveFilepath := filepath.Join("../tmp/", finalFilename) //路径+文件名
@@ -39,16 +43,25 @@ func PublishService(userId int64, title string, fileExt string, curTime int64) e
 		return global.ErrorVideoDuplicate
 	}
 
+	span.AddEvent("upload video begin")
+
 	//上传视频
 	videoUrl, err := UploadVideo(finalFilename, data)
 	if err != nil {
 		return err
 	}
+
+	span.AddEvent("upload video end")
+
+	span.AddEvent("extract cover begin")
+
 	//提取封面并上传
 	coverUrl, err := ExtractCoverandUpload(finalFilename, saveFilepath, 3)
 	if err != nil {
 		return err
 	}
+
+	span.AddEvent("extract cover end")
 
 	newVideo := model.Video{
 		Author_id:      userId,
@@ -90,7 +103,11 @@ func ExtractCoverandUpload(finalFilename string, saveFilepath string, frameNum i
 	return global.SERVER_CONFIG.Cos.Cover_bucket_url + "/" + coverName, err
 }
 
-func PublishListService(queryUserId int64, hostUserId int64) ([]response.Video_Response, error) {
+func PublishListService(queryUserId int64, hostUserId int64, ctx context.Context) ([]response.Video_Response, error) {
+
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(ctx, "publishlist service")
+	defer span.End()
+
 	exist := UserIdExists(queryUserId)
 	if !exist {
 		return nil, global.ErrorUserNotExist
@@ -201,8 +218,12 @@ func GetVideolistByauthor(userId int64) ([]model.Video, error) {
 	return videos, nil
 }
 
-func FeedService(userId int64, latestTime int64) ([]response.Video_Response, int64, error) {
+func FeedService(userId int64, latestTime int64, ctx context.Context) ([]response.Video_Response, int64, error) {
 	//获得视频
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "feed service")
+	defer span.End()
+
 	videos, err := dao.GetVideoByTime(latestTime)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
