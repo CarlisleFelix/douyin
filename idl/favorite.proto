@@ -2,16 +2,25 @@ syntax = "proto2";
 package douyin.idl.favorite;
 option go_package = "favorite/";
 
-
-
 service FavoriteService{
+  rpc IsFavorite(douyin_is_favorite_request) returns(douyin_is_favorite_response);
   rpc FavoriteAction(douyin_favorite_action_request) returns(douyin_favorite_action_response);
   rpc FavoriteList(douyin_favorite_list_request) returns(douyin_favorite_list_response);
 }
 
+// 是否喜欢
+message douyin_is_favorite_request{
+  required int64 user_id = 1;
+  required int64 video_id = 2;
+}
+
+message douyin_is_favorite_response{
+  required bool isFavorite = 1;
+}
+
+// 赞操作
 message douyin_favorite_action_request {
-  //todo:待议token改为userid
-  required string token = 1; // 用户鉴权token
+  required int64 user_id = 1; // 用户鉴权token
   required int64 video_id = 2; // 视频id
   required int32 action_type = 3; // 1-点赞，2-取消点赞
 }
@@ -21,9 +30,9 @@ message douyin_favorite_action_response {
   optional string status_msg = 2; // 返回状态描述
 }
 
+// 喜欢列表
 message douyin_favorite_list_request {
   required int64 user_id = 1; // 用户id
-  required string token = 2; // 用户鉴权token
 }
 
 message douyin_favorite_list_response {
