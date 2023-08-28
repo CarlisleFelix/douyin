@@ -6,10 +6,8 @@ import (
 	"douyin/app/user/internal/dal/model"
 	pb "douyin/idl/pb/user"
 	"douyin/utils/e"
-
-	"golang.org/x/crypto/bcrypt"
-
 	"fmt"
+	"golang.org/x/crypto/bcrypt"
 )
 
 const (
@@ -136,7 +134,7 @@ func UserService(ctx context.Context, queryUserId int64, hostUserId int64) (resp
 
 	queryUser, err := dao.NewUserDao(ctx).GetUserById(queryUserId)
 
-	//todo:待处理
+	// todo:待处理
 	//isFollow := dao.GetFollowByUserId(hostUserId, queryUserId)
 	isFollow := false
 	fmt.Println("isFollow:", isFollow)

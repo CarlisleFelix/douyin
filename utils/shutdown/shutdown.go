@@ -18,9 +18,9 @@ func GracefullyShutdown(server *http.Server) {
 	signal.Notify(done, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
 	<-done
 
-	//logger.LogrusObj.Println("closing http server gracefully ...")
+	//logger.LogrusObj.Println("closing http global gracefully ...")
 
 	if err := server.Shutdown(context.Background()); err != nil {
-		//logger.LogrusObj.Fatalln("closing http server gracefully failed: ", err)
+		//logger.LogrusObj.Fatalln("closing http global gracefully failed: ", err)
 	}
 }

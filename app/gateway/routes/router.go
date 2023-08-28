@@ -25,13 +25,13 @@ func NewRouter() *gin.Engine {
 		////视频投稿
 		//publishGroup := publicGroup.Group("/publish")
 		//{
-		//	publishGroup.POST("/action/", middleware.JwtMiddleware(), controller.PublishAction)
-		//	publishGroup.GET("/list/", middleware.JwtMiddleware(), controller.PublishList)
+		//	publishGroup.POST("/action/", middleware.JwtMiddleware(), http.PublishAction)
+		//	publishGroup.GET("/list/", middleware.JwtMiddleware(), http.PublishList)
 		//}
 		////视频浏览
 		//feedGroup := publicGroup.Group("/feed")
 		//{
-		//	feedGroup.GET("/", controller.Feed)
+		//	feedGroup.GET("/", http.Feed)
 		//}
 		//赞
 		publicGroup.GET("/test", func(context *gin.Context) {
@@ -47,22 +47,22 @@ func NewRouter() *gin.Engine {
 		////评论
 		//commentGroup := publicGroup.Group("/comment")
 		//{
-		//	commentGroup.POST("/action/", middleware.JwtMiddleware(), controller.CommentAction)
-		//	commentGroup.GET("/list/", middleware.JwtMiddleware(), controller.CommentList)
+		//	commentGroup.POST("/action/", middleware.JwtMiddleware(), http.CommentAction)
+		//	commentGroup.GET("/list/", middleware.JwtMiddleware(), http.CommentList)
 		//}
 		////社交
 		//relationGroup := publicGroup.Group("/relation")
 		//{
-		//	relationGroup.POST("/action/", middleware.JwtMiddleware(), controller.RelationAction)
-		//	relationGroup.GET("/follow/list/", middleware.JwtMiddleware(), controller.FollowList)
-		//	relationGroup.GET("/follower/list/", middleware.JwtMiddleware(), controller.FollowerList)
-		//	relationGroup.GET("/friend/list/", middleware.JwtMiddleware(), controller.FriendList)
+		//	relationGroup.POST("/action/", middleware.JwtMiddleware(), http.RelationAction)
+		//	relationGroup.GET("/follow/list/", middleware.JwtMiddleware(), http.FollowList)
+		//	relationGroup.GET("/follower/list/", middleware.JwtMiddleware(), http.FollowerList)
+		//	relationGroup.GET("/friend/list/", middleware.JwtMiddleware(), http.FriendList)
 		//}
 		////消息
 		//messageGroup := publicGroup.Group("/message")
 		//{
-		//	messageGroup.GET("/chat/", middleware.JwtMiddleware(), controller.MessageChat)
-		//	messageGroup.POST("/action/", middleware.JwtMiddleware(), controller.MessageAction)
+		//	messageGroup.GET("/message/", middleware.JwtMiddleware(), http.MessageChat)
+		//	messageGroup.POST("/action/", middleware.JwtMiddleware(), http.MessageAction)
 		//}
 	}
 	return router
