@@ -3,11 +3,10 @@ package e
 import "errors"
 
 const (
-	SUCCESS       = 200
-	ERROR         = 500
+	SUCCESS       = 0
+	ERROR         = 1
 	InvalidParams = 400
 
-	//成员错误
 	ErrorExistUser      = 10002
 	ErrorNotExistUser   = 10003
 	ErrorFailEncryption = 10006

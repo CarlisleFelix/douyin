@@ -12,7 +12,7 @@ service UserService{
   // 更新用户获赞数
   rpc UpdateTotalFavorite(douyin_total_favorite_request) returns(douyin_total_favorite_response);
   // 更新用户点赞数
-  rpc UpdateFavoriteCount(douyin_favorite_count_request) returns(douyin_favorite_count_response);
+  rpc UpdateUserFavoriteCount(douyin_favorite_count_request) returns(douyin_favorite_count_response);
   // 更新用户关注数
   rpc UpdateFollowCount(douyin_follow_count_request) returns(douyin_follow_count_response);
   // 更新用户粉丝数
@@ -30,7 +30,7 @@ message douyin_user_register_response {
   required int32 status_code = 1; // 状态码，0-成功，其他值-失败
   optional string status_msg = 2; // 返回状态描述
   required int64 user_id = 3; // 用户id
-  required string token = 4; // 用户鉴权token
+  required string user_name = 4;
 }
 
 // 登录
@@ -48,8 +48,8 @@ message douyin_user_login_response {
 
 // 获取用户信息
 message douyin_user_request {
-  required int64 user_id = 1; // 用户id
-  required int64 host_user_id = 2; // 被查询用户id
+  required int64 host_id = 1; // 用户id
+  optional int64 query_id = 2;
 }
 
 message douyin_user_response {

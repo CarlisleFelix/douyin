@@ -2,24 +2,82 @@ package service
 
 import (
 	"bytes"
+	"context"
+	"douyin/app/gateway/rpc"
+	"douyin/app/video/internal/dal/dao"
+	"douyin/app/video/internal/dal/model"
 	"douyin/app/video/internal/server"
-	pb "douyin/idl/pb/favorite"
-	"douyin/response"
+	"douyin/idl/pb/favorite"
+	"douyin/idl/pb/relation"
+	"douyin/idl/pb/user"
+	pb "douyin/idl/pb/video"
 	"douyin/utils/e"
 	"fmt"
+	ffmpeg "github.com/u2takey/ffmpeg-go"
+	"gorm.io/gorm"
 	"io"
 	"os"
 	"path/filepath"
-
-	ffmpeg "github.com/u2takey/ffmpeg-go"
-	"gorm.io/gorm"
-
-	"context"
-	"douyin/app/video/internal/dal/dao"
-	"douyin/app/video/internal/dal/model"
 )
 
 const videoNum = 2
+
+// todo 未加入isFollow
+func GetVideoInfo(ctx context.Context, video_id int64) (pb.Video, error) {
+	var videoResp pb.Video
+	video, err := dao.NewVideoDao(ctx).GetVideoById(video_id)
+	if err != nil {
+		return videoResp, err
+	}
+
+	var isFavoriteReq favorite.DouyinIsFavoriteRequest
+	isFavoriteReq.UserId = &video.Author_id
+	isFavoriteReq.VideoId = &video.Video_id
+	isFavoriteResp, err := rpc.IsFavorite(ctx, &isFavoriteReq)
+	if err != nil {
+		return videoResp, err
+	}
+
+	var getUserInfoReq user.DouyinUserRequest
+	getUserInfoReq.HostId = &video.Author_id
+	getUserInfoResp, err := rpc.GetUserInfo(ctx, &getUserInfoReq)
+	if err != nil {
+		return videoResp, err
+	}
+
+	videoResp = pb.Video{
+		Id: &video.Video_id,
+		Author: &pb.User{
+			Id:              getUserInfoResp.User.Id,
+			Name:            getUserInfoResp.User.Name,
+			FollowCount:     getUserInfoResp.User.FollowCount,
+			FollowerCount:   getUserInfoResp.User.FollowerCount,
+			IsFollow:        nil,
+			Avatar:          getUserInfoResp.User.Avatar,
+			BackgroundImage: getUserInfoResp.User.BackgroundImage,
+			Signature:       getUserInfoResp.User.Signature,
+			TotalFavorited:  getUserInfoResp.User.TotalFavorited,
+			WorkCount:       getUserInfoResp.User.WorkCount,
+			FavoriteCount:   getUserInfoResp.User.FavoriteCount,
+		},
+		PlayUrl:       &video.Play_url,
+		CoverUrl:      &video.Cover_url,
+		FavoriteCount: &video.Favorite_count,
+		CommentCount:  &video.Comment_count,
+		IsFavorite:    isFavoriteResp.IsFavorite,
+		Title:         &video.Title,
+	}
+	return videoResp, err
+
+}
+
+func UpdateFavoriteCount(ctx context.Context, video_id int64, action_type int32) error {
+	return dao.NewVideoDao(ctx).UpdateVideoFavoriteCount(video_id, action_type)
+}
+
+func UpdateCommentCount(ctx context.Context, video_id int64, action_type int32) error {
+	return dao.NewVideoDao(ctx).UpdateVideoCommentCount(video_id, action_type)
+}
 
 func PublishService(ctx context.Context, userId int64, title string, fileExt string, curTime int64) error {
 	fileName := fmt.Sprintf("%d_%s", userId, title) //标识名字
@@ -31,12 +89,12 @@ func PublishService(ctx context.Context, userId int64, title string, fileExt str
 		return e.ErrorFileOperationWrong
 	}
 
-	exist := UserIdExists(userId)
+	exist := UserIdExists(ctx, userId)
 	if !exist {
 		return e.ErrorUserNotExist
 	}
 
-	exist = VideoExists(userId, title)
+	exist = VideoExists(ctx, userId, title)
 	if exist {
 		return e.ErrorVideoDuplicate
 	}
@@ -93,70 +151,81 @@ func ExtractCoverandUpload(finalFilename string, saveFilepath string, frameNum i
 }
 
 func PublishListService(ctx context.Context, queryUserId int64, hostUserId int64) ([]*pb.Video, error) {
-	exist := UserIdExists(queryUserId)
+	exist := UserIdExists(ctx, queryUserId)
 	if !exist {
 		return nil, e.ErrorUserNotExist
 	}
 
-	// todo:
-	//queryUser, _ := dao.NewVideoDao(ctx).GetUserById(queryUserId)
-	//isFollow := dao.GetFollowByUserId(hostUserId, queryUserId)
+	var getUserReq user.DouyinUserRequest
+	getUserReq.HostId = &queryUserId
+	getUserResp, _ := rpc.GetUserInfo(ctx, &getUserReq)
+
+	var isFollowReq relation.DouyinIsFollowRequest
+	isFollowReq.HostId = &hostUserId
+	isFollowReq.GuestId = &queryUserId
+	isFollowResp, _ := rpc.IsFollow(ctx, &isFollowReq)
 	//author
-	userResponse := response.User_Response{
-		Id:              queryUser.User_id,
-		Name:            queryUser.User_name,
-		FollowCount:     queryUser.Follow_count,
-		FollowerCount:   queryUser.Follower_count,
-		IsFollow:        isFollow,
-		Avatar:          queryUser.Avatar,
-		BackgroundImage: queryUser.Background_image,
-		Signature:       queryUser.Signature,
-		TotalFavorited:  queryUser.Favorite_count,
-		WorkCount:       queryUser.Work_count,
-		FavoriteCount:   queryUser.Favorite_count,
+	userResponse := pb.User{
+		Id:              getUserResp.User.Id,
+		Name:            getUserResp.User.Name,
+		FollowCount:     getUserResp.User.FollowCount,
+		FollowerCount:   getUserResp.User.FollowerCount,
+		IsFollow:        isFollowResp.IsFollow,
+		Avatar:          getUserResp.User.Avatar,
+		BackgroundImage: getUserResp.User.BackgroundImage,
+		Signature:       getUserResp.User.Signature,
+		TotalFavorited:  getUserResp.User.TotalFavorited,
+		WorkCount:       getUserResp.User.WorkCount,
+		FavoriteCount:   getUserResp.User.FavoriteCount,
 	}
 
 	//video
-	videos, err := GetVideolistByauthor(queryUserId)
+	videos, err := GetVideolistByauthor(ctx, queryUserId)
 	if err != nil {
 		return nil, err
 	}
 
 	//response
-	var videoList []response.Video_Response
+	var videoList []*pb.Video
 	if len(videos) == 0 {
 		return nil, nil
 	}
 	for i := 0; i < len(videos); i++ {
-		responseVideo := response.Video_Response{
-			Id:            videos[i].Video_id,
-			Author:        userResponse,
-			PlayUrl:       videos[i].Play_url,
-			CoverUrl:      videos[i].Cover_url,
-			FavoriteCount: videos[i].Favorite_count,
-			CommentCount:  videos[i].Comment_count,
-			IsFavorite:    dao.GetifFavorite(hostUserId, videos[i].Video_id),
-			Title:         videos[i].Title,
+		var isFavoriteReq favorite.DouyinIsFavoriteRequest
+		isFavoriteReq.UserId = &hostUserId
+		isFavoriteReq.VideoId = &videos[i].Video_id
+		isFavoriteResp, err := rpc.IsFavorite(ctx, &isFavoriteReq)
+
+		if err != nil {
+			return videoList, err
 		}
-		videoList = append(videoList, responseVideo)
+		responseVideo := pb.Video{
+			Id:            &videos[i].Video_id,
+			Author:        &userResponse,
+			PlayUrl:       &videos[i].Play_url,
+			CoverUrl:      &videos[i].Cover_url,
+			FavoriteCount: &videos[i].Favorite_count,
+			CommentCount:  &videos[i].Comment_count,
+			IsFavorite:    isFavoriteResp.IsFavorite,
+			Title:         &videos[i].Title,
+		}
+		videoList = append(videoList, &responseVideo)
 	}
 	return videoList, err
 }
 
-func UserIdExists(userId int64) bool {
-	_, err := dao.GetUserById(userId)
+func UserIdExists(ctx context.Context, userId int64) bool {
+	var getUserReq user.DouyinUserRequest
+	getUserReq.HostId = &userId
+	_, err := rpc.GetUserInfo(ctx, &getUserReq)
 	if err != nil {
-		if err == gorm.ErrRecordNotFound {
-			return false
-		} else {
-			return false
-		}
+		return false
 	}
 	return true
 }
 
-func VideoExists(userId int64, title string) bool {
-	_, err := dao.GetVideoByAuthorIdandTitle(userId, title)
+func VideoExists(ctx context.Context, userId int64, title string) bool {
+	_, err := dao.NewVideoDao(ctx).GetVideoByAuthorIdandTitle(userId, title)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return false
@@ -167,8 +236,8 @@ func VideoExists(userId int64, title string) bool {
 	return true
 }
 
-func GetVideolistByauthor(userId int64) ([]model.Video, error) {
-	videos, err := dao.GetVideoByAuthorId(userId)
+func GetVideolistByauthor(ctx context.Context, userId int64) ([]model.Video, error) {
+	videos, err := dao.NewVideoDao(ctx).GetVideoByAuthorId(userId)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, nil
@@ -179,9 +248,9 @@ func GetVideolistByauthor(userId int64) ([]model.Video, error) {
 	return videos, nil
 }
 
-func FeedService(userId int64, latestTime int64) ([]response.Video_Response, int64, error) {
+func FeedService(ctx context.Context, userId int64, latestTime int64) ([]*pb.Video, int64, error) {
 	//获得视频
-	videos, err := dao.GetVideoByTime(latestTime)
+	videos, err := dao.NewVideoDao(ctx).GetVideoByTime(latestTime)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, 0, nil
@@ -190,40 +259,57 @@ func FeedService(userId int64, latestTime int64) ([]response.Video_Response, int
 		}
 	}
 	//生成response，填入作者信息
-	var videoList []response.Video_Response
+	var videoList []*pb.Video
 	var nextTime int64
 	if len(videos) == 0 {
 		return nil, 0, nil
 	}
 	for i := 0; i < len(videos); i++ {
-		//有问题，得考虑作者不存在的情况..
-		author, _ := dao.GetUserById(videos[i].Author_id)
-		userResponse := response.User_Response{
-			Id:              author.User_id,
-			Name:            author.User_name,
-			FollowCount:     author.Follow_count,
-			FollowerCount:   author.Follower_count,
-			IsFollow:        dao.GetFollowByUserId(userId, author.User_id),
-			Avatar:          author.Avatar,
-			BackgroundImage: author.Background_image,
-			Signature:       author.Signature,
-			TotalFavorited:  author.Total_favorited,
-			WorkCount:       author.Work_count,
-			FavoriteCount:   author.Favorite_count,
+		var getUserReq user.DouyinUserRequest
+		getUserReq.HostId = &videos[i].Author_id
+		getUserResp, err := rpc.GetUserInfo(ctx, &getUserReq)
+
+		var isFollowReq relation.DouyinIsFollowRequest
+		isFollowReq.HostId = &userId
+		isFollowReq.GuestId = getUserResp.User.Id
+		isFollowResp, err := rpc.IsFollow(ctx, &isFollowReq)
+		if err != nil {
+			*isFollowResp.IsFollow = false
 		}
 
-		responseVideo := response.Video_Response{
-			Id:            videos[i].Video_id,
-			Author:        userResponse,
-			PlayUrl:       videos[i].Play_url,
-			CoverUrl:      videos[i].Cover_url,
-			FavoriteCount: videos[i].Favorite_count,
-			CommentCount:  videos[i].Comment_count,
-			IsFavorite:    dao.GetifFavorite(userId, videos[i].Video_id),
-			Title:         videos[i].Title,
+		var isFavoriteReq favorite.DouyinIsFavoriteRequest
+		isFavoriteReq.UserId = &userId
+		isFavoriteReq.VideoId = &videos[i].Video_id
+		isFavoriteResp, err := rpc.IsFavorite(ctx, &isFavoriteReq)
+		if err != nil {
+			*isFavoriteResp.IsFavorite = false
 		}
 
-		videoList = append(videoList, responseVideo)
+		responseVideo := pb.Video{
+			Id: &videos[i].Video_id,
+			//有问题，得考虑作者不存在的情况..
+			Author: &pb.User{
+				Id:              getUserResp.User.Id,
+				Name:            getUserResp.User.Name,
+				FollowCount:     getUserResp.User.FollowCount,
+				FollowerCount:   getUserResp.User.FollowerCount,
+				IsFollow:        isFollowResp.IsFollow,
+				Avatar:          getUserResp.User.Avatar,
+				BackgroundImage: getUserResp.User.BackgroundImage,
+				Signature:       getUserResp.User.Signature,
+				TotalFavorited:  getUserResp.User.TotalFavorited,
+				WorkCount:       getUserResp.User.WorkCount,
+				FavoriteCount:   getUserResp.User.FavoriteCount,
+			},
+			PlayUrl:       &videos[i].Play_url,
+			CoverUrl:      &videos[i].Cover_url,
+			FavoriteCount: &videos[i].Favorite_count,
+			CommentCount:  &videos[i].Comment_count,
+			IsFavorite:    isFavoriteResp.IsFavorite,
+			Title:         &videos[i].Title,
+		}
+
+		videoList = append(videoList, &responseVideo)
 		if i == 0 {
 			nextTime = videos[i].Publish_time
 		}

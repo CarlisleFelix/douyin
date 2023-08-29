@@ -2,7 +2,10 @@ package http
 
 import (
 	"douyin/app/gateway/middleware"
+	"douyin/app/gateway/rpc"
+	pb "douyin/idl/pb/video"
 	"douyin/response"
+	"douyin/utils/e"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -11,10 +14,11 @@ import (
 	"strconv"
 )
 
-func Feed(c *gin.Context) {
+func Feed(ctx *gin.Context) {
+	var req pb.DouyinFeedRequest
 	//参数处理
 	//通过token获取用户id
-	token := c.Query("token")
+	token := ctx.Query("token")
 	var userId int64
 	if token == "" {
 		userId = 0
@@ -22,20 +26,21 @@ func Feed(c *gin.Context) {
 		tokenStruck, ok := middleware.CheckToken(token)
 		//如果token无效
 		if !ok {
-			c.JSON(http.StatusOK, response.Feed_Response{
+			ctx.JSON(http.StatusOK, response.Feed_Response{
 				Response: response.Response{
 					StatusCode: 1,
 					StatusMsg:  "token incorrect",
 				},
 			})
-			global.SERVER_LOG.Warn("Token fail!")
+			// todo
+			//global.SERVER_LOG.Warn("Token fail!")
 			return
 		}
 		userId = tokenStruck.UserId
 	}
 
 	//获取最近时间
-	strLatesttime := c.Query("latest_time")
+	strLatesttime := ctx.Query("latest_time")
 	var latestTime int64
 
 	latestTime, err := strconv.ParseInt(strLatesttime, 10, 64)
@@ -47,36 +52,65 @@ func Feed(c *gin.Context) {
 	//fmt.Println("latesttime:%v", latestTime)
 
 	//获取视频
-	videoResponse, nextTime, err := service.FeedService(userId, latestTime)
+	req.UserId = &userId
+	req.LatestTime = &latestTime
+	resp, err := rpc.Feed(ctx, &req)
 	if err != nil {
-		c.JSON(http.StatusOK, response.Feed_Response{
+		ctx.JSON(http.StatusOK, response.Feed_Response{
 			Response: response.Response{
 				StatusCode: 1,
 				StatusMsg:  "视频流获取失败",
 			},
 		})
-		global.SERVER_LOG.Warn("Feed service fail!")
+		// todo
+		//global.SERVER_LOG.Warn("Feed service fail!")
 		return
 	}
 
 	//fmt.Println("%v", videoResponse)
 
 	//返回
-	c.JSON(http.StatusOK, response.Feed_Response{
+	videoResp := make([]response.Video_Response, len(resp.VideoList))
+	for i := 0; i < len(resp.VideoList); i++ {
+		video := resp.VideoList[i]
+		videoResp[i] = response.Video_Response{
+			Id: *video.Id,
+			Author: response.User_Response{
+				Id:              *video.Author.Id,
+				Name:            *video.Author.Name,
+				FollowCount:     *video.Author.FollowCount,
+				FollowerCount:   *video.Author.FollowerCount,
+				IsFollow:        *video.Author.IsFollow,
+				Avatar:          *video.Author.Avatar,
+				BackgroundImage: *video.Author.BackgroundImage,
+				Signature:       *video.Author.Signature,
+				TotalFavorited:  *video.Author.TotalFavorited,
+				WorkCount:       *video.Author.WorkCount,
+				FavoriteCount:   *video.Author.FavoriteCount,
+			},
+			PlayUrl:       *video.PlayUrl,
+			CoverUrl:      *video.CoverUrl,
+			FavoriteCount: *video.FavoriteCount,
+			CommentCount:  *video.CommentCount,
+			IsFavorite:    *video.IsFavorite,
+			Title:         *video.Title,
+		}
+	}
+	ctx.JSON(http.StatusOK, response.Feed_Response{
 		Response: response.Response{
 			StatusCode: 0,
 			StatusMsg:  "视频流获取成功",
 		},
-		VideoList: videoResponse,
-		NextTime:  nextTime,
+		VideoList: videoResp,
+		NextTime:  *resp.NextTime,
 	})
-	global.SERVER_LOG.Info("Feed Success!")
+	// todo
+	//global.SERVER_LOG.Info("Feed Success!")
 	return
 }
 
 func PublishAction(c *gin.Context) {
-
-	curTime := utils.CurrentTimeInt()
+	var req pb.DouyinPublishActionRequest
 
 	//获得用户id
 	getUserId, _ := c.Get("userid")
@@ -92,10 +126,11 @@ func PublishAction(c *gin.Context) {
 		c.JSON(http.StatusOK, response.Publish_Action_Response{
 			Response: response.Response{
 				StatusCode: 1,
-				StatusMsg:  global.ErrorVideoDataWrong.Error(),
+				StatusMsg:  e.ErrorVideoDataWrong.Error(),
 			},
 		})
-		global.SERVER_LOG.Warn("Publish data fail!")
+		// todo
+		//global.SERVER_LOG.Warn("Publish data fail!")
 		return
 	}
 
@@ -112,22 +147,27 @@ func PublishAction(c *gin.Context) {
 		c.JSON(http.StatusOK, response.Publish_Action_Response{
 			Response: response.Response{
 				StatusCode: 1,
-				StatusMsg:  global.ErrorVideoDownloading.Error(),
+				StatusMsg:  e.ErrorVideoDownloading.Error(),
 			},
 		})
-		global.SERVER_LOG.Warn("Feed service fail!")
+		// todo
+		//global.SERVER_LOG.Warn("Feed service fail!")
 		return
 	}
 	//删除本地文件
 	defer func() {
 		err = os.Remove(saveFilepath)
 		if err != nil {
-			global.SERVER_LOG.Warn("File Deletion fail!")
+			// todo
+			//global.SERVER_LOG.Warn("File Deletion fail!")
 		}
 	}()
 
 	//完成对象存储、以及数据库表活动
-	err = service.PublishService(userId, title, fileExt, curTime)
+	req.UserId = &userId
+	req.Title = &title
+	req.FileExt = &fileExt
+	_, err = rpc.PublishAction(c, &req)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Publish_Action_Response{
 			Response: response.Response{
@@ -135,7 +175,8 @@ func PublishAction(c *gin.Context) {
 				StatusMsg:  err.Error(),
 			},
 		})
-		global.SERVER_LOG.Warn("Publish service fail!")
+		// todo
+		//global.SERVER_LOG.Warn("Publish service fail!")
 		return
 	}
 
@@ -147,12 +188,14 @@ func PublishAction(c *gin.Context) {
 		},
 	})
 
-	global.SERVER_LOG.Info("publish action success")
+	// todo
+	//global.SERVER_LOG.Info("publish action success")
 
 	return
 }
 
 func PublishList(c *gin.Context) {
+	var req pb.DouyinPublishListRequest
 	getHostId, _ := c.Get("userid")
 	var hostId int64
 	if v, ok := getHostId.(int64); ok {
@@ -164,13 +207,16 @@ func PublishList(c *gin.Context) {
 		c.JSON(http.StatusOK, response.Publish_List_Response{
 			Response: response.Response{
 				StatusCode: 1,
-				StatusMsg:  global.ErrorVideoDataWrong.Error(),
+				StatusMsg:  e.ErrorVideoDataWrong.Error(),
 			},
 		})
-		global.SERVER_LOG.Warn("Id fail!")
+		// todo
+		//global.SERVER_LOG.Warn("Id fail!")
 		return
 	}
-	videoResponse, err := service.PublishListService(guestId, hostId)
+	req.QueryId = &guestId
+	req.HostId = &hostId
+	resp, err := rpc.PublishList(c, &req)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Publish_List_Response{
 			Response: response.Response{
@@ -178,16 +224,45 @@ func PublishList(c *gin.Context) {
 				StatusMsg:  err.Error(),
 			},
 		})
-		global.SERVER_LOG.Warn("PublishList Service fail!")
+		// todo
+		//global.SERVER_LOG.Warn("PublishList Service fail!")
 		return
+	}
+
+	videoResp := make([]response.Video_Response, len(resp.VideoList))
+	for i := 0; i < len(resp.VideoList); i++ {
+		video := resp.VideoList[i]
+		videoResp[i] = response.Video_Response{
+			Id: *video.Id,
+			Author: response.User_Response{
+				Id:              *video.Author.Id,
+				Name:            *video.Author.Name,
+				FollowCount:     *video.Author.FollowCount,
+				FollowerCount:   *video.Author.FollowerCount,
+				IsFollow:        *video.Author.IsFollow,
+				Avatar:          *video.Author.Avatar,
+				BackgroundImage: *video.Author.BackgroundImage,
+				Signature:       *video.Author.Signature,
+				TotalFavorited:  *video.Author.TotalFavorited,
+				WorkCount:       *video.Author.WorkCount,
+				FavoriteCount:   *video.Author.FavoriteCount,
+			},
+			PlayUrl:       *video.PlayUrl,
+			CoverUrl:      *video.CoverUrl,
+			FavoriteCount: *video.FavoriteCount,
+			CommentCount:  *video.CommentCount,
+			IsFavorite:    *video.IsFavorite,
+			Title:         *video.Title,
+		}
 	}
 	c.JSON(http.StatusOK, response.Publish_List_Response{
 		Response: response.Response{
 			StatusCode: 0,
 			StatusMsg:  "视频列表获取成功",
 		},
-		VideoList: videoResponse,
+		VideoList: videoResp,
 	})
-	global.SERVER_LOG.Info("PublishList Success!")
+	// todo
+	//global.SERVER_LOG.Info("PublishList Success!")
 	return
 }

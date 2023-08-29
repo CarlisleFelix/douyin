@@ -47,6 +47,7 @@ message douyin_video_request{
 message douyin_video_response{
   required int32 status_code = 1; // 状态码，0-成功，其他值-失败
   optional string status_msg = 2; // 返回状态描述
+  optional Video video = 3;
 }
 
 // 视频流
@@ -65,8 +66,8 @@ message douyin_feed_response {
 // 视频投稿
 message douyin_publish_action_request {
   required int64 user_id = 1; // 用户id
-  required bytes data = 2; // 视频数据
-  required string title = 3; // 视频标题
+  required string title = 2; // 视频标题
+  required string fileExt = 3;
 }
 
 message douyin_publish_action_response {
@@ -76,8 +77,8 @@ message douyin_publish_action_response {
 
 // 视频列表
 message douyin_publish_list_request {
-  required int64 user_id = 1; // 用户id
-  required string token = 2; // 用户鉴权token
+  required int64 query_id = 1;
+  required int64 host_id = 2;
 }
 
 message douyin_publish_list_response {

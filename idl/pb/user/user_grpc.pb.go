@@ -19,13 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	UserService_UserRegister_FullMethodName        = "/douyin.idl.user.UserService/UserRegister"
-	UserService_UserLogin_FullMethodName           = "/douyin.idl.user.UserService/UserLogin"
-	UserService_GetUserInfo_FullMethodName         = "/douyin.idl.user.UserService/GetUserInfo"
-	UserService_UpdateTotalFavorite_FullMethodName = "/douyin.idl.user.UserService/UpdateTotalFavorite"
-	UserService_UpdateFavoriteCount_FullMethodName = "/douyin.idl.user.UserService/UpdateFavoriteCount"
-	UserService_UpdateFollowCount_FullMethodName   = "/douyin.idl.user.UserService/UpdateFollowCount"
-	UserService_UpdateFollowerCount_FullMethodName = "/douyin.idl.user.UserService/UpdateFollowerCount"
+	UserService_UserRegister_FullMethodName            = "/douyin.idl.user.UserService/UserRegister"
+	UserService_UserLogin_FullMethodName               = "/douyin.idl.user.UserService/UserLogin"
+	UserService_GetUserInfo_FullMethodName             = "/douyin.idl.user.UserService/GetUserInfo"
+	UserService_UpdateTotalFavorite_FullMethodName     = "/douyin.idl.user.UserService/UpdateTotalFavorite"
+	UserService_UpdateUserFavoriteCount_FullMethodName = "/douyin.idl.user.UserService/UpdateUserFavoriteCount"
+	UserService_UpdateFollowCount_FullMethodName       = "/douyin.idl.user.UserService/UpdateFollowCount"
+	UserService_UpdateFollowerCount_FullMethodName     = "/douyin.idl.user.UserService/UpdateFollowerCount"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -41,7 +41,7 @@ type UserServiceClient interface {
 	// 更新用户获赞数
 	UpdateTotalFavorite(ctx context.Context, in *DouyinTotalFavoriteRequest, opts ...grpc.CallOption) (*DouyinTotalFavoriteResponse, error)
 	// 更新用户点赞数
-	UpdateFavoriteCount(ctx context.Context, in *DouyinFavoriteCountRequest, opts ...grpc.CallOption) (*DouyinFavoriteCountResponse, error)
+	UpdateUserFavoriteCount(ctx context.Context, in *DouyinFavoriteCountRequest, opts ...grpc.CallOption) (*DouyinFavoriteCountResponse, error)
 	// 更新用户关注数
 	UpdateFollowCount(ctx context.Context, in *DouyinFollowCountRequest, opts ...grpc.CallOption) (*DouyinFollowCountResponse, error)
 	// 更新用户粉丝数
@@ -92,9 +92,9 @@ func (c *userServiceClient) UpdateTotalFavorite(ctx context.Context, in *DouyinT
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateFavoriteCount(ctx context.Context, in *DouyinFavoriteCountRequest, opts ...grpc.CallOption) (*DouyinFavoriteCountResponse, error) {
+func (c *userServiceClient) UpdateUserFavoriteCount(ctx context.Context, in *DouyinFavoriteCountRequest, opts ...grpc.CallOption) (*DouyinFavoriteCountResponse, error) {
 	out := new(DouyinFavoriteCountResponse)
-	err := c.cc.Invoke(ctx, UserService_UpdateFavoriteCount_FullMethodName, in, out, opts...)
+	err := c.cc.Invoke(ctx, UserService_UpdateUserFavoriteCount_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -119,7 +119,7 @@ func (c *userServiceClient) UpdateFollowerCount(ctx context.Context, in *DouyinF
 	return out, nil
 }
 
-// UserServiceServer is the global API for UserService service.
+// UserServiceServer is the server API for UserService service.
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility
 type UserServiceServer interface {
@@ -132,7 +132,7 @@ type UserServiceServer interface {
 	// 更新用户获赞数
 	UpdateTotalFavorite(context.Context, *DouyinTotalFavoriteRequest) (*DouyinTotalFavoriteResponse, error)
 	// 更新用户点赞数
-	UpdateFavoriteCount(context.Context, *DouyinFavoriteCountRequest) (*DouyinFavoriteCountResponse, error)
+	UpdateUserFavoriteCount(context.Context, *DouyinFavoriteCountRequest) (*DouyinFavoriteCountResponse, error)
 	// 更新用户关注数
 	UpdateFollowCount(context.Context, *DouyinFollowCountRequest) (*DouyinFollowCountResponse, error)
 	// 更新用户粉丝数
@@ -156,8 +156,8 @@ func (UnimplementedUserServiceServer) GetUserInfo(context.Context, *DouyinUserRe
 func (UnimplementedUserServiceServer) UpdateTotalFavorite(context.Context, *DouyinTotalFavoriteRequest) (*DouyinTotalFavoriteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTotalFavorite not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateFavoriteCount(context.Context, *DouyinFavoriteCountRequest) (*DouyinFavoriteCountResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateFavoriteCount not implemented")
+func (UnimplementedUserServiceServer) UpdateUserFavoriteCount(context.Context, *DouyinFavoriteCountRequest) (*DouyinFavoriteCountResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserFavoriteCount not implemented")
 }
 func (UnimplementedUserServiceServer) UpdateFollowCount(context.Context, *DouyinFollowCountRequest) (*DouyinFollowCountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateFollowCount not implemented")
@@ -250,20 +250,20 @@ func _UserService_UpdateTotalFavorite_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_UpdateFavoriteCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_UpdateUserFavoriteCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DouyinFavoriteCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).UpdateFavoriteCount(ctx, in)
+		return srv.(UserServiceServer).UpdateUserFavoriteCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UserService_UpdateFavoriteCount_FullMethodName,
+		FullMethod: UserService_UpdateUserFavoriteCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).UpdateFavoriteCount(ctx, req.(*DouyinFavoriteCountRequest))
+		return srv.(UserServiceServer).UpdateUserFavoriteCount(ctx, req.(*DouyinFavoriteCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -328,8 +328,8 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UserService_UpdateTotalFavorite_Handler,
 		},
 		{
-			MethodName: "UpdateFavoriteCount",
-			Handler:    _UserService_UpdateFavoriteCount_Handler,
+			MethodName: "UpdateUserFavoriteCount",
+			Handler:    _UserService_UpdateUserFavoriteCount_Handler,
 		},
 		{
 			MethodName: "UpdateFollowCount",

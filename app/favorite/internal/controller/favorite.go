@@ -2,8 +2,8 @@ package controller
 
 import (
 	"context"
+	"douyin/app/favorite/internal/service"
 	pb "douyin/idl/pb/favorite"
-	"fmt"
 	"sync"
 )
 
@@ -24,21 +24,20 @@ func GetFavoriteSrv() *FavoriteSrv {
 // 具体实现proto中定义的服务
 
 func (f *FavoriteSrv) IsFavorite(ctx context.Context, req *pb.DouyinIsFavoriteRequest) (resp *pb.DouyinIsFavoriteResponse, err error) {
-
+	*resp.IsFavorite = service.IsFavorite(ctx, *req.UserId, *req.VideoId)
+	return resp, err
 }
 
 func (f *FavoriteSrv) FavoriteAction(ctx context.Context, req *pb.DouyinFavoriteActionRequest) (resp *pb.DouyinFavoriteActionResponse, err error) {
-	fmt.Println("成功调用点赞服务")
-	resp = new(pb.DouyinFavoriteActionResponse)
-	var code int32 = 200
-	msg := "点赞测试成功！！！"
-	resp.StatusCode = &code
-	resp.StatusMsg = &msg
-
+	err = service.FavoriteAction(ctx, *req.UserId, *req.VideoId, *req.ActionType)
+	if err != nil {
+		*resp.StatusCode = 1
+	}
 	return
 }
 
 func (f *FavoriteSrv) FavoriteList(ctx context.Context, req *pb.DouyinFavoriteListRequest) (resp *pb.DouyinFavoriteListResponse, err error) {
-	resp = new(pb.DouyinFavoriteListResponse)
+	resp.VideoList, err = service.FavoriteList(ctx, *req.UserId)
+	*resp.StatusCode = 0
 	return
 }

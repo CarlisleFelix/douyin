@@ -73,24 +73,3 @@ func BeginTransaction() *gorm.DB {
 func RollbackTransaction(tx *gorm.DB) {
 	tx.Rollback()
 }
-
-// TODO: UpdateVideoCommentCount 根据视频ID更新视频表的评论总数字段
-//func UpdateVideoCommentCount(videoID int64, operand int64) error {
-//	// 查询视频数据
-//	var video model.Video
-//	err := _db.First(&video, videoID).Error
-//	if err != nil {
-//		return err
-//	}
-//
-//	// 更新评论总数字段
-//	video.Comment_count += operand
-//
-//	// 保存更新后的视频数据
-//	err = global.SERVER_DB.Save(&video).Error
-//	if err != nil {
-//		return err
-//	}
-//
-//	return nil
-//}

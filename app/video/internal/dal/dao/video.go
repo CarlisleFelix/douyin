@@ -41,3 +41,54 @@ func (dao *VideoDao) GetVideoByAuthorIdandTitle(authorId int64, title string) (m
 	err := _db.Where("author_id = ? and title = ?", authorId, title).First(&video).Error
 	return video, err
 }
+
+// GetVideoById
+func (dao *VideoDao) GetVideoById(video_id int64) (model.Video, error) {
+	video := model.Video{}
+	err := _db.Where("id = ?", video_id).First(&video).Error
+	return video, err
+}
+
+// UpdateVideoFavoriteCount 更新视频点赞数
+func (dao *VideoDao) UpdateVideoFavoriteCount(video_id int64, action_type int32) error {
+	var video model.Video
+	err := _db.Where("video_id = ?", video_id).First(&video).Error
+	if err != nil {
+		return err
+	}
+
+	if action_type == 1 {
+		video.Favorite_count += 1
+	} else if action_type == 2 {
+		video.Favorite_count -= 1
+	}
+
+	err = _db.Save(&video).Error
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (dao *VideoDao) UpdateVideoCommentCount(videoID int64, action_type int32) error {
+	// 查询视频数据
+	var video model.Video
+	err := _db.First(&video, videoID).Error
+	if err != nil {
+		return err
+	}
+
+	// 更新评论总数字段
+	if action_type == 1 {
+		video.Comment_count += 1
+	} else if action_type == 2 {
+		video.Comment_count -= 1
+	}
+
+	// 保存更新后的视频数据
+	err = _db.Save(&video).Error
+	if err != nil {
+		return err
+	}
+	return nil
+}

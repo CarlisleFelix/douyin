@@ -1,65 +1,171 @@
 package http
 
 import (
-	"net/http"
-	"strconv"
-
-	"github.com/gin-gonic/gin"
-
 	"douyin/app/gateway/rpc"
 	pb "douyin/idl/pb/favorite"
-	"douyin/utils/ctl"
+	"douyin/response"
+	"douyin/utils/e"
+	"github.com/gin-gonic/gin"
+	"net/http"
+	"strconv"
 )
 
 // FavoriteAction 点赞操作 处理参数 并调用rpc
-func FavoriteAction(ctx *gin.Context) {
+func FavoriteAction(c *gin.Context) {
 	var req pb.DouyinFavoriteActionRequest
-	// todo:参数绑定
-	token := ctx.Query("token")
-	video_id := ctx.Query("video_id")
-	// 将参数值转换为int64类型
-	video_id_64, err := strconv.ParseInt(video_id, 10, 64)
+	// 参数处理
+	user_id, _ := c.Get("userid")
+	video_id := c.Query("video_id")
+	action_type := c.Query("action_type")
+	// action_type 无法解析时
+	actionType, err := strconv.Atoi(action_type)
 	if err != nil {
-		// 转换失败，处理错误情况
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Invalid parameter"})
+		c.JSON(http.StatusInternalServerError, response.Favorite_Action_Response{
+			Response: response.Response{
+				StatusCode: 1,
+				StatusMsg:  e.ErrorParamFormatWrong.Error(),
+			},
+		})
+		// todo
+		//global.SERVER_LOG.Warn("param format wrong!", zap.String("error", err.Error()))
 		return
 	}
-	action_type := ctx.Query("action_type")
-	// 将参数值转换为int32类型
-	action_type_32, err := strconv.ParseInt(action_type, 10, 64)
-	if err != nil {
-		// 转换失败，处理错误情况
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Invalid parameter"})
+	// action_type 不为1、2时
+	if actionType != 1 && actionType != 2 {
+		c.JSON(http.StatusInternalServerError, response.Favorite_Action_Response{
+			Response: response.Response{
+				StatusCode: 1,
+				StatusMsg:  e.ErrorActionType.Error(),
+			},
+		})
+		// todo
+		//global.SERVER_LOG.Warn("unknown action!", zap.String("error", err.Error()))
 		return
 	}
-	a := int32(action_type_32)
-
-	//if err := ctx.Bind(&req); err != nil {
-	//	ctx.JSON(http.StatusBadRequest, ctl.RespError(ctx, err, "绑定参数错误"))
-	//	return
-	//}
-	req.Token = &token
-	req.VideoId = &video_id_64
-	req.ActionType = &a
-
-	// 调用rpc
-	r, err := rpc.FavoriteAction(ctx, &req)
+	// 参数类型转换
+	videoId, err := strconv.ParseInt(video_id, 10, 64)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, ctl.RespError(ctx, err, "FavoriteAction RPC服务调用错误"))
+		c.JSON(http.StatusInternalServerError, response.Favorite_Action_Response{
+			Response: response.Response{
+				StatusCode: 1,
+				StatusMsg:  e.ErrorParamFormatWrong.Error(),
+			},
+		})
+		// todo
+		//global.SERVER_LOG.Warn("unknown video_id!", zap.String("error", err.Error()))
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ctl.RespSuccess(ctx, r))
+	// server层处理请求
+	*req.UserId = user_id.(int64)
+	req.VideoId = &videoId
+	*req.ActionType = int32(actionType)
+	_, err = rpc.FavoriteAction(c, &req)
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, response.Favorite_Action_Response{
+			Response: response.Response{
+				StatusCode: 1,
+				StatusMsg:  err.Error(),
+			},
+		})
+		// todo
+		//global.SERVER_LOG.Warn("FavoriteAction fail!", zap.String("error", err.Error()))
+		return
+	}
+
+	// 返回
+	c.JSON(http.StatusOK, response.Favorite_Action_Response{
+		Response: response.Response{
+			StatusCode: 0,
+			StatusMsg:  "操作成功",
+		},
+	})
+	// todo
+	//global.SERVER_LOG.Info("FavoriteAction success!")
 }
 
 // FavoriteList 获取点赞列表
-func FavoriteList(ctx *gin.Context) {
+func FavoriteList(c *gin.Context) {
 	var req pb.DouyinFavoriteListRequest
-	r, err := rpc.FavoriteList(ctx, &req)
+	// 获取参数
+	user_id := c.Query("user_id")
+	userId, _ := c.Get("userid")
+
+	// 参数校验
+	// 判断token解析出的userid与user_id是否一致
+	id, err := strconv.ParseInt(user_id, 10, 64)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, ctl.RespError(ctx, err, "UserRegister RPC服务调用错误"))
+		c.JSON(http.StatusInternalServerError, response.Favorite_List_Response{
+			Response: response.Response{
+				StatusCode: 1,
+				StatusMsg:  e.ErrorParamFormatWrong.Error(),
+			},
+		})
+		// todo:
+		//global.SERVER_LOG.Warn("param format wrong!", zap.String("error", err.Error()))
+		return
+	}
+	if id != userId {
+		c.JSON(http.StatusInternalServerError, response.Favorite_List_Response{
+			Response: response.Response{
+				StatusCode: 1,
+				StatusMsg:  e.ErrorParamMismatch.Error(),
+			},
+		})
+		// todo
+		//global.SERVER_LOG.Warn("parameter mismatch!", zap.String("error", err.Error()))
 		return
 	}
 
-	ctx.JSON(http.StatusOK, ctl.RespSuccess(ctx, r))
+	// 处理请求
+	req.UserId = &id
+	videoList, err := rpc.FavoriteList(c, &req)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, response.Favorite_List_Response{
+			Response: response.Response{
+				StatusCode: 1,
+				StatusMsg:  err.Error(),
+			},
+		})
+		// todo
+		//global.SERVER_LOG.Warn("get FavoriteList fail!", zap.String("error", err.Error()))
+		return
+	}
+
+	videoResp := make([]response.Video_Response, len(videoList.VideoList))
+	for i := 0; i < len(videoList.VideoList); i++ {
+		video := videoList.VideoList[i]
+		videoResp[i] = response.Video_Response{
+			Id: *video.Id,
+			Author: response.User_Response{
+				Id:              *video.Author.Id,
+				Name:            *video.Author.Name,
+				FollowCount:     *video.Author.FollowCount,
+				FollowerCount:   *video.Author.FollowerCount,
+				IsFollow:        *video.Author.IsFollow,
+				Avatar:          *video.Author.Avatar,
+				BackgroundImage: *video.Author.BackgroundImage,
+				Signature:       *video.Author.Signature,
+				TotalFavorited:  *video.Author.TotalFavorited,
+				WorkCount:       *video.Author.WorkCount,
+				FavoriteCount:   *video.Author.FavoriteCount,
+			},
+			PlayUrl:       *video.PlayUrl,
+			CoverUrl:      *video.CoverUrl,
+			FavoriteCount: *video.FavoriteCount,
+			CommentCount:  *video.CommentCount,
+			IsFavorite:    true,
+			Title:         *video.Title,
+		}
+	}
+	c.JSON(http.StatusOK, response.Favorite_List_Response{
+		Response: response.Response{
+			StatusCode: 0,
+			StatusMsg:  "列表获取成功",
+		},
+		VideoList: videoResp,
+	})
+	// todo
+	//global.SERVER_LOG.Info("get FavoriteList success!")
 }
