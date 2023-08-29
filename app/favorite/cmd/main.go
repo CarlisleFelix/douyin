@@ -1,11 +1,11 @@
 package main
 
 import (
+	"douyin/app/gateway/rpc"
 	"fmt"
-	"net"
-
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
+	"net"
 
 	"douyin/app/favorite/internal/controller"
 	"douyin/app/favorite/internal/dal/dao"
@@ -16,6 +16,7 @@ import (
 
 func main() {
 	config.InitConfig()
+	rpc.Init()
 	dao.InitDB()
 	// etcd 地址
 	etcdAddress := []string{config.Conf.Etcd.Address}

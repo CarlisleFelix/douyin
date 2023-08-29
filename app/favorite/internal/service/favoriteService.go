@@ -197,7 +197,7 @@ func getVideoInfo(ctx context.Context, video_id int64) (video.DouyinVideoRespons
 
 func getUserInfo(ctx context.Context, user_id int64) (user.DouyinUserResponse, error) {
 	var userReq user.DouyinUserRequest
-	userReq.UserId = &user_id
+	userReq.HostId = &user_id
 	userResp, err := rpc.GetUserInfo(ctx, &userReq)
 	return *userResp, err
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"douyin/app/gateway/rpc"
 	"douyin/app/video/internal/controller"
 	"douyin/app/video/internal/dal/dao"
 	"douyin/config"
@@ -14,6 +15,7 @@ import (
 
 func main() {
 	config.InitConfig()
+	rpc.Init()
 	dao.InitDB()
 	// etcd 地址
 	etcdAddress := []string{config.Conf.Etcd.Address}

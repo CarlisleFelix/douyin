@@ -17,22 +17,22 @@ func NewRouter() *gin.Engine {
 		//用户
 		UserGroup := publicGroup.Group("/user")
 		{
-			UserGroup.GET("/", http.GetUserInfo)
+			UserGroup.GET("/", http.User)
 			UserGroup.POST("/login/", http.UserLogin)
 			UserGroup.POST("/register/", http.UserRegister)
 
 		}
-		////视频投稿
-		//publishGroup := publicGroup.Group("/publish")
-		//{
-		//	publishGroup.POST("/action/", middleware.JwtMiddleware(), http.PublishAction)
-		//	publishGroup.GET("/list/", middleware.JwtMiddleware(), http.PublishList)
-		//}
-		////视频浏览
-		//feedGroup := publicGroup.Group("/feed")
-		//{
-		//	feedGroup.GET("/", http.Feed)
-		//}
+		//视频投稿
+		publishGroup := publicGroup.Group("/publish")
+		{
+			publishGroup.POST("/action/", middleware.JwtMiddleware(), http.PublishAction)
+			publishGroup.GET("/list/", middleware.JwtMiddleware(), http.PublishList)
+		}
+		//视频浏览
+		feedGroup := publicGroup.Group("/feed")
+		{
+			feedGroup.GET("/", http.Feed)
+		}
 		//赞
 		publicGroup.GET("/test", func(context *gin.Context) {
 			context.JSON(200, gin.H{

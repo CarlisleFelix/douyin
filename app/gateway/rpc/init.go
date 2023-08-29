@@ -42,7 +42,10 @@ func Init() {
 	defer Register.Close()
 	initClient(config.Conf.Domain["favorite"].Name, &FavoriteClient)
 	initClient(config.Conf.Domain["user"].Name, &UserClient)
-
+	initClient(config.Conf.Domain["video"].Name, &VideoClient)
+	//initClient(config.Conf.Domain["comment"].Name, &CommentClient)
+	//initClient(config.Conf.Domain["message"].Name, &MessageClient)
+	//initClient(config.Conf.Domain["relation"].Name, &RelationClient)
 }
 
 func initClient(serviceName string, client interface{}) {
@@ -57,7 +60,14 @@ func initClient(serviceName string, client interface{}) {
 		*c = favorite.NewFavoriteServiceClient(conn)
 	case *user.UserServiceClient:
 		*c = user.NewUserServiceClient(conn)
-
+	case *comment.CommentServiceClient:
+		*c = comment.NewCommentServiceClient(conn)
+	//case *message.MessageServiceServer:
+	//	*c = message.NewMessageServiceClient(conn)
+	case *relation.RelationServiceClient:
+		*c = relation.NewRelationServiceClient(conn)
+	case *video.VideoServiceClient:
+		*c = video.NewVideoServiceClient(conn)
 	default:
 		panic("unsupported client type")
 	}

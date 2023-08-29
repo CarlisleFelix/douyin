@@ -1,6 +1,7 @@
 package main
 
 import (
+	"douyin/app/gateway/rpc"
 	"fmt"
 	"net"
 
@@ -16,6 +17,7 @@ import (
 
 func main() {
 	config.InitConfig()
+	rpc.Init()
 	dao.InitDB()
 	// etcd 地址
 	etcdAddress := []string{config.Conf.Etcd.Address}
