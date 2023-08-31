@@ -4,6 +4,7 @@ import (
 	"errors"
 	"math/rand"
 	"os"
+	"strconv"
 	"time"
 
 	"golang.org/x/crypto/bcrypt"
@@ -80,14 +81,21 @@ func IntTime2StrTime(intTime int64) string {
 }
 
 func IntTime2CommentTime(intTime int64) string {
-	return ""
+
+	template := "01-02"
+	return time.Unix(intTime, 0).Format(template)
+}
+
+func IntTime2ChatTime(intTime int64) string {
+	//fmt.Printf("chatTime: %+v", time.Unix(intTime, 0).Format(time.Kitchen))
+	return strconv.FormatInt(time.Unix(intTime, 0).UnixNano()/1e6, 10)
 }
 
 func StrTime2CommentTime(strTime int64) string {
 	return ""
 }
 
-func GetCommentTime() string {
+func GetCommentByIdTime() string {
 	return ""
 }
 

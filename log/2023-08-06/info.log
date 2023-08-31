@@ -1,3 +1,0 @@
-[douyin_admin/server]2023/08/06 - 13:43:11.081	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}
-[douyin_admin/server]2023/08/06 - 13:43:11.120	[34minfo[0m	/home/yuhang/douyin/initialization/gorm.go:19	automigration failed
-[douyin_admin/server]2023/08/06 - 13:44:53.875	[34minfo[0m	/home/yuhang/douyin/initialization/zap.go:124	server run success on 	{"zap_log": "zap_log"}

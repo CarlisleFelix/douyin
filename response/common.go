@@ -21,7 +21,7 @@ type User_Response struct {
 
 type Comment_Response struct {
 	Id         int64         `json:"id,omitempty"`
-	Commentor  User_Response `json:"user,omitempty"`
+	Commenter  User_Response `json:"user,omitempty"` // 评论者是自己，应该如何填写IsFollow字段
 	Content    string        `json:"content,omitempty"`
 	CreateDate string        `json:"create_date,omitempty"`
 }

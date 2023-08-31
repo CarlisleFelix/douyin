@@ -1,0 +1,1 @@
+[douyin_admin/server]2023/08/15 - 11:47:09.540	[33mwarn[0m	/home/yuhang/douyin/controller/user.go:131	UserRegisterService fail!	{"error": "Error 1406 (22001): Data too long for column 'password' at row 1"}
