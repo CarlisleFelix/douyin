@@ -10,6 +10,7 @@ require (
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/spf13/viper v1.16.0
+	github.com/streadway/amqp v1.1.0
 	github.com/tencentyun/cos-go-sdk-v5 v0.7.42
 	github.com/u2takey/ffmpeg-go v0.5.0
 	go.uber.org/zap v1.24.0

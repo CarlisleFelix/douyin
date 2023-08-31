@@ -5,6 +5,7 @@ import (
 
 	"github.com/go-redis/redis"
 	"github.com/spf13/viper"
+	"github.com/streadway/amqp"
 	"github.com/tencentyun/cos-go-sdk-v5"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
@@ -19,4 +20,5 @@ var (
 	SERVER_COS_COVER  *cos.Client
 	SERVER_COS_AVATAR *cos.Client
 	SERVER_REDIS      *redis.Client
+	SERVER_RABBITMQ   *amqp.Connection
 )

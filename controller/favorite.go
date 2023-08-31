@@ -2,6 +2,7 @@ package controller
 
 import (
 	"douyin/global"
+	"douyin/middleware"
 	"douyin/response"
 	"douyin/service"
 	"net/http"
@@ -40,8 +41,11 @@ func FavoriteAction(c *gin.Context) {
 		return
 	}
 
-	// server层处理请求
-	err = service.FavoriteAction(user_id.(int64), video_id, int32(actionType))
+	// // server层处理请求
+	// err = service.FavoriteAction(user_id.(int64), video_id, int32(actionType))
+
+	// 消息传给rabbitmq处理
+	err = middleware.FavoritePublish(user_id.(int64), video_id, int64(actionType))
 
 	if err != nil {
 		c.JSON(http.StatusOK, response.Favorite_Action_Response{

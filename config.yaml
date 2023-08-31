@@ -66,3 +66,6 @@ cos:
   secretid: "AKIDOdiW6RYZmwsc9Ykv3zjJhsrdFftzBICt"
   secretkey: "oT5faQ7jCYt8JMONCyZ08jT7Xp4GSWNB"
 
+rabbitmq:
+  username: "guest"
+  password: "guest"

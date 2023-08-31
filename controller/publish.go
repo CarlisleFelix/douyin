@@ -1,14 +1,13 @@
 package controller
 
 import (
+	"bytes"
 	"douyin/global"
+	"douyin/middleware"
 	"douyin/response"
 	"douyin/service"
-	"douyin/utils"
-	"fmt"
+	"encoding/binary"
 	"net/http"
-	"os"
-	"path/filepath"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -16,7 +15,7 @@ import (
 
 func PublishAction(c *gin.Context) {
 
-	curTime := utils.CurrentTimeInt()
+	// curTime := utils.CurrentTimeInt()
 
 	//获得用户id
 	getUserId, _ := c.Get("userid")
@@ -24,7 +23,6 @@ func PublishAction(c *gin.Context) {
 	if v, ok := getUserId.(int64); ok {
 		userId = v
 	}
-
 	//获得视频相关信息
 	title := c.PostForm("title")
 	data, err := c.FormFile("data")
@@ -39,35 +37,48 @@ func PublishAction(c *gin.Context) {
 		return
 	}
 
-	//获得文件名并存储到本地
-	fileName := fmt.Sprintf("%d_%s", userId, title) //标识名字
-	//fmt.Println("filename:%s", fileName)
-	fileExt := filepath.Ext(data.Filename)
-	//fmt.Println("fileExt:%s", fileExt)
-	finalFilename := fileName + fileExt
-	//fmt.Println("finalFilename:%s", finalFilename)
-	saveFilepath := filepath.Join("../tmp/", finalFilename) //路径+文件名
-	//fmt.Println("saveFilepath:%s", saveFilepath)
-	if err := c.SaveUploadedFile(data, saveFilepath); err != nil {
-		c.JSON(http.StatusOK, response.Publish_Action_Response{
-			Response: response.Response{
-				StatusCode: 1,
-				StatusMsg:  global.ErrorVideoDownloading.Error(),
-			},
-		})
-		global.SERVER_LOG.Warn("Feed service fail!")
-		return
-	}
-	//删除本地文件
-	defer func() {
-		err = os.Remove(saveFilepath)
-		if err != nil {
-			global.SERVER_LOG.Warn("File Deletion fail!")
-		}
-	}()
+	byteData := make([]byte, data.Size)
 
-	//完成对象存储、以及数据库表活动
-	err = service.PublishService(userId, title, fileExt, curTime)
+	// 创建一个长度为32的字节切片，用于存储整数字节和字符串字节
+	buffer := make([]byte, 32)
+	// 将整数字节存储到字节切片的前两个位置
+	binary.LittleEndian.PutUint64(buffer[:8], uint64(userId))
+	// 将字符串字节存储到字节切片的后九个位置
+	copy(buffer[8:], []byte(title))
+
+	var publishData bytes.Buffer
+	publishData.Write(buffer)
+	publishData.Write(byteData)
+	err = middleware.VideoPublish(publishData.Bytes())
+	// //获得文件名并存储到本地
+	// fileName := fmt.Sprintf("%d_%s", userId, title) //标识名字
+	// //fmt.Println("filename:%s", fileName)
+	// fileExt := filepath.Ext(data.Filename)
+	// //fmt.Println("fileExt:%s", fileExt)
+	// finalFilename := fileName + fileExt
+	// //fmt.Println("finalFilename:%s", finalFilename)
+	// saveFilepath := filepath.Join("../tmp/", finalFilename) //路径+文件名
+	// //fmt.Println("saveFilepath:%s", saveFilepath)
+	// if err := c.SaveUploadedFile(data, saveFilepath); err != nil {
+	// 	c.JSON(http.StatusOK, response.Publish_Action_Response{
+	// 		Response: response.Response{
+	// 			StatusCode: 1,
+	// 			StatusMsg:  global.ErrorVideoDownloading.Error(),
+	// 		},
+	// 	})
+	// 	global.SERVER_LOG.Warn("Feed service fail!")
+	// 	return
+	// }
+	// //删除本地文件
+	// defer func() {
+	// 	err = os.Remove(saveFilepath)
+	// 	if err != nil {
+	// 		global.SERVER_LOG.Warn("File Deletion fail!")
+	// 	}
+	// }()
+
+	// //完成对象存储、以及数据库表活动
+	// err = service.PublishService(userId, title, fileExt, curTime)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Publish_Action_Response{
 			Response: response.Response{

@@ -1,6 +1,8 @@
 package main
 
-import "douyin/initialization"
+import (
+	"douyin/initialization"
+)
 
 //const AppMode = "debug"
 
@@ -20,7 +22,8 @@ func main() {
 	initialization.InitializeCos()
 
 	initialization.InitializeRedis()
-
+	// 初始化rabbitMQ。
+	initialization.InitRabbitMQ()
 	// TODO：5.开启服务器
 	initialization.RunServer()
 }
