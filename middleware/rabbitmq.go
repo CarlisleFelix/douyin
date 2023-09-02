@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"bytes"
+	"context"
 	"douyin/dao"
 	"douyin/global"
 	"douyin/service"
@@ -428,7 +429,11 @@ func VideoConsume() {
 }
 
 // li
-func FavoritePublish(user_id int64, video_id string, action_type int64) error {
+func FavoritePublish(user_id int64, video_id string, action_type int64, ctx context.Context) error {
+
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(ctx, "favorite mq service")
+	defer span.End()
+
 	videoId, err := strconv.ParseInt(video_id, 10, 64)
 	if err != nil {
 		global.SERVER_LOG.Fatal("fail to parse")
@@ -475,7 +480,12 @@ func FavoritePublish(user_id int64, video_id string, action_type int64) error {
 	// log.Println("消息发送成功")
 	return err
 }
-func VideoPublish(videoData []byte) error {
+
+func VideoPublish(videoData []byte, ctx context.Context) error {
+
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(ctx, "video mq service")
+	defer span.End()
+
 	//链接rabbitmq server
 	//创建一个通道，用于完成任务
 	ch, err := global.SERVER_RABBITMQ.Channel()

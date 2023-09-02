@@ -8,4 +8,5 @@ type Configuration struct {
 	Cos      Cos      `mapstructure:"cos" json:"cos" yaml:"cos"`
 	Redis    Redis    `mapstructure:"redis" json:"redis" yaml:"redis"`
 	RabbitMQ RabbitMQ `mapstructure:"rabbitmq" json:"rabbitmq" yaml:"rabbitmq"`
+	Jaeger   Jaeger   `mapstructure:"jaeger" json:"jaeger" yaml:"jaeger"`
 }

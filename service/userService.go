@@ -1,6 +1,7 @@
 package service
 
 import (
+	"context"
 	"douyin/dao"
 	"douyin/global"
 	"douyin/model"
@@ -17,7 +18,11 @@ const (
 	MinPasswordLength = 6  //密码最小长度
 )
 
-func UserRegisterService(userName string, passWord string) (model.User, error) {
+func UserRegisterService(userName string, passWord string, ctx context.Context) (model.User, error) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "userregister service")
+	defer span.End()
+
 	//准备参数
 	hashedPwd, err := utils.Hash(passWord)
 	newUser := model.User{
@@ -72,7 +77,11 @@ func UserNameExists(userName string) bool {
 	return true
 }
 
-func UserLoginService(userName string, passWord string) (model.User, error) {
+func UserLoginService(userName string, passWord string, ctx context.Context) (model.User, error) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "userlogin service")
+	defer span.End()
+
 	loginUser := model.User{
 		User_name: userName,
 		Password:  passWord,
@@ -109,7 +118,11 @@ func CheckUserPassword(userName string, passWord string, loginUser *model.User) 
 	return true
 }
 
-func UserService(queryUserId int64, hostUserId int64) (response.User_Response, error) {
+func UserService(queryUserId int64, hostUserId int64, ctx context.Context) (response.User_Response, error) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "user service")
+	defer span.End()
+
 	userResponse := response.User_Response{}
 	queryUser, err := dao.GetUserById(queryUserId)
 	isFollow := dao.GetFollowByUserId(hostUserId, queryUserId)

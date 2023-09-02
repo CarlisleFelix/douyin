@@ -15,6 +15,8 @@ import (
 
 func PublishAction(c *gin.Context) {
 
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(c.Request.Context(), "publish controller")
+	defer span.End()
 	// curTime := utils.CurrentTimeInt()
 
 	//获得用户id
@@ -49,7 +51,7 @@ func PublishAction(c *gin.Context) {
 	var publishData bytes.Buffer
 	publishData.Write(buffer)
 	publishData.Write(byteData)
-	err = middleware.VideoPublish(publishData.Bytes())
+	err = middleware.VideoPublish(publishData.Bytes(), ctx)
 	// //获得文件名并存储到本地
 	// fileName := fmt.Sprintf("%d_%s", userId, title) //标识名字
 	// //fmt.Println("filename:%s", fileName)
@@ -104,6 +106,10 @@ func PublishAction(c *gin.Context) {
 }
 
 func PublishList(c *gin.Context) {
+
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(c.Request.Context(), "publishlist controller")
+	defer span.End()
+
 	getHostId, _ := c.Get("userid")
 	var hostId int64
 	if v, ok := getHostId.(int64); ok {
@@ -121,7 +127,7 @@ func PublishList(c *gin.Context) {
 		global.SERVER_LOG.Warn("Id fail!")
 		return
 	}
-	videoResponse, err := service.PublishListService(guestId, hostId)
+	videoResponse, err := service.PublishListService(guestId, hostId, ctx)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Publish_List_Response{
 			Response: response.Response{

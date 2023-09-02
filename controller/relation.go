@@ -2,6 +2,7 @@ package controller
 
 import (
 	"douyin/dao"
+	"douyin/global"
 	"douyin/model"
 	"douyin/response"
 	"douyin/service"
@@ -26,6 +27,10 @@ func RelationAction(c *gin.Context) {
 	// strToken := c.Query("token")
 	// tokenStruct, _ := middleware.CheckToken(strToken)
 	// hostID := tokenStruct.UserId
+
+	ctx, span := global.SERVER_RELATION_TRACER.Start(c.Request.Context(), "relationaction controller")
+	defer span.End()
+
 	_userId, _ := c.Get("userid")
 	hostID, _ := _userId.(int64)
 	//1.2 获取待关注的用户id
@@ -46,7 +51,7 @@ func RelationAction(c *gin.Context) {
 	}
 
 	//3.关注/取关
-	err := service.FollowAction(hostID, guestID, actionType)
+	err := service.FollowAction(hostID, guestID, actionType, ctx)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, response.Response{
 			StatusCode: 1,
@@ -62,6 +67,9 @@ func RelationAction(c *gin.Context) {
 
 // FollowList 获取用户关注列表
 func FollowList(c *gin.Context) {
+
+	ctx, span := global.SERVER_RELATION_TRACER.Start(c.Request.Context(), "followlist controller")
+	defer span.End()
 
 	//1.数据预处理
 	//1.1获取用户本人id
@@ -85,7 +93,7 @@ func FollowList(c *gin.Context) {
 		//查对方
 		FuserID = user_id
 	}
-	userList, err = service.FollowingList(FuserID)
+	userList, err = service.FollowingList(FuserID, ctx)
 	//构造返回的数据
 	var ReturnFollowerList = make([]response.User_Response, len(userList))
 	for i, m := range userList {
@@ -125,6 +133,9 @@ func FollowList(c *gin.Context) {
 // FollowerList 获取用户粉丝列表
 func FollowerList(c *gin.Context) {
 
+	ctx, span := global.SERVER_RELATION_TRACER.Start(c.Request.Context(), "followerlist controller")
+	defer span.End()
+
 	//1.数据预处理
 	//1.1获取用户本人id
 	// strToken := c.Query("token")
@@ -146,7 +157,7 @@ func FollowerList(c *gin.Context) {
 		//查对方的粉丝表
 		FuserID = user_id
 	}
-	userList, err = service.FollowerList(FuserID)
+	userList, err = service.FollowerList(FuserID, ctx)
 	//3.判断查询类型，从数据库取用户列表
 	var ReturnFollowerList = make([]response.User_Response, len(userList))
 	for i, m := range userList {
@@ -195,6 +206,9 @@ func FriendList(c *gin.Context) {
 	// token := c.Query("token")
 	// tokenStruct, _ := middleware.CheckToken(token)
 
+	ctx, span := global.SERVER_RELATION_TRACER.Start(c.Request.Context(), "friendlist controller")
+	defer span.End()
+
 	// //获取用户本人id
 	// hostId := tokenStruct.UserId
 	_userId, _ := c.Get("userid")
@@ -213,7 +227,7 @@ func FriendList(c *gin.Context) {
 		//查对方的好友表
 		FuserID = user_id
 	}
-	tmpFriendList, err = service.FriendList(FuserID)
+	tmpFriendList, err = service.FriendList(FuserID, ctx)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, FriendListResponse{
 			Response: response.Response{

@@ -13,6 +13,9 @@ import (
 
 func Feed(c *gin.Context) {
 
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(c.Request.Context(), "feed controller")
+	defer span.End()
+
 	//参数处理
 
 	//通过token获取用户id
@@ -49,7 +52,7 @@ func Feed(c *gin.Context) {
 	//fmt.Println("latesttime:%v", latestTime)
 
 	//获取视频
-	videoResponse, nextTime, err := service.FeedService(userId, latestTime)
+	videoResponse, nextTime, err := service.FeedService(userId, latestTime, ctx)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Feed_Response{
 			Response: response.Response{

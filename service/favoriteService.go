@@ -1,6 +1,7 @@
 package service
 
 import (
+	"context"
 	"douyin/dao"
 	"douyin/global"
 	"douyin/model"
@@ -11,6 +12,7 @@ import (
 )
 
 func FavoriteAction(user_id int64, video_id string, action_type int32) error {
+
 	// 参数类型转换
 	videoId, err := strconv.ParseInt(video_id, 10, 64)
 	if err != nil {
@@ -132,7 +134,11 @@ func FavoriteAction(user_id int64, video_id string, action_type int32) error {
 	}
 }
 
-func FavoriteList(user_id int64) (videoList []response.Video_Response, err error) {
+func FavoriteList(user_id int64, ctx context.Context) (videoList []response.Video_Response, err error) {
+
+	ctx, span := global.SERVER_FAVORITE_TRACER.Start(ctx, "favoritelist service")
+	defer span.End()
+
 	favorites, err := dao.SearchFavoriteList(user_id)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {

@@ -89,7 +89,11 @@ func ExtractCoverandUpload(finalFilename string, saveFilepath string, frameNum i
 	return global.SERVER_CONFIG.Cos.Cover_bucket_url + "/" + coverName, err
 }
 
-func PublishListService(queryUserId int64, hostUserId int64) ([]response.Video_Response, error) {
+func PublishListService(queryUserId int64, hostUserId int64, ctx context.Context) ([]response.Video_Response, error) {
+
+	ctx, span := global.SERVER_VIDEO_TRACER.Start(ctx, "publishlist service")
+	defer span.End()
+
 	exist := UserIdExists(queryUserId)
 	if !exist {
 		return nil, global.ErrorUserNotExist
@@ -175,7 +179,11 @@ func GetVideolistByauthor(userId int64) ([]model.Video, error) {
 	return videos, nil
 }
 
-func FeedService(userId int64, latestTime int64) ([]response.Video_Response, int64, error) {
+func FeedService(userId int64, latestTime int64, ctx context.Context) ([]response.Video_Response, int64, error) {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "feed service")
+	defer span.End()
+
 	//获得视频
 	videos, err := dao.GetVideoByTime(latestTime)
 	if err != nil {

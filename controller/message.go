@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"douyin/global"
 	"douyin/model"
 	"douyin/response"
 	"douyin/service"
@@ -13,6 +14,10 @@ import (
 
 // 发送消息
 func MessageAction(c *gin.Context) {
+
+	ctx, span := global.SERVER_MESSAGE_TRACER.Start(c.Request.Context(), "messageaction controller")
+	defer span.End()
+
 	toUserId, err := strconv.ParseInt(c.Query("to_user_id"), 10, 64)
 	actionType, err := strconv.ParseInt(c.Query("action_type"), 10, 64)
 	_userId, _ := c.Get("userid")
@@ -29,7 +34,7 @@ func MessageAction(c *gin.Context) {
 		return
 	}
 
-	err = service.ActionService(userId, toUserId, content)
+	err = service.ActionService(userId, toUserId, content, ctx)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Message_Action_Response{
 			Response: response.Response{
@@ -51,13 +56,17 @@ func MessageAction(c *gin.Context) {
 
 // 接收消息
 func MessageChat(c *gin.Context) {
+
+	ctx, span := global.SERVER_MESSAGE_TRACER.Start(c.Request.Context(), "messagechat controller")
+	defer span.End()
+
 	_userId, _ := c.Get("userid")
 	userId, _ := _userId.(int64)
 	toUserId, err := strconv.ParseInt(c.Query("to_user_id"), 10, 64)
 	lastTime, _ := strconv.ParseInt(c.Query("pre_msg_time"), 10, 64)
 	lastTime = lastTime / 1000
 
-	chatList, err := service.ChatService(userId, toUserId, lastTime)
+	chatList, err := service.ChatService(userId, toUserId, lastTime, ctx)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Message_Chat_Response{
 			Response: response.Response{

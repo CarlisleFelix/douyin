@@ -1,6 +1,7 @@
 package service
 
 import (
+	"context"
 	"douyin/dao"
 	"douyin/global"
 	"douyin/model"
@@ -19,7 +20,11 @@ func IsFollowing(UserID int64, ToUserID int64) bool {
 }
 
 // FollowingList 获取关注表
-func FollowingList(UserID int64) ([]model.User, error) {
+func FollowingList(UserID int64, ctx context.Context) ([]model.User, error) {
+
+	ctx, span := global.SERVER_RELATION_TRACER.Start(ctx, "followlist service")
+	defer span.End()
+
 	//2.查HostID的关注表
 	userList, err := dao.FollowingList(UserID)
 	if err != nil {
@@ -29,7 +34,11 @@ func FollowingList(UserID int64) ([]model.User, error) {
 }
 
 // FollowAction 关注操作
-func FollowAction(UserID int64, ToUserID int64, actionType int64) error {
+func FollowAction(UserID int64, ToUserID int64, actionType int64, ctx context.Context) error {
+
+	ctx, span := global.SERVER_USER_TRACER.Start(ctx, "relationaction service")
+	defer span.End()
+
 	//创建关注操作
 	if actionType == 1 {
 		//判断关注是否存在
@@ -107,7 +116,11 @@ func IsFollower(UserID int64, ToUserID int64) bool {
 }
 
 // FollowerList  获取粉丝表
-func FollowerList(UserID int64) ([]model.User, error) {
+func FollowerList(UserID int64, ctx context.Context) ([]model.User, error) {
+
+	ctx, span := global.SERVER_RELATION_TRACER.Start(ctx, "followerlist service")
+	defer span.End()
+
 	//2.查UserID的关注表
 	userList, err := dao.FollowerList(UserID)
 	if err != nil {
@@ -118,11 +131,15 @@ func FollowerList(UserID int64) ([]model.User, error) {
 
 // ///////好友////////////
 // FriendList 获取朋友列表（互相关注）
-func FriendList(UserID int64) ([]model.User, error) {
+func FriendList(UserID int64, ctx context.Context) ([]model.User, error) {
+
+	ctx, span := global.SERVER_RELATION_TRACER.Start(ctx, "friendlist service")
+	defer span.End()
+
 	var friendList []model.User
 	// 查询 UserID 的关注列表
 	// 检查 关注列表中的用户是否也关注 UserID
-	followList, err := FollowingList(UserID)
+	followList, err := FollowingList(UserID, ctx)
 	if err != nil {
 		return nil, err
 	} else {

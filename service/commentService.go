@@ -1,6 +1,7 @@
 package service
 
 import (
+	"context"
 	"douyin/dao"
 	"douyin/global"
 	"douyin/model"
@@ -13,7 +14,11 @@ import (
 	"go.uber.org/zap"
 )
 
-func CreateComment(userID int64, videoID int64, commentText string) (response.Comment_Action_Response, error) {
+func CreateComment(userID int64, videoID int64, commentText string, ctx context.Context) (response.Comment_Action_Response, error) {
+
+	ctx, span := global.SERVER_COMMENT_TRACER.Start(ctx, "addcomment service")
+	defer span.End()
+
 	// 获取评论时间
 	currentTime := time.Now().Unix()
 	// 1-发布评论
@@ -93,7 +98,11 @@ func CreateComment(userID int64, videoID int64, commentText string) (response.Co
 	return commentActionResponse, err
 }
 
-func DeleteComment(userID int64, videoID int64, commentID int64) (response.Comment_Action_Response, error) {
+func DeleteComment(userID int64, videoID int64, commentID int64, ctx context.Context) (response.Comment_Action_Response, error) {
+
+	ctx, span := global.SERVER_COMMENT_TRACER.Start(ctx, "deletecomment service")
+	defer span.End()
+
 	var commentActionResponse response.Comment_Action_Response
 	// 2-删除评论
 	// 2.1 根据commentID在数据库中找到待删除的评论
@@ -156,7 +165,10 @@ func DeleteComment(userID int64, videoID int64, commentID int64) (response.Comme
 	return commentActionResponse, err
 }
 
-func GetCommentList(videoID int64, userID int64) ([]response.Comment_Response, error) {
+func GetCommentList(videoID int64, userID int64, ctx context.Context) ([]response.Comment_Response, error) {
+
+	ctx, span := global.SERVER_COMMENT_TRACER.Start(ctx, "getcommentlist service")
+	defer span.End()
 
 	// 从数据库中获取id为video_id的全部评论
 	comments, err := dao.GetCommentByIdListById(videoID)

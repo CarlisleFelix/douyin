@@ -24,6 +24,11 @@ func main() {
 	initialization.InitializeRedis()
 	// 初始化rabbitMQ。
 	initialization.InitRabbitMQ()
+
+	initialization.InitializeJaeger()
+
+	initialization.InitializeContext()
+
 	// TODO：5.开启服务器
 	initialization.RunServer()
 }
