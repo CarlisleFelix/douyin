@@ -20,7 +20,7 @@ func GetVideoByTime(latestTime int64) ([]model.Video, error) {
 	var videos []model.Video
 	var err error
 	// if latestTime == 0 {
-	err = global.SERVER_DB.Order("publish_time asc").Limit(5).Find(&videos).Error
+	err = global.SERVER_DB.Order("publish_time desc").Limit(5).Find(&videos).Error
 	// } else {
 	// 	err = global.SERVER_DB.Where("publish_time > ?", latestTime).Order("publish_time asc").Limit(5).Find(&videos).Error
 	// }
